@@ -86,6 +86,20 @@ const photos = {
     width: 646,
     height: 646
   },
+  // Headlight restoration service page featured image.
+  headlightBA1: {
+    src: '/assets/img/photo-headlight-before-after-1.avif',
+    alt: 'Before and after headlight restoration: a heavily yellowed, cloudy lens above and the same lens fully clear below',
+    width: 590,
+    height: 642
+  },
+  // Headlight restoration service page gallery.
+  headlightBA2: {
+    src: '/assets/img/photo-headlight-before-after-2.avif',
+    alt: 'Before and after headlight restoration on a projector headlight, hazy above and crystal clear below',
+    width: 573,
+    height: 624
+  },
   // Paint correction service page gallery.
   correctionBA2: {
     src: '/assets/img/photo-paint-correction-before-after-2.jpg',

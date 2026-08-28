@@ -548,7 +548,8 @@ const services = [
   },
   {
     slug: 'headlight-restoration',
-    photo: 'banner',
+    photo: 'headlightBA1',
+    gallery: ['headlightBA2'],
     name: 'Headlight Restoration',
     summary:
       'Wet sanding and polishing that cuts away the oxidized outer layer of a yellowed headlight lens, then seals it against UV so it stays clear. Restores night-time output as much as it restores appearance.',
