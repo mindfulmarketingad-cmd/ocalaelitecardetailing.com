@@ -17,36 +17,34 @@
   var PHONE = host.getAttribute('data-phone') || '';
   var PHONE_HREF = host.getAttribute('data-phone-href') || '';
 
-  var SERVICES = [
-    {
-      value: 'exterior',
-      title: 'Exterior Detailing',
-      desc: 'Decontamination wash, clay treatment, wheels, trim, and sealant protection.',
-      price: 'From $199+',
-      href: '/services/exterior-detailing/'
-    },
-    {
-      value: 'interior',
-      title: 'Interior Detailing',
-      desc: 'Extraction, steam cleaning, leather care, UV protection, and odor removal.',
-      price: 'From $199+',
-      href: '/services/interior-detailing/'
-    },
-    {
-      value: 'full_package',
-      title: 'Full Package',
-      desc: 'Everything inside and out in one appointment, plus engine bay and jambs.',
-      price: 'From $299',
-      href: '/services/full-package/'
-    },
-    {
-      value: 'ceramic_coating',
-      title: 'Ceramic Coating',
-      desc: 'Paint correction and a multi-year coating bonded to the clear coat.',
-      price: 'From $999+',
-      href: '/services/ceramic-coating/'
+  /* The service list is generated from src/data/services.js at build time and
+   * embedded as JSON, so adding a service to the site adds it here too. This
+   * file previously carried its own hardcoded copy, which silently went stale
+   * every time a new service page was created. */
+  var SERVICES = (function () {
+    var el = document.querySelector('[data-booking-services]');
+    if (!el) return [];
+    try {
+      var parsed = JSON.parse(el.textContent);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      if (window.console && console.error) {
+        console.error('[OECD] Could not parse the booking service list.', e);
+      }
+      return [];
     }
-  ];
+  })();
+
+  // Without a service list the first step would render empty and the customer
+  // could never advance, so fail visibly with a way to reach us instead.
+  if (!SERVICES.length) {
+    host.innerHTML =
+      '<div class="callout" style="margin-top:0">' +
+      '<h3>Online Booking Is Temporarily Unavailable</h3>' +
+      '<p>Please call us on <a href="tel:' + PHONE_HREF + '">' + PHONE + '</a> and we will take your details directly.</p>' +
+      '</div>';
+    return;
+  }
 
   var VEHICLE_TYPES = [
     { value: 'sedan', title: 'Sedan or Coupe', desc: 'Standard two or four door passenger car.' },

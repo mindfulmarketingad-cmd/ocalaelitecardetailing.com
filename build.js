@@ -163,6 +163,23 @@ const hubLinks = (exclude = '') => {
     </section>`;
 };
 
+/**
+ * Service options for the booking wizard, generated from src/data/services.js.
+ * The wizard used to carry its own hardcoded copy of this list, which silently
+ * fell out of date every time a service was added.
+ */
+function bookingServicesJson() {
+  const payload = services.map((s) => ({
+    value: s.slug,
+    title: s.name,
+    desc: s.summary.split('. ')[0] + '.',
+    price: 'From ' + s.priceFrom,
+    href: `/services/${s.slug}/`
+  }));
+  // Escaped so the JSON can never terminate the surrounding script element.
+  return JSON.stringify(payload).replace(/</g, '\\u003c');
+}
+
 /* ------------------------------------------------------------------ home -- */
 
 // H1 stays a readable headline; the title tag is the keyword-heavy string set
@@ -258,6 +275,7 @@ function buildHome() {
         <p>Four short steps. Tell us the service, the vehicle, where it is, and how to reach you. We confirm availability and firm pricing before anything is scheduled.</p>
         <div style="margin-top:30px">
           <div id="booking-wizard" data-booking-wizard data-phone="${site.phone}" data-phone-href="${site.phoneHref}"></div>
+          <script type="application/json" data-booking-services>${bookingServicesJson()}</script>
           <noscript>
             <div class="callout" style="margin-top:0">
               <h3>Booking Needs JavaScript</h3>

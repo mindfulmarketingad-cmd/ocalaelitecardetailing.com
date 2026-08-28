@@ -775,7 +775,7 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 960px) {
   .nav-toggle { display: inline-flex; }
   .nav {
     display: none;
