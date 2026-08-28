@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { page, esc, site } = require('./src/templates/layout');
-const { renderBlocks, breadcrumbSchema, pageHead, mediaFrame, faqBlock, faqSchema } = require('./src/templates/blocks');
+const { renderBlocks, tocFromBlocks, breadcrumbSchema, pageHead, mediaFrame, faqBlock, faqSchema } = require('./src/templates/blocks');
 const { services } = require('./src/data/services');
 const { posts } = require('./src/data/blog');
 const { photos } = require('./src/data/photos');
@@ -162,7 +162,11 @@ const hubLinks = (exclude = '') => {
 
 /* ------------------------------------------------------------------ home -- */
 
-const HOME_TITLE = 'Best Ocala Elite Car Detailing - Find Top-Rated Mobile Detailing Near You';
+// H1 stays a readable headline; the title tag is the keyword-heavy string set
+// separately below, since the two no longer need to match word for word.
+const HOME_H1 = 'Best Ocala Elite Car Detailing - Find Top-Rated Mobile Detailing Near You';
+const HOME_TITLE =
+  'Mobile Detailing Ocala | Mobile Car Detailing & Ceramic Coating | OECD Ocala Car Details Mobile Detailing';
 const HOME_DESC =
   'We are Ocala Elite Car Detailing. We offer mobile car detailing services for the Ocala, Florida area, including exterior detailing, interior detailing, full packages, and ceramic coating, performed at your home or office.';
 
@@ -221,7 +225,7 @@ function buildHome() {
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Ocala &amp; Marion County, Florida</p>
-            <h1>${esc(HOME_TITLE)}</h1>
+            <h1>${esc(HOME_H1)}</h1>
             <p class="hero-lead">We are Ocala Elite Car Detailing. We offer mobile car detailing services for the Ocala, Florida area, bringing water, power, and professional-grade product to your driveway so your vehicle is restored where it already sits.</p>
             <div class="btn-row">
               <a class="btn" href="#book">Book Online</a>
@@ -234,12 +238,29 @@ function buildHome() {
             </div>
           </div>
           <div class="hero-media">
-            ${mediaFrame('banner', { loading: 'eager', sizes: '(max-width: 900px) 90vw, 420px' })}
+            ${mediaFrame('banner', { loading: 'eager', sizes: '(max-width: 900px) 90vw, 420px', parallax: 0.1 })}
             <div class="hero-badge">
               <strong>Finished On Site</strong>
               <span>Decontaminated, corrected where needed, and protected in your own driveway.</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="book">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">Book Online</p>
+        <h2>Start Your Booking</h2>
+        <p>Four short steps. Tell us the service, the vehicle, where it is, and how to reach you. We confirm availability and firm pricing before anything is scheduled.</p>
+        <div style="margin-top:30px">
+          <div id="booking-wizard" data-booking-wizard data-phone="${site.phone}" data-phone-href="${site.phoneHref}"></div>
+          <noscript>
+            <div class="callout" style="margin-top:0">
+              <h3>Booking Needs JavaScript</h3>
+              <p>The booking wizard runs in your browser. With JavaScript turned off, call us on <a href="tel:${site.phoneHref}">${site.phone}</a> or email <a href="mailto:${site.email}">${site.email}</a> and we will take your details directly.</p>
+            </div>
+          </noscript>
         </div>
       </div>
     </section>
@@ -305,25 +326,8 @@ function buildHome() {
       </div>
     </section>
 
-    <section class="section" id="book">
-      <div class="wrap wrap-narrow">
-        <p class="eyebrow">Book Online</p>
-        <h2>Start Your Booking</h2>
-        <p>Four short steps. Tell us the service, the vehicle, where it is, and how to reach you. We confirm availability and firm pricing before anything is scheduled.</p>
-        <div style="margin-top:30px">
-          <div id="booking-wizard" data-booking-wizard data-phone="${site.phone}" data-phone-href="${site.phoneHref}"></div>
-          <noscript>
-            <div class="callout" style="margin-top:0">
-              <h3>Booking Needs JavaScript</h3>
-              <p>The booking wizard runs in your browser. With JavaScript turned off, call us on <a href="tel:${site.phoneHref}">${site.phone}</a> or email <a href="mailto:${site.email}">${site.email}</a> and we will take your details directly.</p>
-            </div>
-          </noscript>
-        </div>
-      </div>
-    </section>
-
     <section class="photo-band">
-      <img src="${photos.ferrari.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.ferrari.width}" height="${photos.ferrari.height}">
+      <img src="${photos.ferrari.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.ferrari.width}" height="${photos.ferrari.height}" data-parallax="0.18" data-parallax-scale="1.18">
       <div class="wrap">
         <div class="band-copy">
           <p class="eyebrow">The Standard</p>
@@ -403,7 +407,7 @@ ${ctaBand('Get Your Vehicle Back To Standard', 'Book online in under two minutes
       path: '/',
       body,
       schema: [businessSchema, websiteSchema, faqSchema(homeFaqs)],
-      scripts: ['/assets/js/supabase.js', '/assets/js/booking.js']
+      scripts: ['/assets/js/supabase.js', '/assets/js/booking.js', '/assets/js/parallax.js']
     }),
     {
       title: HOME_TITLE,
@@ -593,6 +597,30 @@ function buildServicePage(s) {
     </section>
 
     ${
+      s.slug === 'mobile-detailing'
+        ? `<section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">One Delivery Method, Every Service</p>
+        <h2>Every Service We Offer Is A Mobile Detailing Service</h2>
+        <p style="max-width:760px">Mobile detailing is not one line item alongside the others on this site, it is how all of them are delivered. Ceramic coating, paint correction, interior extraction, and the full package are each performed at your address with the same self-contained setup described above, not just a basic wash-and-vacuum.</p>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${others
+            .map(
+              (o) => `<a class="card" href="/services/${o.slug}/">
+            <h3>${esc(o.name)}</h3>
+            <p>${esc(o.summary)}</p>
+            <div class="card-meta"><span>From ${esc(o.priceFrom)}</span><span>${esc(o.duration)}</span></div>
+            <span class="card-link">${esc(o.name)} Details</span>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+      </div>
+    </section>`
+        : ''
+    }
+
+    ${
       s.gallery
         ? `<section class="section section-alt">
       <div class="wrap">
@@ -692,6 +720,7 @@ function buildBlog() {
   const cards = sorted
     .map(
       (p) => `<a class="card" href="/blog/${p.slug}/">
+            <div class="card-media"><img src="${photos[p.photo].src}" alt="${esc(photos[p.photo].alt)}" loading="lazy" width="${photos[p.photo].width}" height="${photos[p.photo].height}"></div>
             <span class="card-index">${esc(p.category)}</span>
             <h3>${esc(p.title)}</h3>
             <p>${esc(p.excerpt)}</p>
@@ -796,6 +825,7 @@ function buildPostPage(p, older, newer) {
   ];
 
   const related = posts.filter((o) => o.slug !== p.slug).slice(0, 3);
+  const toc = tocFromBlocks(p.body);
 
   const nav = [];
   if (older) nav.push(`<a class="btn btn-ghost btn-sm" href="/blog/${older.slug}/">Previous: ${esc(older.title)}</a>`);
@@ -809,6 +839,15 @@ function buildPostPage(p, older, newer) {
 
     <section class="section">
       <div class="wrap wrap-narrow">
+        ${mediaFrame(p.photo, { className: 'is-wide', loading: 'eager' })}
+
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-label">In This Article</p>
+          <ol>
+            ${toc.map((item) => `<li><a href="#${item.id}">${esc(item.text)}</a></li>`).join('\n            ')}
+          </ol>
+        </nav>
+
         <article class="prose">
           ${renderBlocks(p.body)}
         </article>
@@ -834,6 +873,7 @@ function buildPostPage(p, older, newer) {
           ${related
             .map(
               (r) => `<a class="card" href="/blog/${r.slug}/">
+            <div class="card-media"><img src="${photos[r.photo].src}" alt="${esc(photos[r.photo].alt)}" loading="lazy" width="${photos[r.photo].width}" height="${photos[r.photo].height}"></div>
             <span class="card-index">${esc(r.category)}</span>
             <h3>${esc(r.title)}</h3>
             <p class="small">${esc(r.excerpt)}</p>
