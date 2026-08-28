@@ -64,7 +64,7 @@ const services = [
   },
   {
     slug: 'ceramic-coating',
-    photo: 'hero',
+    photo: 'tesla',
     name: 'Ceramic Coating',
     summary:
       'A semi-permanent liquid glass layer that cross-links to your clear coat and stays there for years. Ceramic coating gives paint a hard, slick, hydrophobic shell that shrugs off love bugs, tree sap, hard water, and the UV load a Florida summer puts on a finish.',
@@ -247,7 +247,7 @@ const services = [
   },
   {
     slug: 'full-package',
-    photo: 'hero',
+    photo: 'tesla',
     name: 'Full Package',
     summary:
       'Inside and outside, taken to the same standard in one appointment. Full decontamination and protection on the exterior, extraction and conditioning on the interior, and a finished vehicle that presents like it just came off a showroom floor.',

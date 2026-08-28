@@ -233,7 +233,7 @@ function buildHome() {
             </div>
           </div>
           <div class="hero-media">
-            ${mediaFrame('hero', { loading: 'eager', sizes: '(max-width: 900px) 90vw, 420px' })}
+            ${mediaFrame('banner', { loading: 'eager', sizes: '(max-width: 900px) 90vw, 420px' })}
             <div class="hero-badge">
               <strong>Finished On Site</strong>
               <span>Decontaminated, corrected where needed, and protected in your own driveway.</span>
@@ -1094,7 +1094,7 @@ function buildAbout() {
     </section>
 
     <section class="photo-band">
-      <img src="${photos.hero.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.hero.width}" height="${photos.hero.height}">
+      <img src="${photos.tesla.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.tesla.width}" height="${photos.tesla.height}">
       <div class="wrap">
         <div class="band-copy">
           <p class="eyebrow">Why Ocala</p>
