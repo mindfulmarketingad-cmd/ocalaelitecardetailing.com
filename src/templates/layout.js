@@ -82,7 +82,7 @@ function footer() {
       </nav>
       <div class="footer-bottom">
         <p>&copy; ${year} ${esc(site.name)}. All rights reserved.</p>
-        <p>Booking and dispatch service. Detailing performed by independent operators.</p>
+        <p>Licensed and insured. Booking and dispatch service; detailing performed by vetted independent operators.</p>
       </div>
     </div>
   </footer>`;

@@ -237,7 +237,7 @@ function buildHome() {
             <div class="hero-stats">
               <div class="hero-stat"><strong>Fully Mobile</strong><span>We come to you</span></div>
               <div class="hero-stat"><strong>24/7</strong><span>Online booking</span></div>
-              <div class="hero-stat"><strong>Vetted Crews</strong><span>Insured operators</span></div>
+              <div class="hero-stat"><strong>Licensed &amp; Insured</strong><span>Fully covered</span></div>
             </div>
           </div>
           <div class="hero-media">
@@ -304,8 +304,8 @@ function buildHome() {
             <p>Water, power, and every product travel with the crew. Your vehicle is detailed in your driveway or office lot, not dropped off and picked up later.</p>
           </div>
           <div class="card">
-            <h3>Vetted, Insured Operators</h3>
-            <p>Every operator we dispatch is insured and held to the same non-negotiable process, regardless of which crew shows up at your address.</p>
+            <h3>Licensed And Insured</h3>
+            <p>We are licensed and insured, and every operator we dispatch is too. Ask us for details before booking and we will provide them rather than deflect.</p>
           </div>
           <div class="card">
             <h3>Built For Florida</h3>
@@ -591,6 +591,7 @@ function buildServicePage(s) {
                 <li><span class="k">Duration</span><span class="v">${esc(s.duration)}</span></li>
                 <li><span class="k">Location</span><span class="v">At your address</span></li>
                 <li><span class="k">Coverage</span><span class="v">Ocala &amp; Marion County</span></li>
+                <li><span class="k">Credentials</span><span class="v">Licensed &amp; insured</span></li>
               </ul>
               <p class="small muted" style="margin-top:14px;margin-bottom:0">Estimate only. Final price confirmed after assessment.</p>
             </div>
@@ -1797,6 +1798,7 @@ function buildAreaPage(a) {
                 <li><span class="k">County</span><span class="v">${esc(a.county)}</span></li>
                 <li><span class="k">Travel</span><span class="v">${esc(a.travel)}</span></li>
                 <li><span class="k">Services</span><span class="v">All ${services.length} available</span></li>
+                <li><span class="k">Credentials</span><span class="v">Licensed &amp; insured</span></li>
                 <li><span class="k">Location</span><span class="v">At your address</span></li>
               </ul>
             </div>
@@ -1930,6 +1932,7 @@ function buildServiceAreaPage(s, a) {
                 <li><span class="k">Duration</span><span class="v">${esc(s.duration)}</span></li>
                 <li><span class="k">Travel</span><span class="v">${esc(a.travel)}</span></li>
                 <li><span class="k">Location</span><span class="v">At your address</span></li>
+                <li><span class="k">Credentials</span><span class="v">Licensed &amp; insured</span></li>
               </ul>
               <p class="small muted" style="margin-top:14px;margin-bottom:0">Estimate only. Final price confirmed after assessment.</p>
             </div>
