@@ -40,7 +40,8 @@ for (const file of files) {
     if (!html.includes(tag)) problems.push(`${rel}: missing ${tag}`);
   }
 
-  const hrefs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
+  // \s prefix so data-* attributes ending in "href" are not treated as links
+  const hrefs = [...html.matchAll(/\s(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
   for (const href of hrefs) {
     if (/^(https?:|mailto:|tel:|data:)/.test(href)) continue;
     if (href.startsWith('#')) {

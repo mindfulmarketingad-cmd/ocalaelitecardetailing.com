@@ -6,9 +6,9 @@ const site = {
   origin: 'https://ocalaelitecardetailing.com',
   tagline: 'Mobile Detailing Built For Florida Roads',
   // ---- Business contact details -------------------------------------------
-  // Replace the placeholders below with the live dispatch number and address.
-  phone: '(352) 555-0134',
-  phoneHref: '+13525550134',
+  // Replace the street address below with the live mailing address.
+  phone: '(757) 743-9050',
+  phoneHref: '+17577439050',
   email: 'info@ocalaelitecardetailing.com',
   addressLocality: 'Ocala',
   addressRegion: 'FL',

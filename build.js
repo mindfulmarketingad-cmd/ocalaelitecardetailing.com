@@ -285,7 +285,7 @@ function buildHome() {
         <h2>Start Your Booking</h2>
         <p>Four short steps. Tell us the service, the vehicle, where it is, and how to reach you. We confirm availability and firm pricing before anything is scheduled.</p>
         <div style="margin-top:30px">
-          <div id="booking-wizard" data-booking-wizard></div>
+          <div id="booking-wizard" data-booking-wizard data-phone="${site.phone}" data-phone-href="${site.phoneHref}"></div>
           <noscript>
             <div class="callout" style="margin-top:0">
               <h3>Booking Needs JavaScript</h3>

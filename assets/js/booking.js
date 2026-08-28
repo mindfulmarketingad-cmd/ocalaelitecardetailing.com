@@ -12,6 +12,11 @@
 
   var api = window.OECD;
 
+  // Contact details come from the markup (rendered from src/data/site.js) so
+  // this file never carries its own copy of the phone number.
+  var PHONE = host.getAttribute('data-phone') || '';
+  var PHONE_HREF = host.getAttribute('data-phone-href') || '';
+
   var SERVICES = [
     {
       value: 'exterior',
@@ -172,7 +177,7 @@
           '<input type="email" id="bk-email" name="email" maxlength="140" autocomplete="email" placeholder="you@example.com" value="' +
           api.escapeHtml(state.email) + '"></div>' +
           '<div class="field"><label for="bk-phone">Phone</label>' +
-          '<input type="tel" id="bk-phone" name="phone" maxlength="32" autocomplete="tel" placeholder="(352) 555-0134" value="' +
+          '<input type="tel" id="bk-phone" name="phone" maxlength="32" autocomplete="tel" placeholder="Best number to reach you" value="' +
           api.escapeHtml(state.phone) + '"></div>' +
           '</div>' +
           '<div class="field"><label for="bk-notes">Anything we should know</label>' +
@@ -318,7 +323,7 @@
           api.escapeHtml(labelFor(SERVICES, state.service)) +
           ' is in. We review every request by hand and will come back to you with firm pricing and an arrival window, usually the same business day.</p>' +
           '<p>Nothing is confirmed until we have spoken. If you need it sooner, call us on ' +
-          '<a href="tel:+13525550134">(352) 555-0134</a>.</p>' +
+          '<a href="tel:' + PHONE_HREF + '">' + api.escapeHtml(PHONE) + '</a>.</p>' +
           '<div class="btn-row" style="margin-top:22px">' +
           '<a class="btn btn-ghost" href="/services/">Browse Services</a>' +
           '<a class="btn btn-ghost" href="/blog/">Read The Blog</a>' +
