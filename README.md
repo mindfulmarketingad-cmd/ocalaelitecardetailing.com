@@ -94,7 +94,9 @@ Regenerate the raster set after editing the SVGs:
 npm run assets
 ```
 
-Requires Playwright and Chromium.
+Requires Playwright and Chromium, installed globally or with
+`npx playwright@1.56.1`. It is deliberately not a package dependency, so
+deploy-time installs stay empty.
 
 ---
 
@@ -140,7 +142,15 @@ by the build.
 
 ## Deploying
 
-The repository root is the web root. Netlify (`netlify.toml`) and Vercel
-(`vercel.json`) configs are included; GitHub Pages and Cloudflare Pages work
-with no configuration because every route is a directory containing
+The repository root is the web root, so `vercel.json` sets
+`"outputDirectory": "."`. Without it Vercel looks for a `public/` folder and
+fails the build with *No Output Directory named "public" found*.
+
+Vercel deploys the **production branch** (Settings > Git > Production Branch,
+`main` by default). Pushing to any other branch produces a preview deployment
+only, which is why a project can show "you don't have a production deployment"
+while preview builds are succeeding.
+
+Netlify (`netlify.toml`) is configured too, and GitHub Pages and Cloudflare
+Pages work with no configuration because every route is a directory containing
 `index.html`.
