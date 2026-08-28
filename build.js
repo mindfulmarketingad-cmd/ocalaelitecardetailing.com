@@ -18,6 +18,8 @@ const { services } = require('./src/data/services');
 const { posts } = require('./src/data/blog');
 const { photos } = require('./src/data/photos');
 const { featuredReviews } = require('./src/data/reviews');
+const { areas } = require('./src/data/areas');
+const { serviceAreaContent } = require('./src/data/service-areas');
 const legal = require('./src/data/legal');
 
 const ROOT = __dirname;
@@ -138,14 +140,15 @@ const hubLinks = (exclude = '') => {
     { href: '/services/', label: 'Services', copy: 'Every detailing package we dispatch, with what each one includes and where it fits.' },
     { href: '/blog/', label: 'Blog', copy: 'Field notes on protecting paint and interiors through a Central Florida year.' },
     { href: '/reviews/', label: 'Reviews', copy: 'Feedback from customers, published unedited, and the form to leave your own.' },
-    { href: '/search/', label: 'Search', copy: 'Search every page on this site by service, question, or keyword.' }
+    { href: '/search/', label: 'Search', copy: 'Search every page on this site by service, question, or keyword.' },
+    { href: '/service-areas/', label: 'Service Areas', copy: 'The towns we cover, what each one does to a vehicle, and every service available there.' }
   ].filter((h) => h.href !== exclude);
 
   return `    <section class="section">
       <div class="wrap">
         <p class="eyebrow">Keep Reading</p>
         <h2>Explore The Site</h2>
-        <div class="grid grid-${hubs.length === 4 ? '4' : '3'}" style="margin-top:30px">
+        <div class="grid grid-${hubs.length % 4 === 0 ? '4' : '3'}" style="margin-top:30px">
           ${hubs
             .map(
               (h) => `<a class="card" href="${h.href}">
@@ -1629,6 +1632,413 @@ function buildSearchIndex() {
   writeRaw('search-index.json', JSON.stringify(index) + '\n');
 }
 
+/* ---------------------------------------------------------- service areas -- */
+
+function buildServiceAreas() {
+  const trail = [
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' }
+  ];
+
+  const title = 'Service Areas | Mobile Car Detailing Across Marion County FL';
+  const description =
+    'The towns Ocala Elite Car Detailing covers: Ocala, Belleview, and The Villages, Florida. What each area does to a vehicle, and every service available there.';
+
+  const cards = areas
+    .map(
+      (a) => `<a class="card" href="/service-areas/${a.slug}/">
+            <span class="card-index">${esc(a.county)}</span>
+            <h3>${esc(a.name)}</h3>
+            <p>${esc(a.summary)}</p>
+            <span class="card-link">${esc(a.name)} Detailing</span>
+          </a>`
+    )
+    .join('\n          ');
+
+  const body = `${pageHead({
+    trail,
+    h1: 'Mobile Car Detailing Service Areas',
+    lead:
+      'We are based in Ocala and run fully mobile across Marion County. Each area below has its own page covering what that place specifically does to a vehicle, and every service we offer there.',
+    ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="tel:${site.phoneHref}">Call ${site.phone}</a>`
+  })}
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Where We Work</p>
+        <h2>Areas We Cover</h2>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy">
+            <p class="eyebrow">Why It Is Worth Splitting Out</p>
+            <h2>Three Towns, Three Different Problems</h2>
+            <p>These places are within half an hour of each other and they wreck vehicles in genuinely different ways. Ocala is iron-bearing road dust and Interstate 75 mileage. Belleview is humidity off Lake Weir and mineral-heavy sprinkler overspray. The Villages is almost pure ultraviolet damage on cars that barely get driven.</p>
+            <p>That changes what is actually worth booking. A coating is a defensive necessity on an Ocala commuter and a long-term value play on a garaged Villages car. Interior work in Belleview is a moisture job; in Ocala it is a dust job. Each area page goes through that in detail rather than repeating a generic pitch.</p>
+            <div class="btn-row" style="margin-top:24px">
+              <a class="btn btn-ghost btn-sm" href="/services/">All Services</a>
+              <a class="btn btn-ghost btn-sm" href="/contact/">Ask About Your Address</a>
+            </div>
+          </div>
+          <div class="split-media">
+            ${mediaFrame('wash', { className: 'is-wide' })}
+            <p class="media-caption">Work performed at the customer address</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Outside These Towns</p>
+        <h2>Wider Marion County Coverage</h2>
+        <p style="max-width:760px">We regularly work beyond the three areas above, including ${esc(
+          site.areaServed.filter((a) => !areas.some((ar) => ar.name === a)).join(', ')
+        )}. Those do not have their own pages yet, so send us the address and we will confirm coverage and any travel time before anything is scheduled.</p>
+        <div class="btn-row" style="margin-top:26px">
+          <a class="btn btn-ghost" href="/contact/">Check Your Address</a>
+        </div>
+      </div>
+    </section>
+
+${hubLinks('/service-areas/')}
+
+${ctaBand('Book In Your Area', 'Pick your service and tell us where the vehicle is. We confirm coverage before scheduling.')}`;
+
+  write(
+    '/service-areas',
+    page({
+      title,
+      description,
+      path: '/service-areas/',
+      body,
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Service Areas',
+          itemListElement: areas.map((a, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: a.name + ', FL',
+            url: `${site.origin}/service-areas/${a.slug}/`
+          }))
+        }
+      ]
+    }),
+    {
+      title,
+      description,
+      label: 'Service Areas',
+      group: 'Service Areas',
+      priority: '0.8',
+      changefreq: 'monthly',
+      keywords: 'service areas coverage ocala belleview the villages marion county'
+    }
+  );
+
+  areas.forEach((a) => buildAreaPage(a));
+  services.forEach((s) => areas.forEach((a) => buildServiceAreaPage(s, a)));
+}
+
+function buildAreaPage(a) {
+  const trail = [
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: a.name, href: `/service-areas/${a.slug}/` }
+  ];
+
+  const title = `Best Mobile Car Detailing Service in ${a.name} Florida`;
+  const h1 = `Mobile Car Detailing Service in ${a.name} Florida`;
+
+  const serviceCards = services
+    .map(
+      (s) => `<a class="card" href="/services/${s.slug}/${a.slug}-fl/">
+            <h3>${esc(s.name)}</h3>
+            <p class="small">${esc(serviceAreaContent[s.slug][a.slug].lead)}</p>
+            <div class="card-meta"><span>From ${esc(s.priceFrom)}</span><span>${esc(s.duration)}</span></div>
+            <span class="card-link">${esc(s.name)} in ${esc(a.name)}</span>
+          </a>`
+    )
+    .join('\n          ');
+
+  const others = areas.filter((o) => o.slug !== a.slug);
+
+  const body = `${pageHead({
+    trail,
+    h1,
+    lead: esc(a.lead),
+    ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="tel:${site.phoneHref}">Call ${site.phone}</a>`
+  })}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy prose">
+            <h2>Detailing in ${esc(a.name)}</h2>
+            ${a.intro.map((para) => `<p>${para}</p>`).join('\n            ')}
+            <h2>What This Area Does To A Vehicle</h2>
+            <ul class="checklist">${a.localNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
+          </div>
+          <div class="split-media">
+            ${mediaFrame(a.slug === 'the-villages' ? 'banner' : a.slug === 'belleview' ? 'foam' : 'wheel', {
+              className: 'is-tall'
+            })}
+            <div class="callout" style="margin-top:26px">
+              <h3>${esc(a.name)} At A Glance</h3>
+              <ul class="summary-list" style="margin-top:16px">
+                <li><span class="k">County</span><span class="v">${esc(a.county)}</span></li>
+                <li><span class="k">Travel</span><span class="v">${esc(a.travel)}</span></li>
+                <li><span class="k">Services</span><span class="v">All ${services.length} available</span></li>
+                <li><span class="k">Location</span><span class="v">At your address</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Coverage</p>
+        <h2>Where In ${esc(a.name)} We Work</h2>
+        <p style="max-width:820px">${esc(a.coverage)}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Every Service, Locally</p>
+        <h2>Services Available in ${esc(a.name)}</h2>
+        <p style="max-width:760px">Each links through to what that service specifically involves here, rather than a generic description.</p>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${serviceCards}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Nearby</p>
+        <h2>Other Areas We Cover</h2>
+        <div class="grid grid-2" style="margin-top:28px">
+          ${others
+            .map(
+              (o) => `<a class="card" href="/service-areas/${o.slug}/">
+            <h3>${esc(o.name)}</h3>
+            <p class="small">${esc(o.summary)}</p>
+            <span class="card-link">${esc(o.name)} Detailing</span>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+        <p style="margin-top:28px"><a href="/service-areas/">All service areas</a> or back to the <a href="/">homepage</a>.</p>
+      </div>
+    </section>
+
+${ctaBand(`Book In ${a.name}`, 'Tell us the service and where the vehicle is parked. We confirm pricing before scheduling.')}`;
+
+  write(
+    `/service-areas/${a.slug}`,
+    page({
+      title,
+      description: a.metaDescription,
+      path: `/service-areas/${a.slug}/`,
+      current: '/service-areas/',
+      body,
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: `Mobile Car Detailing in ${a.name}, FL`,
+          serviceType: 'Auto Detailing',
+          url: `${site.origin}/service-areas/${a.slug}/`,
+          description: a.metaDescription,
+          provider: { '@id': site.origin + '/#business' },
+          areaServed: { '@type': 'City', name: `${a.name}, FL` }
+        }
+      ]
+    }),
+    {
+      title,
+      description: a.metaDescription,
+      label: a.name,
+      group: 'Service Areas',
+      priority: '0.7',
+      changefreq: 'monthly',
+      keywords: `${a.name} florida mobile car detailing ${a.county} ${a.slug}`
+    }
+  );
+}
+
+function buildServiceAreaPage(s, a) {
+  const content = serviceAreaContent[s.slug] && serviceAreaContent[s.slug][a.slug];
+  // Fail loudly rather than emitting a page that is just the service page with
+  // a city name swapped in - that is a doorway page, and Google treats it as one.
+  if (!content) {
+    throw new Error(
+      `Missing unique copy for "${s.slug}" in "${a.slug}". Add it to src/data/service-areas.js before building.`
+    );
+  }
+
+  const trail = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services/' },
+    { label: s.name, href: `/services/${s.slug}/` },
+    { label: a.name, href: `/services/${s.slug}/${a.slug}-fl/` }
+  ];
+
+  const title = `${s.name} in ${a.name} FL | Ocala Elite Car Detailing`;
+  const h1 = `${s.name} in ${a.name}, Florida`;
+  const description = `${content.lead} ${s.name} in ${a.name}, FL from ${s.priceFrom}, performed at your address.`;
+
+  const siblingServices = services.filter((o) => o.slug !== s.slug);
+  const otherAreas = areas.filter((o) => o.slug !== a.slug);
+
+  const body = `${pageHead({
+    trail,
+    h1,
+    lead: esc(content.lead),
+    ctas: `<a class="btn" href="/#book">Book ${esc(s.name)}</a><a class="btn btn-ghost" href="tel:${site.phoneHref}">Call ${site.phone}</a>`
+  })}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy prose">
+            <h2>${esc(s.name)} For ${esc(a.name)} Vehicles</h2>
+            ${content.body.map((para) => `<p>${para}</p>`).join('\n            ')}
+            <h2>Local Conditions That Drive This</h2>
+            <ul class="checklist">${a.localNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
+            <p>Full detail on scope, timing, and what this service will and will not do is on the main <a href="/services/${s.slug}/">${esc(s.name.toLowerCase())} page</a>. Everything described there applies here; this page covers what is different about doing it in ${esc(a.name)}.</p>
+          </div>
+          <div class="split-media">
+            ${mediaFrame(s.photo, { className: 'is-tall' })}
+            <p class="media-caption">Real ${esc(s.name)} results</p>
+            <div class="callout" style="margin-top:26px">
+              <h3>${esc(s.name)} in ${esc(a.name)}</h3>
+              <ul class="summary-list" style="margin-top:16px">
+                <li><span class="k">Starting At</span><span class="v">${esc(s.priceFrom)}</span></li>
+                <li><span class="k">Duration</span><span class="v">${esc(s.duration)}</span></li>
+                <li><span class="k">Travel</span><span class="v">${esc(a.travel)}</span></li>
+                <li><span class="k">Location</span><span class="v">At your address</span></li>
+              </ul>
+              <p class="small muted" style="margin-top:14px;margin-bottom:0">Estimate only. Final price confirmed after assessment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${
+      s.overview
+        ? `<section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Step By Step</p>
+        <h2>What To Expect in ${esc(a.name)}</h2>
+        <ol class="numbered grid grid-2" style="margin-top:34px">
+          ${s.overview
+            .map(
+              (step) => `<li>
+            <h3>${esc(step.title)}</h3>
+            <p>${step.body}</p>
+            ${step.list ? `<ul class="checklist">${step.list.map((li) => `<li>${esc(li)}</li>`).join('')}</ul>` : ''}
+          </li>`
+            )
+            .join('\n          ')}
+        </ol>
+      </div>
+    </section>`
+        : ''
+    }
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Also in ${esc(a.name)}</p>
+        <h2>Other Services We Bring To ${esc(a.name)}</h2>
+        <div class="grid grid-4" style="margin-top:28px">
+          ${siblingServices
+            .map(
+              (o) => `<a class="card" href="/services/${o.slug}/${a.slug}-fl/">
+            <h3>${esc(o.name)}</h3>
+            <p class="small">${esc(serviceAreaContent[o.slug][a.slug].lead)}</p>
+            <span class="card-link">Details</span>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Same Service, Other Towns</p>
+        <h2>${esc(s.name)} Elsewhere In Marion County</h2>
+        <div class="grid grid-2" style="margin-top:28px">
+          ${otherAreas
+            .map(
+              (o) => `<a class="card" href="/services/${s.slug}/${o.slug}-fl/">
+            <h3>${esc(s.name)} in ${esc(o.name)}</h3>
+            <p class="small">${esc(serviceAreaContent[s.slug][o.slug].lead)}</p>
+            <span class="card-link">Open</span>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+        <p style="margin-top:28px"><a href="/service-areas/${a.slug}/">All services in ${esc(a.name)}</a>, <a href="/services/${s.slug}/">${esc(s.name)} overview</a>, or <a href="/service-areas/">every service area</a>.</p>
+      </div>
+    </section>
+
+${ctaBand(`Book ${s.name} in ${a.name}`, 'Select the service in the booking wizard and tell us where the vehicle is parked.')}`;
+
+  write(
+    `/services/${s.slug}/${a.slug}-fl`,
+    page({
+      title,
+      description,
+      path: `/services/${s.slug}/${a.slug}-fl/`,
+      current: '/services/',
+      body,
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: `${s.name} in ${a.name}, FL`,
+          serviceType: s.name,
+          url: `${site.origin}/services/${s.slug}/${a.slug}-fl/`,
+          description: description,
+          provider: { '@id': site.origin + '/#business' },
+          areaServed: { '@type': 'City', name: `${a.name}, FL` },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'USD',
+            price: s.priceFrom.replace(/[^0-9.]/g, ''),
+            availability: 'https://schema.org/InStock'
+          }
+        }
+      ]
+    }),
+    {
+      title,
+      description,
+      label: `${s.name} in ${a.name}`,
+      group: 'Service Areas',
+      priority: '0.6',
+      changefreq: 'monthly',
+      keywords: `${s.name} ${a.name} florida ${s.slug} ${a.slug} mobile detailing near me`
+    }
+  );
+}
+
 /* ------------------------------------------------------------------- 404 -- */
 
 function buildNotFound() {
@@ -1677,6 +2087,7 @@ function main() {
   buildSearch();
   buildAbout();
   buildContact();
+  buildServiceAreas();
   buildLegal(legal.disclaimer, 'disclaimer');
   buildLegal(legal.privacy, 'privacy');
   buildLegal(legal.terms, 'terms');
