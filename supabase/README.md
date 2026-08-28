@@ -15,8 +15,8 @@ the Supabase project `tbqigevoksabizjogvtm`.
 
 | Key | Where it belongs |
 | --- | --- |
-| Publishable key (`sb_publishable_…`) | Client JavaScript. Already in `assets/js/supabase.js`. Public by design. |
-| Anon JWT (`eyJ…role":"anon"…`) | Only needed if the project has legacy API keys instead of publishable keys. Swap it into `KEY` in `assets/js/supabase.js` if inserts return 401. |
+| Anon JWT (`eyJ…role":"anon"…`) | **Currently in use.** Client JavaScript, in `assets/js/supabase.js`. Public by design. |
+| Publishable key (`sb_publishable_…`) | Returned HTTP 401 on this project, meaning the new API key system is not enabled for it. Swap back in `assets/js/supabase.js` only if you enable new API keys in the dashboard. |
 | Service role key | **Never** in this repository, in client code, or in any deployed asset. Dashboard and trusted server use only. |
 
 ## Working the inbox

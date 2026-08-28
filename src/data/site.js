@@ -38,6 +38,8 @@ const site = {
   // bookings / reviews tables is what protects the data - see supabase/schema.sql.
   supabase: {
     url: 'https://tbqigevoksabizjogvtm.supabase.co',
+    // The live key used by the browser lives in assets/js/supabase.js. The
+    // sb_publishable_ key 401s on this project, so the anon JWT is used there.
     publishableKey: 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a'
   }
 };

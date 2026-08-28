@@ -2,8 +2,15 @@
  *
  * The site only ever inserts rows and reads approved reviews, so it talks to
  * PostgREST directly with fetch instead of pulling in the full supabase-js
- * bundle. The publishable key below is public by design; what protects the
- * data is Row Level Security, defined in supabase/schema.sql.
+ * bundle. The key below is public by design; what protects the data is Row
+ * Level Security, defined in supabase/schema.sql.
+ *
+ * KEY CHOICE: the newer `sb_publishable_...` key returned HTTP 401 from this
+ * project, which means the project does not have the new API key system
+ * enabled (or that key was rotated). The legacy anon JWT below is the
+ * equivalent public key and is what this project accepts. Both are equally
+ * safe to ship; RLS is the actual protection. If you later enable new API
+ * keys in the dashboard, swap PUBLISHABLE_KEY back in.
  */
 window.OECD = window.OECD || {};
 
@@ -11,7 +18,12 @@ window.OECD = window.OECD || {};
   'use strict';
 
   var URL = 'https://tbqigevoksabizjogvtm.supabase.co';
-  var KEY = 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a';
+
+  // Kept for reference — returned 401 on this project as of Aug 2026.
+  // var PUBLISHABLE_KEY = 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a';
+
+  var KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRicWlnZXZva3NhYml6am9ndnRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNjQ3NTUsImV4cCI6MjA5NTY0MDc1NX0.2jK6OVrl3Mdw_xj-Z6G9QsfvZxxv28z8nriLYsJYvFw';
 
   function headers(extra) {
     var h = {
@@ -41,6 +53,14 @@ window.OECD = window.OECD || {};
           var message = (data && (data.message || data.hint || data.details)) || 'Request failed (' + res.status + ')';
           var err = new Error(message);
           err.status = res.status;
+          // Customers see a friendly string; whoever is debugging needs the
+          // real status and Postgres message, so surface it in the console.
+          if (window.console && console.error) {
+            console.error(
+              '[OECD] Supabase insert into "' + table + '" failed: HTTP ' + res.status + ' - ' + message,
+              data || text
+            );
+          }
           throw err;
         }
         return Array.isArray(data) ? data[0] : data;
