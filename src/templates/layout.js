@@ -20,7 +20,10 @@ function header(current) {
     <div class="topbar">
       <div class="wrap">
         <span class="topbar-note">Mobile detailing across Ocala and Marion County</span>
-        <span><a href="tel:${site.phoneHref}">${site.phone}</a></span>
+        <span class="topbar-actions">
+          <a href="tel:${site.phoneHref}">${site.phone}</a>
+          <a class="topbar-book" href="/#book">Book Online</a>
+        </span>
       </div>
     </div>
     <div class="wrap">

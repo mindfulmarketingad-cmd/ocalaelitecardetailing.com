@@ -134,6 +134,15 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
 .topbar a { color: var(--chrome); }
 .topbar-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topbar-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.topbar .topbar-book {
+  background: var(--chrome);
+  color: var(--black);
+  padding: 6px 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.topbar .topbar-book:hover { background: var(--white); }
 
 .header-inner {
   display: flex;
@@ -748,6 +757,7 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
   body { font-size: 16px; }
   .section { padding: 54px 0; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .choice-grid { grid-template-columns: 1fr; }
   .hero-inner { padding: 66px 0 58px; }
@@ -898,15 +908,18 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
 .split.is-reverse .split-media { order: -1; }
 .split-copy > :last-child { margin-bottom: 0; }
 
-.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.gallery .media-frame { aspect-ratio: 1 / 1; }
+/* Before/after composites vary in aspect ratio, so the gallery grid runs two
+   up and each frame keeps its native ratio rather than being force-cropped
+   square, which would hide one side of a comparison shot. */
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.gallery .media-frame { aspect-ratio: auto; }
+.gallery .media-frame img { height: auto; }
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 62px 0 58px; }
   .hero-media { max-width: 460px; }
   .split { grid-template-columns: 1fr; gap: 30px; }
   .split.is-reverse .split-media { order: 0; }
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .photo-band .wrap { padding-top: 62px; padding-bottom: 62px; }
   .photo-band::after { background: linear-gradient(180deg, rgba(8,8,10,0.9), rgba(8,8,10,0.7)); }
 }

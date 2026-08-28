@@ -229,9 +229,8 @@ function buildHome() {
             </div>
             <div class="hero-stats">
               <div class="hero-stat"><strong>Fully Mobile</strong><span>We come to you</span></div>
-              <div class="hero-stat"><strong>Same-Day</strong><span>Most services</span></div>
-              <div class="hero-stat"><strong>Vetted Crews</strong><span>Insured operators</span></div>
               <div class="hero-stat"><strong>24/7</strong><span>Online booking</span></div>
+              <div class="hero-stat"><strong>Vetted Crews</strong><span>Insured operators</span></div>
             </div>
           </div>
           <div class="hero-media">
@@ -577,7 +576,7 @@ function buildServicePage(s) {
           </div>
           <div class="split-media">
             ${mediaFrame(s.photo, { className: 'is-tall' })}
-            <p class="media-caption">${esc(s.name)} in progress</p>
+            <p class="media-caption">Real ${esc(s.name)} results</p>
             <div class="callout" style="margin-top:26px">
               <h3>Quick Facts</h3>
               <ul class="summary-list" style="margin-top:16px">
@@ -592,6 +591,20 @@ function buildServicePage(s) {
         </div>
       </div>
     </section>
+
+    ${
+      s.gallery
+        ? `<section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Before &amp; After</p>
+        <h2>More ${esc(s.name)} Results</h2>
+        <div class="gallery" style="margin-top:26px">
+          ${s.gallery.map((key) => mediaFrame(key, {})).join('\n          ')}
+        </div>
+      </div>
+    </section>`
+        : ''
+    }
 
     <section class="section section-alt">
       <div class="wrap wrap-narrow">

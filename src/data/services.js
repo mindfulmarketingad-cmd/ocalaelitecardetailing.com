@@ -128,7 +128,7 @@ const services = [
   },
   {
     slug: 'exterior-detailing',
-    photo: 'wheel',
+    photo: 'exteriorBA',
     name: 'Exterior Detailing',
     summary:
       'A complete outside reset. Safe wash technique, iron and tar decontamination, clay treatment, and a protective topper that leaves paint clean to the touch, sharp under light, and defended against the next round of Florida weather.',
@@ -187,7 +187,8 @@ const services = [
   },
   {
     slug: 'interior-detailing',
-    photo: 'finished',
+    photo: 'interiorBA3',
+    gallery: ['interiorBA1', 'interiorBA2'],
     name: 'Interior Detailing',
     summary:
       'Deep cleaning for the cabin you actually live in. Hot water extraction on carpet and cloth, leather cleaned and conditioned, every vent and seam addressed, and odors removed at the source rather than covered with fragrance.',
@@ -303,7 +304,8 @@ const services = [
   },
   {
     slug: 'paint-correction',
-    photo: 'tesla',
+    photo: 'correctionBA1',
+    gallery: ['correctionBA2'],
     name: 'Paint Correction',
     summary:
       'Machine polishing that removes swirl marks, wash marring, oxidation, and light scratches from the clear coat itself, rather than covering them up. The step that turns a clean car into one with real depth and gloss.',
