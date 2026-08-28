@@ -208,7 +208,7 @@ function buildHome() {
     },
     {
       q: 'How much does mobile detailing cost in Ocala?',
-      a: 'Interior and exterior services start around $169 and $179 respectively, the full package starts at $299, and ceramic coating starts at $699. Final pricing depends on vehicle size and condition and is confirmed before work begins.'
+      a: 'Interior and exterior detailing both start at $199, the full package starts at $299, and ceramic coating starts at $999. Final pricing depends on vehicle size and condition and is confirmed before work begins.'
     },
     {
       q: 'How long does an appointment take?',
@@ -595,6 +595,28 @@ function buildServicePage(s) {
         </div>
       </div>
     </section>
+
+    ${
+      s.overview
+        ? `<section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Step By Step</p>
+        <h2>What To Expect: ${esc(s.name)}</h2>
+        <ol class="numbered grid grid-2" style="margin-top:34px">
+          ${s.overview
+            .map(
+              (step) => `<li>
+            <h3>${esc(step.title)}</h3>
+            <p>${step.body}</p>
+            ${step.list ? `<ul class="checklist">${step.list.map((li) => `<li>${esc(li)}</li>`).join('')}</ul>` : ''}
+          </li>`
+            )
+            .join('\n          ')}
+        </ol>
+      </div>
+    </section>`
+        : ''
+    }
 
     ${
       s.slug === 'mobile-detailing'

@@ -74,8 +74,28 @@ const services = [
     h1: 'Ceramic Coating in Ocala, Florida',
     lead:
       'Ceramic coating is the strongest paint protection we install. It bonds to the clear coat rather than sitting on top of it, and once cured it delivers years of gloss, chemical resistance, and water behavior that no wax or sealant can approach.',
-    priceFrom: '$699',
+    priceFrom: '$999+',
     duration: '1 - 3 days',
+    overview: [
+      { title: 'Wash', body: 'Thoroughly wash the vehicle to remove dirt, grime, and debris from the exterior.' },
+      { title: 'Iron Decontamination', body: 'Apply a specialized iron remover to dissolve iron particles, a common contaminant from brake dust.' },
+      { title: 'Clay Bar', body: 'Use a clay bar to decontaminate the paint further, removing embedded particles for a smooth finish.' },
+      { title: 'Dry', body: 'Dry the vehicle using microfiber towels or a blower to prevent water spots.' },
+      { title: 'Paint Correction (Optional)', body: 'Perform paint correction if needed to remove imperfections such as swirl marks and scratches. Read more about <a href="/services/paint-correction/">paint correction</a>.' },
+      { title: 'Surface Prep', body: 'Clean and prepare the paint surface using an alcohol-based solution to ensure proper bonding of the ceramic coating.' },
+      {
+        title: 'Ceramic Coating Application',
+        body: 'Apply the ceramic coating to the paint using an applicator pad. Choose from different protection tiers depending on how long you plan to keep the vehicle:',
+        list: [
+          '1-Year Protection: basic protection and durability for a year',
+          '3-Year Protection: enhanced protection and durability for three years',
+          '5-Year Protection: advanced protection and durability for five years',
+          '10-Year Protection: advanced protection and durability for ten years'
+        ]
+      },
+      { title: 'Tire And Wheel Coating', body: 'Apply a protective coating to the tires and wheels to enhance their appearance and protect against UV damage and dirt buildup.' },
+      { title: 'Final Inspection', body: 'Inspect the vehicle to confirm the ceramic coating has been applied correctly and the detailing process is complete.' }
+    ],
     sections: [
       {
         h2: 'Why Coating Beats Wax In This Climate',
@@ -138,8 +158,23 @@ const services = [
     h1: 'Exterior Detailing in Ocala, Florida',
     lead:
       'Exterior detailing is about removing what a normal wash leaves behind. Iron particles, road tar, tree sap, mineral deposits, and bug residue all bond to clear coat and stay there until something is used that is designed to break them loose.',
-    priceFrom: '$179',
+    priceFrom: '$199+',
     duration: '2 - 4 hours',
+    overview: [
+      { title: 'Pre-Rinse', body: 'Begin by rinsing the vehicle to remove loose dirt and debris.' },
+      { title: 'Foam Bath', body: 'Apply a pH-neutral foam bath to the exterior to loosen dirt and grime without damaging the paint.' },
+      { title: 'Hand Wash', body: 'Use a microfiber wash mitt and a high-quality car wash soap to gently hand wash the vehicle, starting from the top and working down, then rinse thoroughly.' },
+      { title: 'Clay Bar Treatment (Optional)', body: 'Use a clay bar to remove embedded contaminants from the paint surface, such as tar, bugs, and tree sap, preparing it for polishing or protection.' },
+      { title: 'Polishing (Optional)', body: 'Use a dual-action polisher and a quality polish to remove light scratches, swirl marks, and oxidation, restoring shine and color depth. Read more about <a href="/services/paint-correction/">paint correction</a>.' },
+      { title: 'Sealant Or Wax (Optional)', body: 'Apply a paint sealant or carnauba wax to protect the paint and enhance its gloss. Sealants last longer; wax gives a warmer, more natural shine. See our <a href="/services/wash-wax/">wash and wax</a> service.' },
+      { title: 'Trim And Plastic Restoration', body: 'Use a trim restorer to rejuvenate faded or dull exterior trim and plastic surfaces, such as bumpers and moldings.' },
+      { title: 'Glass Cleaning', body: 'Clean the exterior glass surfaces with a glass cleaner and a microfiber cloth to remove dirt, grime, and water spots.' },
+      { title: 'Tire And Wheel Cleaning', body: 'Clean the tires and wheels using a dedicated cleaner and a brush, then rinse thoroughly and dry with a microfiber towel.' },
+      { title: 'Tire Shining', body: 'Apply a tire shine product to give the tires a glossy finish and protect them from UV rays.' },
+      { title: 'Final Inspection', body: 'Inspect the vehicle to confirm every area is clean and shiny, touching up any missed spots.' },
+      { title: 'Finishing Touches', body: 'Dress the exterior trim and emblems for a completed, uniform look.' },
+      { title: 'Ceramic Coating (Optional)', body: 'Apply a ceramic coating for long-term paint protection and easier maintenance. Read more about <a href="/services/ceramic-coating/">ceramic coating</a>.' }
+    ],
     sections: [
       {
         h2: 'Beyond A Wash',
@@ -198,8 +233,20 @@ const services = [
     h1: 'Interior Detailing in Ocala, Florida',
     lead:
       'The cabin takes more abuse than the paint. Sweat, sunscreen, spilled drinks, pet hair, school runs, and job site dust all end up ground into carpet fiber and packed into seams. Interior detailing pulls that back out.',
-    priceFrom: '$169',
+    priceFrom: '$199+',
     duration: '3 - 6 hours',
+    overview: [
+      { title: 'Initial Inspection And Vacuuming', body: 'Inspect the interior to identify areas that need special attention, then thoroughly vacuum the seats, carpets, and every crevice to remove dirt and debris.' },
+      { title: 'Shampooing And Extraction (Optional)', body: 'Apply a quality shampoo to the carpets, floor mats, and fabric seats, then extract the dirt and shampoo residue, leaving the surfaces clean and fresh.' },
+      { title: 'Steam Cleaning', body: 'Use steam to sanitize and deep clean all fabric surfaces, including seats, carpets, and headliners, killing germs and lifting stubborn stains without harsh chemicals.' },
+      { title: 'Dashboard, Console, And Door Panels', body: 'Clean and sanitize the dashboard, console, and door panels with appropriate cleaners and brushes, paying special attention to buttons, vents, and small crevices.' },
+      { title: 'Leather Conditioning (If Applicable)', body: 'Clean leather seats and surfaces with a gentle leather cleaner, then apply a quality conditioner to keep the leather soft, supple, and protected from cracking.' },
+      { title: 'Plastic And Vinyl Cleaning', body: 'Wipe down all plastic and vinyl surfaces, including the dashboard, door panels, and trim, until free of dust, grime, and fingerprints.' },
+      { title: 'Window And Mirror Cleaning', body: 'Clean all interior windows and mirrors with a streak-free glass cleaner so the glass is clear and smudge-free.' },
+      { title: 'Odor Treatment (Optional)', body: 'Apply an odor neutralizer to eliminate unpleasant smells, using ozone treatment or specialized deodorizers for persistent odors.' },
+      { title: 'Final Inspection', body: 'Perform a final inspection to confirm every area is clean and spotless, addressing any missed spots.' },
+      { title: 'Optional Add-Ons', body: 'Fabric protection, pet hair removal, and interior coatings are available to extend the results of the package.' }
+    ],
     sections: [
       {
         h2: 'Cleaning At The Source',
@@ -376,6 +423,60 @@ const services = [
       {
         q: 'Can this be done at my house?',
         a: 'Machine polishing needs a shaded, low-dust area with steady power, which a garage or covered carport usually provides. Full multi-stage work is sometimes better scheduled at a controlled location, which we arrange when we quote the job.'
+      }
+    ]
+  },
+  {
+    slug: 'wash-wax',
+    photo: 'tesla',
+    name: 'Wash & Wax',
+    summary:
+      'A proper hand wash finished with a real coat of wax. No decontamination, no correction, just the maintenance service that keeps a healthy finish looking sharp between full details.',
+    metaTitle: 'Wash and Wax in Ocala FL | Ocala Elite Car Detailing',
+    metaDescription:
+      'Mobile wash and wax in Ocala, FL. A gentle hand wash followed by a quality carnauba wax for a glossy, protected finish, starting at $199.',
+    h1: 'Wash & Wax in Ocala, Florida',
+    lead:
+      'Not every visit needs to be a full detail. Wash and wax is the maintenance service: a careful hand wash to lift surface dirt safely, followed by a real coat of wax for shine and short-term protection.',
+    priceFrom: '$199',
+    duration: '1 - 2 hours',
+    overview: [
+      { title: 'Pre-Cleaning Inspection', body: 'We inspect the vehicle for any visible dirt, grime, or damage that needs special attention, and note any specific areas you want us to focus on.' },
+      { title: 'Exterior Washing', body: 'We wash the exterior using a gentle yet effective car shampoo, with microfiber wash mitts or soft brushes to avoid scratching the paint.' },
+      { title: 'Rinsing', body: 'The vehicle is thoroughly rinsed to remove all soap residue and loosened dirt.' },
+      { title: 'Drying', body: 'We dry the vehicle with soft, absorbent towels, making sure no water spots are left behind.' },
+      { title: 'Tire And Wheel Cleaning', body: 'We use a specialized cleaner and brushes to clean the tires and wheels, removing brake dust, dirt, and grime.' },
+      { title: 'Tire Shining', body: 'A tire shine product is applied for a glossy, like-new appearance.' },
+      { title: 'Waxing', body: 'Once the vehicle is dry, a quality car wax is applied by hand or buffed to a smooth finish, giving the paint a protective layer against contaminants and UV rays that typically holds for three to twelve months.' },
+      { title: 'Final Inspection', body: 'We perform a final inspection to confirm the vehicle meets our standard for cleanliness and shine.' }
+    ],
+    sections: [
+      {
+        h2: 'Maintenance, Not A Full Reset',
+        body: [
+          'Wash and wax is built for a vehicle that is already in reasonably good condition and just needs to stay that way. It is not a substitute for <a href="/services/exterior-detailing/">exterior detailing</a> on a neglected finish, and it will not remove bonded contamination the way a decontamination wash does, or level clear coat the way <a href="/services/paint-correction/">paint correction</a> does.',
+          'What it does well is keep a healthy finish looking sharp between those bigger services, at a price and time commitment that fits a monthly or bi-weekly schedule.'
+        ]
+      },
+      {
+        h2: 'When To Upgrade',
+        body: [
+          'If the paint feels rough to the touch after a wash, or has gone six months or more without decontamination, wax will not fix that; book exterior detailing instead. If you want protection measured in years rather than months, <a href="/services/ceramic-coating/">ceramic coating</a> is the better investment. We will tell you honestly which service the vehicle actually needs when we arrive.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'How is this different from exterior detailing?',
+        a: 'Exterior detailing includes chemical and clay decontamination before any protection goes on. Wash and wax skips that step, so it is faster and less expensive, but it will not remove bonded contamination or restore a neglected finish.'
+      },
+      {
+        q: 'How long does the wax last?',
+        a: 'A quality carnauba wax typically holds three to six weeks in Florida conditions, up to a few months on a garage-kept vehicle. For longer protection, ask about a sealant or ceramic coating instead.'
+      },
+      {
+        q: 'Can I book this on a recurring schedule?',
+        a: 'Yes. Many customers keep a vehicle looking sharp with wash and wax every two to four weeks. Set your preferred cadence in the booking notes and we will confirm a recurring slot.'
       }
     ]
   }

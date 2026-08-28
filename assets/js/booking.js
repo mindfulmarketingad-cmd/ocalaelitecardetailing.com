@@ -22,14 +22,14 @@
       value: 'exterior',
       title: 'Exterior Detailing',
       desc: 'Decontamination wash, clay treatment, wheels, trim, and sealant protection.',
-      price: 'From $179',
+      price: 'From $199+',
       href: '/services/exterior-detailing/'
     },
     {
       value: 'interior',
       title: 'Interior Detailing',
       desc: 'Extraction, steam cleaning, leather care, UV protection, and odor removal.',
-      price: 'From $169',
+      price: 'From $199+',
       href: '/services/interior-detailing/'
     },
     {
@@ -43,7 +43,7 @@
       value: 'ceramic_coating',
       title: 'Ceramic Coating',
       desc: 'Paint correction and a multi-year coating bonded to the clear coat.',
-      price: 'From $699',
+      price: 'From $999+',
       href: '/services/ceramic-coating/'
     }
   ];
