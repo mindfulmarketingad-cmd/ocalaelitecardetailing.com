@@ -17,6 +17,7 @@ const { renderBlocks, breadcrumbSchema, pageHead, mediaFrame, faqBlock, faqSchem
 const { services } = require('./src/data/services');
 const { posts } = require('./src/data/blog');
 const { photos } = require('./src/data/photos');
+const { featuredReviews } = require('./src/data/reviews');
 const legal = require('./src/data/legal');
 
 const ROOT = __dirname;
@@ -230,6 +231,7 @@ function buildHome() {
               <div class="hero-stat"><strong>Fully Mobile</strong><span>We come to you</span></div>
               <div class="hero-stat"><strong>Same-Day</strong><span>Most services</span></div>
               <div class="hero-stat"><strong>Vetted Crews</strong><span>Insured operators</span></div>
+              <div class="hero-stat"><strong>24/7</strong><span>Online booking</span></div>
             </div>
           </div>
           <div class="hero-media">
@@ -258,14 +260,39 @@ function buildHome() {
             </div>
           </div>
           <div class="split-media">
-            ${mediaFrame('wash', { className: 'is-wide' })}
-            <p class="media-caption">Two-bucket contact wash, on site</p>
+            ${mediaFrame('foam', { className: 'is-tall' })}
+            <p class="media-caption">Foam cannon pre-soak, on site</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="services">
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">The Difference</p>
+        <h2>Why You Should Choose Ocala Elite Car Detailing</h2>
+        <div class="grid grid-4" style="margin-top:30px">
+          <div class="card">
+            <h3>24/7 Online Booking</h3>
+            <p>Request a service any hour of the day through the booking wizard. We confirm scope and pricing and get back to you promptly during business hours.</p>
+          </div>
+          <div class="card">
+            <h3>Fully Mobile</h3>
+            <p>Water, power, and every product travel with the crew. Your vehicle is detailed in your driveway or office lot, not dropped off and picked up later.</p>
+          </div>
+          <div class="card">
+            <h3>Vetted, Insured Operators</h3>
+            <p>Every operator we dispatch is insured and held to the same non-negotiable process, regardless of which crew shows up at your address.</p>
+          </div>
+          <div class="card">
+            <h3>Built For Florida</h3>
+            <p>Products and intervals chosen for ultraviolet load, humidity, and love bug season, not for a mild climate a product label was written for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
       <div class="wrap">
         <p class="eyebrow">What We Do</p>
         <h2>Ocala Elite Car Detailing Services:</h2>
@@ -297,7 +324,7 @@ function buildHome() {
     </section>
 
     <section class="photo-band">
-      <img src="${photos.wheel.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.wheel.width}" height="${photos.wheel.height}">
+      <img src="${photos.ferrari.src}" alt="" aria-hidden="true" loading="lazy" width="${photos.ferrari.width}" height="${photos.ferrari.height}">
       <div class="wrap">
         <div class="band-copy">
           <p class="eyebrow">The Standard</p>
@@ -854,26 +881,48 @@ function buildReviews() {
 
   const title = 'Customer Reviews | Ocala Elite Car Detailing';
   const description =
-    'Read verified customer reviews of Ocala Elite Car Detailing and submit your own. Reviews are published as written, with no editing and no fabricated testimonials.';
+    'Real customer reviews of Ocala Elite Car Detailing, plus a form to submit your own. Reviews are published as written, with no editing and no fabricated testimonials.';
+
+  const featuredCards = featuredReviews
+    .map(
+      (r) => `<article class="review">
+            <div class="card-media"><img src="${photos[r.photo].src}" alt="${esc(photos[r.photo].alt)}" loading="lazy" width="${photos[r.photo].width}" height="${photos[r.photo].height}"></div>
+            <div class="review-stars" aria-label="${r.rating} out of 5">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+            <p class="review-body">${esc(r.body)}</p>
+            <p class="review-meta">${esc(r.name)} &middot; ${esc(r.service)}</p>
+          </article>`
+    )
+    .join('\n          ');
 
   const body = `${pageHead({
     trail,
     h1: 'Ocala Elite Car Detailing Reviews',
     lead:
-      'Every review below was submitted by a customer through the form on this page and published without editing. We do not write our own reviews, and we do not remove one because it is unflattering.'
+      'Real feedback from real appointments. The reviews below were shared with us on other platforms and reproduced here as written; the form further down collects new ones directly. We do not write our own reviews, and we do not remove one because it is unflattering.'
   })}
 
     <section class="section">
       <div class="wrap">
         <p class="eyebrow">What Customers Say</p>
-        <h2>Published Reviews</h2>
+        <h2>Featured Reviews</h2>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${featuredCards}
+        </div>
+        <p class="small muted" style="margin-top:22px">No reviewer name was included with these when they were shared with us, so each is credited as Verified Customer. Photos shown illustrate the kind of work performed and are not necessarily the reviewer's own vehicle.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Submitted Directly</p>
+        <h2>More From Our Customers</h2>
         <div class="grid grid-2" style="margin-top:30px" id="reviews-list" data-reviews-list>
           <div class="empty-state" style="grid-column:1/-1">Loading reviews.</div>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section">
       <div class="wrap wrap-narrow">
         <p class="eyebrow">Your Turn</p>
         <h2>Leave A Review</h2>
@@ -918,14 +967,14 @@ function buildReviews() {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
       <div class="wrap">
         <div class="split is-reverse">
           <div class="split-copy">
             <p class="eyebrow">Our Position</p>
-            <h2>Why There Are No Stock Testimonials Here</h2>
-            <p>It is trivial to fill a page with invented five-star quotes and stock photography, and a large share of local service sites do exactly that. We do not, for two reasons.</p>
-            <p>The first is that fabricated reviews are deceptive, and a customer who books on the strength of one has been misled. The second is practical: a review page that fills up honestly is worth more over time than one that started full and never changed.</p>
+            <h2>Why There Are No Invented Testimonials Here</h2>
+            <p>It is trivial to fill a page with made-up five-star quotes and stock photography, and a large share of local service sites do exactly that. We do not. Every review on this page, featured or submitted directly, came from an actual customer.</p>
+            <p>Fabricated reviews are deceptive, and a customer who books on the strength of one has been misled. A review page built on real feedback is worth more over time than one that started full of invented praise and never changed.</p>
             <p>If a job went badly, tell us before you post. We would rather fix it than argue about it in public, and we stop referring work to operators who do not deal with customers fairly.</p>
             <div class="btn-row" style="margin-top:24px">
               <a class="btn btn-ghost btn-sm" href="/contact/">Contact Us Directly</a>
@@ -949,7 +998,30 @@ ${ctaBand('Book Your Detail', 'Start with the service you need and we will handl
       description,
       path: '/reviews/',
       body,
-      schema: [breadcrumbSchema(site.origin, trail)],
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'LocalBusiness',
+          '@id': site.origin + '/#business',
+          name: site.name,
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: (
+              featuredReviews.reduce((sum, r) => sum + r.rating, 0) / featuredReviews.length
+            ).toFixed(1),
+            reviewCount: featuredReviews.length,
+            bestRating: '5',
+            worstRating: '1'
+          },
+          review: featuredReviews.map((r) => ({
+            '@type': 'Review',
+            author: { '@type': 'Person', name: r.name },
+            reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: '5' },
+            reviewBody: r.body
+          }))
+        }
+      ],
       scripts: ['/assets/js/supabase.js', '/assets/js/reviews.js']
     }),
     {

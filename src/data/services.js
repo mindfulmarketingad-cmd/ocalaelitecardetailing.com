@@ -4,7 +4,7 @@
 const services = [
   {
     slug: 'mobile-detailing',
-    photo: 'wash',
+    photo: 'foam',
     name: 'Mobile Detailing',
     // Used as the H3 blurb on the homepage and the card copy on the hub page.
     summary:
@@ -64,7 +64,7 @@ const services = [
   },
   {
     slug: 'ceramic-coating',
-    photo: 'tesla',
+    photo: 'ferrari',
     name: 'Ceramic Coating',
     summary:
       'A semi-permanent liquid glass layer that cross-links to your clear coat and stays there for years. Ceramic coating gives paint a hard, slick, hydrophobic shell that shrugs off love bugs, tree sap, hard water, and the UV load a Florida summer puts on a finish.',
@@ -247,7 +247,7 @@ const services = [
   },
   {
     slug: 'full-package',
-    photo: 'tesla',
+    photo: 'wash',
     name: 'Full Package',
     summary:
       'Inside and outside, taken to the same standard in one appointment. Full decontamination and protection on the exterior, extraction and conditioning on the interior, and a finished vehicle that presents like it just came off a showroom floor.',
@@ -298,6 +298,82 @@ const services = [
       {
         q: 'Can the full package be done at my home?',
         a: 'Yes. It is a mobile appointment like any other; it simply occupies most of the day. We need enough room to open all doors and work around the vehicle.'
+      }
+    ]
+  },
+  {
+    slug: 'paint-correction',
+    photo: 'tesla',
+    name: 'Paint Correction',
+    summary:
+      'Machine polishing that removes swirl marks, wash marring, oxidation, and light scratches from the clear coat itself, rather than covering them up. The step that turns a clean car into one with real depth and gloss.',
+    metaTitle: 'Paint Correction in Ocala FL | Ocala Elite Car Detailing',
+    metaDescription:
+      'Professional paint correction in Ocala, FL. Machine polishing removes swirl marks, oxidation, and light scratches from clear coat, restoring true gloss before sealant or ceramic coating.',
+    h1: 'Paint Correction in Ocala, Florida',
+    lead:
+      'Washing removes dirt. Correction removes damage. Machine polishing levels the clear coat itself, cutting away the swirl marks, wash marring, and oxidation that years of washing and Florida sun leave behind, and brings back the depth and reflection the paint had when it was new.',
+    priceFrom: '$399',
+    duration: '1 - 2 days',
+    sections: [
+      {
+        h2: 'What Correction Actually Removes',
+        body: [
+          'Every visible defect in a clear coat is either contamination sitting on the surface or damage inside the surface. A wash and decontamination handles the first category. Correction is the only thing that addresses the second, because swirl marks, holograms, wash-induced scratches, and UV oxidation are not on the paint, they are cut into it.',
+          'Run a bright light across a car that has been washed for a few years without correction and the defects show up as a fine spider-web pattern across every panel. That pattern is what scatters light instead of reflecting it cleanly, which is why a car can be spotless and still look dull.'
+        ]
+      },
+      {
+        h2: 'One-Step Versus Multi-Stage Correction',
+        body: [
+          'Not every vehicle needs the same amount of work, and paint depth readings taken before we start tell us how much clear coat is actually available to work with.'
+        ],
+        list: [
+          'One-step polish: removes light swirling and restores gloss on a daily driver in reasonably good condition',
+          'Two-stage correction: a cutting compound removes deeper marring, followed by a finishing polish to refine clarity',
+          'Multi-stage correction: heavier compounding on severely oxidized or neglected paint, stepped down through finer polishes until the finish is level',
+          'Spot correction: targeted work on specific panels rather than the whole vehicle, priced accordingly'
+        ]
+      },
+      {
+        h2: 'The Correction Process',
+        list: [
+          'Full decontamination wash, iron fallout removal, and clay treatment before any machine work begins',
+          'Paint depth readings across every panel to confirm how much clear coat is safe to remove',
+          'Test section polished first and inspected under dedicated lighting to set the correct pad and compound',
+          'Machine polishing worked panel by panel, checked continuously under LED and sunlight',
+          'Panels wiped with a dedicated solvent between stages to reveal true progress, not compound haze',
+          'Finished paint sealed the same day, since bare corrected clear coat has no protection of its own'
+        ]
+      },
+      {
+        h2: 'Correction Is A Prerequisite, Not An Add-On',
+        body: [
+          'Sealant, spray coatings, and ceramic coatings all lock in whatever is underneath them at the moment of application. Coating over uncorrected paint seals every swirl and scratch in place for the life of the product, which is why we will not install a ceramic coating over paint we have not inspected first.',
+          'If you are planning on ceramic coating and the paint needs correction, we quote both together. If the paint is already in good condition, correction may not be needed at all, and we will tell you that rather than sell you a stage you do not need.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'Will correction remove all my scratches?',
+        a: 'It removes what is safely within the clear coat, which covers the large majority of swirl marks, wash marring, and light scratches. A scratch deep enough to catch a fingernail has usually gone through the clear coat and needs touch-up or repaint, not polishing.'
+      },
+      {
+        q: 'Does correction remove clear coat?',
+        a: 'Yes, a small, controlled amount. That is why we take paint depth readings before starting and stop at whatever level is safe for that specific panel, rather than polishing every car the same way.'
+      },
+      {
+        q: 'Do I need ceramic coating after correction?',
+        a: 'Not necessarily. Correction is often finished with a sealant instead. Coating is worth adding if you want the result to last years rather than months, but it is a separate decision with its own cost.'
+      },
+      {
+        q: 'How long does paint correction take?',
+        a: 'A one-step polish on a single vehicle usually runs one full day. Multi-stage correction on heavily marred or oxidized paint can take two days, which we confirm after inspecting the finish.'
+      },
+      {
+        q: 'Can this be done at my house?',
+        a: 'Machine polishing needs a shaded, low-dust area with steady power, which a garage or covered carport usually provides. Full multi-stage work is sometimes better scheduled at a controlled location, which we arrange when we quote the job.'
       }
     ]
   }
