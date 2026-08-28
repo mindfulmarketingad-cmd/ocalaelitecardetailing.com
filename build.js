@@ -685,6 +685,8 @@ function buildServicePage(s) {
       </div>
     </section>
 
+${hubLinks('/services/')}
+
 ${ctaBand(`Book ${s.name}`, 'Select this service in the booking wizard and we will confirm availability and firm pricing.')}`;
 
   write(
@@ -905,7 +907,9 @@ function buildPostPage(p, older, newer) {
         </div>
         <p style="margin-top:28px"><a href="/blog/">All articles</a> or back to the <a href="/">homepage</a>.</p>
       </div>
-    </section>`;
+    </section>
+
+${hubLinks('/blog/')}`;
 
   write(
     `/blog/${p.slug}`,
@@ -1151,17 +1155,7 @@ function buildSearch() {
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="wrap">
-        <p class="eyebrow">Or Browse</p>
-        <h2>Start From A Hub</h2>
-        <div class="grid grid-3" style="margin-top:28px">
-          <a class="card" href="/services/"><h3>Services</h3><p>All five detailing services with scope, pricing, and duration.</p><span class="card-link">Open</span></a>
-          <a class="card" href="/blog/"><h3>Blog</h3><p>Guides on protection, maintenance intervals, and Florida-specific damage.</p><span class="card-link">Open</span></a>
-          <a class="card" href="/reviews/"><h3>Reviews</h3><p>Customer feedback and the form to submit your own.</p><span class="card-link">Open</span></a>
-        </div>
-      </div>
-    </section>
+${hubLinks('/search/')}
 
 ${ctaBand('Cannot Find It?', 'Send us the question directly and we will answer it.')}`;
 
@@ -1404,6 +1398,8 @@ function buildContact() {
         </div>
       </div>
     </section>
+
+${hubLinks()}
 
 ${ctaBand('Ready When You Are', 'Skip the back and forth and start the booking wizard.')}`;
 

@@ -216,7 +216,7 @@ const services = [
       },
       {
         q: 'Do you clean engine bays?',
-        a: 'Yes, as an add-on. Engine bay cleaning is done with controlled low pressure and sensitive components covered, then plastics and hoses are dressed.'
+        a: 'Yes. It is not part of the exterior service, but it can be added to the same appointment or booked on its own as engine detailing, done with controlled low pressure and sensitive components covered, then plastics and hoses dressed.'
       }
     ]
   },
@@ -477,6 +477,136 @@ const services = [
       {
         q: 'Can I book this on a recurring schedule?',
         a: 'Yes. Many customers keep a vehicle looking sharp with wash and wax every two to four weeks. Set your preferred cadence in the booking notes and we will confirm a recurring slot.'
+      }
+    ]
+  },
+  {
+    slug: 'engine-detailing',
+    photo: 'wash',
+    name: 'Engine Detailing',
+    summary:
+      'A careful clean of the engine bay, with sensitive electronics covered and controlled low pressure throughout. Degreased, detailed, and conditioned so hoses and plastics look right and stay protected.',
+    metaTitle: 'Engine Bay Detailing in Ocala FL | Ocala Elite Car Detailing',
+    metaDescription:
+      'Engine bay detailing in Ocala, FL. Sensitive components covered, degreased and agitated by hand, then dressed and conditioned. Starting at $169.99, done at your address.',
+    h1: 'Engine Detailing in Ocala, Florida',
+    lead:
+      'The engine bay is the part of the vehicle most owners never clean and every buyer opens. Done properly it is a careful, low-pressure process with the electronics protected the whole way through, not a pressure washer pointed at an open hood.',
+    priceFrom: '$169.99',
+    duration: '1 - 2 hours',
+    overview: [
+      { title: 'Pre-Clean Inspection', body: 'We start with a thorough inspection of your engine to identify any potential issues or areas that need special attention.' },
+      { title: 'Protective Measures', body: 'Essential electrical components and other sensitive areas are covered to prevent any damage during the cleaning process.' },
+      { title: 'Degreasing', body: 'A high-quality degreaser is applied to break down grease, grime, and oil buildup on the engine surfaces.' },
+      { title: 'Agitation', body: 'Stubborn dirt and debris are loosened using brushes to ensure a deep clean in all the nooks and crannies.' },
+      { title: 'Rinse', body: 'The engine is carefully rinsed to remove all traces of the degreaser and dirt, ensuring a clean surface.' },
+      { title: 'Drying (Optional)', body: 'We use air compressors and microfiber towels to dry the engine, preventing any water spots or potential rust.' },
+      { title: 'Detailing', body: 'All visible surfaces, including hoses, plastic covers, and metal parts, are detailed to give your engine a polished look.' },
+      { title: 'Conditioning', body: 'Rubber and plastic components are conditioned to restore their appearance and protect against cracking or fading.' },
+      { title: 'Final Inspection', body: 'A final inspection is conducted to ensure every part of the engine bay is thoroughly cleaned and detailed to perfection.' }
+    ],
+    sections: [
+      {
+        h2: 'Why The Engine Bay Is Worth Cleaning',
+        body: [
+          'Two reasons account for almost every engine detail we book. The first is resale: a buyer who opens the hood on a clean, dressed bay reads the whole vehicle as well maintained, and that impression is worth real money on a private sale or a trade-in appraisal.',
+          'The second is maintenance visibility. Grease and road film hide leaks. A clean bay means a weeping gasket, a seeping hose, or a fresh oil drip shows up immediately instead of six months later, when it has become a bigger repair.'
+        ]
+      },
+      {
+        h2: 'Done Carefully, Not Quickly',
+        body: [
+          'Engine bays are where careless detailing does expensive damage. Alternators, fuse boxes, intakes, coil packs, and exposed connectors do not tolerate a pressure washer, and a bay soaked without covering them can produce a no-start or an intermittent electrical fault days later.',
+          'Everything sensitive is covered before any liquid is used, pressure stays low and controlled, and the bay is dried rather than left to air dry. If we see something on the pre-clean inspection that makes wet cleaning a bad idea on your vehicle, we will say so and offer a dry detail instead.'
+        ]
+      },
+      {
+        h2: 'Booking It With Other Work',
+        body: [
+          'Engine detailing is already included in the <a href="/services/full-package/">full package</a>. Booked on its own it pairs naturally with <a href="/services/exterior-detailing/">exterior detailing</a>, since the vehicle is already being washed and the bay adds about an hour to the appointment.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'Is it safe to clean an engine bay with water?',
+        a: 'Yes, when it is done correctly. Sensitive components are covered first, pressure is kept low and controlled, and the bay is dried afterwards rather than left wet. The damage people worry about comes from pressure washers and uncovered electronics, neither of which we use.'
+      },
+      {
+        q: 'Will this fix an oil leak or a burning smell?',
+        a: 'No. Detailing cleans; it does not repair. What it does do is make an existing leak visible, since fresh fluid shows up immediately on clean surfaces. If we spot something during the inspection we will point it out so you can have it looked at.'
+      },
+      {
+        q: 'Do you clean engine bays on older or high-mileage vehicles?',
+        a: 'Usually yes, and they often benefit the most. On a very old vehicle with brittle wiring insulation or previous makeshift repairs we may recommend a dry detail instead, which we will discuss before starting.'
+      },
+      {
+        q: 'Is engine detailing included in other services?',
+        a: 'It is part of the full package. Exterior and interior detailing do not include it, so it is booked as its own service or added to an appointment.'
+      }
+    ]
+  },
+  {
+    slug: 'headlight-restoration',
+    photo: 'banner',
+    name: 'Headlight Restoration',
+    summary:
+      'Wet sanding and polishing that cuts away the oxidized outer layer of a yellowed headlight lens, then seals it against UV so it stays clear. Restores night-time output as much as it restores appearance.',
+    metaTitle: 'Headlight Restoration in Ocala FL | Ocala Elite Car Detailing',
+    metaDescription:
+      'Headlight restoration in Ocala, FL. Multi-stage wet sanding, polishing, and a UV sealant that keeps lenses clear instead of yellowing again in months. From $179.99.',
+    h1: 'Headlight Restoration in Ocala, Florida',
+    lead:
+      'Cloudy headlights are ultraviolet damage to the outer surface of the lens, and Florida produces them faster than almost anywhere. Restoration removes that damaged layer and seals what is underneath, which is why it lasts where a wipe-on kit does not.',
+    priceFrom: '$179.99',
+    duration: '1 - 2 hours',
+    overview: [
+      { title: 'Inspection', body: 'We start by thoroughly inspecting the condition of your headlights to assess the level of oxidation and damage.' },
+      { title: 'Cleaning', body: 'The headlights are cleaned to remove any surface dirt and debris, ensuring a smooth restoration process.' },
+      { title: 'Sanding', body: 'Multiple stages of wet sanding are performed to remove the damaged outer layer of the headlight lens, eliminating oxidation and surface imperfections.' },
+      { title: 'Polishing', body: 'A special polishing compound is applied to restore the clarity and smoothness of the headlight lens, bringing back its transparency.' },
+      { title: 'UV Protection Sealant', body: 'A high-quality UV sealant is applied to protect the headlights from future oxidation and yellowing, ensuring long-lasting results.' },
+      { title: 'Final Inspection', body: 'We conduct a final inspection to ensure the headlights are fully restored to their optimal clarity and brightness.' }
+    ],
+    sections: [
+      {
+        h2: 'This Is A Safety Repair, Not Just Cosmetic',
+        body: [
+          'A heavily oxidized lens scatters light instead of projecting it. The bulb is working exactly as hard as it always did, but a meaningful share of that output never reaches the road, which shortens how far ahead you can see at night and how early an oncoming driver picks you out.',
+          'Restoring clarity puts that output back without touching the bulb or the wiring. On a vehicle that has gone yellow over several Florida summers, the difference on a dark road is immediately obvious.'
+        ]
+      },
+      {
+        h2: 'Why The Sealant Is The Whole Job',
+        body: [
+          'Every headlight leaves the factory with a UV-resistant hard coat on the outside of the lens. What people call yellowing is that coating breaking down under ultraviolet exposure. Sanding removes the failed coating along with the damage in it, and polishing brings the polycarbonate underneath back to clarity.',
+          'At that point the lens is clear but completely unprotected, and bare polycarbonate will yellow again fast in this climate. Applying a proper UV sealant is what turns a result that lasts years into one that lasts a season. This is exactly why drugstore restoration kits disappoint: most of them polish and stop.'
+        ]
+      },
+      {
+        h2: 'What It Will Not Fix',
+        body: [
+          'Restoration works on the outside surface of the lens. It does not address moisture or condensation trapped inside the housing, internal reflector failure where the mirrored coating has flaked, cracks through the lens, or a lens that has gone hazy on the inner surface. Those need the housing replaced.',
+          'We check for all of that during the inspection and will tell you before starting if restoration is not the right answer, rather than taking the booking and handing back a disappointing result.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'How long does headlight restoration last?',
+        a: 'With the UV sealant applied, expect two to four years in Central Florida conditions before clarity starts to soften again, longer on a garage-kept vehicle. Without a sealant, a polished lens can begin yellowing within months, which is why we never skip that step.'
+      },
+      {
+        q: 'Is this better than a kit from the auto parts store?',
+        a: 'The sanding and polishing stages are broadly similar. The difference is the sealant: most consumer kits finish with a wipe-on protectant that wears off quickly, so the lens yellows again in a matter of months. The durable result comes from what goes on last.'
+      },
+      {
+        q: 'Can you fix headlights that are foggy on the inside?',
+        a: 'No. Condensation, internal reflector failure, and inner-surface hazing are inside a sealed housing, and restoration only works on the outer lens. We will identify that at inspection and tell you the housing needs replacing instead.'
+      },
+      {
+        q: 'Do you restore tail lights and fog lights too?',
+        a: 'Yes. They oxidize the same way and are restored with the same process. Mention them in the booking notes and we will include them in the quote.'
       }
     ]
   }
