@@ -17,8 +17,7 @@
       email: form.email.value.trim(),
       phone: form.phone.value.trim() || null,
       subject: form.subject.value,
-      message: form.message.value.trim(),
-      source_page: window.location.pathname
+      message: form.message.value.trim()
     };
 
     if (!data.name) return api.setStatus(status, 'Enter your name.', 'error');
@@ -30,8 +29,21 @@
     button.textContent = 'Sending';
     api.clearStatus(status);
 
+    // There is no `subject` column on the shared leads table, so it is
+    // prefixed onto the message and also kept structured in cart_items.
     api
-      .insert('contact_messages', data)
+      .insertLead('contact', {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        service: data.subject,
+        message: data.subject + '\n\n' + data.message,
+        cart_items: {
+          form: 'contact',
+          subject: data.subject,
+          body: data.message
+        }
+      })
       .then(function () {
         form.reset();
         button.textContent = 'Send Message';

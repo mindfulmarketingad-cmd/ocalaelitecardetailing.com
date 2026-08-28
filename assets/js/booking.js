@@ -295,25 +295,50 @@
     button.textContent = 'Sending';
     api.clearStatus(status);
 
-    var payload = {
-      service: state.service,
-      vehicle_type: state.vehicle_type,
-      vehicle_details: state.vehicle_details || null,
-      vehicle_condition: state.condition,
-      address: state.address || null,
-      city: state.city || null,
-      postal_code: state.postal_code || null,
-      preferred_date: state.preferred_date || null,
-      time_window: state.time_window,
-      name: state.name,
-      email: state.email,
-      phone: state.phone,
-      notes: state.notes || null,
-      source_page: window.location.pathname
-    };
+    var serviceLabel = labelFor(SERVICES, state.service);
+    var vehicleLabel = labelFor(VEHICLE_TYPES, state.vehicle_type);
+    var conditionLabel = labelFor(CONDITIONS, state.condition);
+    var windowLabel = labelFor(WINDOWS, state.time_window);
+
+    // The leads table is shared with other sites, so the human-readable
+    // summary goes in `message` (scannable straight from the inbox) while the
+    // detail-specific fields go in the cart_items jsonb catch-all.
+    var summary = [
+      'Booking request: ' + serviceLabel,
+      'Vehicle: ' + [vehicleLabel, state.vehicle_details].filter(Boolean).join(' - ') +
+        (conditionLabel ? ' (' + conditionLabel + ' condition)' : ''),
+      'Preferred: ' + [state.preferred_date, windowLabel].filter(Boolean).join(', '),
+      state.notes ? 'Notes: ' + state.notes : ''
+    ]
+      .filter(Boolean)
+      .join('\n');
 
     api
-      .insert('bookings', payload)
+      .insertLead('booking', {
+        name: state.name,
+        email: state.email,
+        phone: state.phone,
+        address: state.address || null,
+        city: state.city || null,
+        zip: state.postal_code || null,
+        service: serviceLabel,
+        best_time_to_call: windowLabel || null,
+        message: summary,
+        cart_items: {
+          form: 'booking_wizard',
+          service_value: state.service,
+          service_label: serviceLabel,
+          vehicle_type: state.vehicle_type,
+          vehicle_type_label: vehicleLabel,
+          vehicle_details: state.vehicle_details || null,
+          condition: state.condition,
+          condition_label: conditionLabel,
+          preferred_date: state.preferred_date || null,
+          time_window: state.time_window,
+          time_window_label: windowLabel,
+          notes: state.notes || null
+        }
+      })
       .then(function () {
         host.innerHTML =
           '<div class="wizard"><div class="wizard-body">' +

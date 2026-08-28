@@ -83,6 +83,58 @@ window.OECD = window.OECD || {};
     });
   }
 
+  /* --- shared leads-table helpers ----------------------------------------- */
+
+  /* The `leads` table is shared across several of the owner's lead-gen sites,
+   * so every row this site writes must be tagged with SITE to stay findable.
+   * LEAD_TABLE is the single place the table name is defined. */
+  var LEAD_TABLE = 'leads';
+  var SITE = 'ocalaelitecardetailing.com';
+
+  /* Columns deliberately never written from the browser:
+   *   status, project_type, job_category  - Postgres ENUMs owned by other
+   *     sites / staff workflow; sending an unrecognised value fails the whole
+   *     insert with 22P02.
+   *   id, created_at - rely on their database defaults.
+   */
+
+  /** Marketing attribution from the URL and referrer, if present. */
+  function attribution() {
+    var out = {};
+    try {
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function (k) {
+        var v = params.get(k);
+        if (v) out[k] = v.slice(0, 200);
+      });
+      if (document.referrer && document.referrer.indexOf(window.location.host) === -1) {
+        out.referrer = document.referrer.slice(0, 300);
+      }
+    } catch (e) {
+      /* URLSearchParams unavailable or blocked - attribution is optional. */
+    }
+    return out;
+  }
+
+  /**
+   * Insert a lead into the shared table, tagged for this site.
+   * `fields` must only contain columns listed as safe in supabase/README.md.
+   */
+  function insertLead(leadType, fields) {
+    var row = {
+      site: SITE,
+      source: 'website',
+      lead_type: leadType,
+      page_url: String(window.location.href).slice(0, 500)
+    };
+    var extra = attribution();
+    for (var a in extra) if (Object.prototype.hasOwnProperty.call(extra, a)) row[a] = extra[a];
+    for (var k in fields) {
+      if (Object.prototype.hasOwnProperty.call(fields, k) && fields[k] !== undefined) row[k] = fields[k];
+    }
+    return insert(LEAD_TABLE, row);
+  }
+
   /* --- shared form helpers ------------------------------------------------ */
 
   function setStatus(el, message, kind) {
@@ -119,7 +171,9 @@ window.OECD = window.OECD || {};
   }
 
   ns.insert = insert;
+  ns.insertLead = insertLead;
   ns.select = select;
+  ns.SITE = SITE;
   ns.setStatus = setStatus;
   ns.clearStatus = clearStatus;
   ns.isEmail = isEmail;
