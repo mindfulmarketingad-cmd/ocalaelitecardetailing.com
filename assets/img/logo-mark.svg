@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Ocala Elite Car Detailing">
+  <title>Ocala Elite Car Detailing</title>
+  <defs>
+    <linearGradient id="oecdChrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#d8d8de"/>
+      <stop offset="1" stop-color="#7d7d88"/>
+    </linearGradient>
+    <linearGradient id="oecdPlate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c22"/>
+      <stop offset="1" stop-color="#08080a"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 1 L59 15 L59 41 L32 63 L5 41 L5 15 Z" fill="url(#oecdPlate)"/>
+  <path d="M32 1 L59 15 L59 41 L32 63 L5 41 L5 15 Z" fill="none" stroke="url(#oecdChrome)" stroke-width="2.6" stroke-linejoin="miter"/>
+  <path d="M32 6 L54.5 17.6 L54.5 38.9 L32 57.2 L9.5 38.9 L9.5 17.6 Z" fill="none" stroke="#3a3a44" stroke-width="1"/>
+  <g fill="url(#oecdChrome)">
+    <polygon points="20,19 52,19 48,26 16,26"/>
+    <polygon points="24,30 52,30 48,37 20,37"/>
+    <polygon points="28,41 48,41 44,48 24,48"/>
+  </g>
+</svg>

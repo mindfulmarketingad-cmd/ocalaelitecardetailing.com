@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="fvChrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#9a9aa4"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="#08080a"/>
+  <path d="M32 3 L57 16 L57 40 L32 61 L7 40 L7 16 Z" fill="#111116" stroke="url(#fvChrome)" stroke-width="3.4" stroke-linejoin="miter"/>
+  <g fill="url(#fvChrome)">
+    <polygon points="20,19 52,19 48,26 16,26"/>
+    <polygon points="24,30 52,30 48,37 20,37"/>
+    <polygon points="28,41 48,41 44,48 24,48"/>
+  </g>
+</svg>

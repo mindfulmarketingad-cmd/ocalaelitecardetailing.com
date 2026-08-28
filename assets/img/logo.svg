@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" width="360" height="72" role="img" aria-label="Ocala Elite Car Detailing">
+  <title>Ocala Elite Car Detailing</title>
+  <defs>
+    <linearGradient id="lgChrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#d8d8de"/>
+      <stop offset="1" stop-color="#7d7d88"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4,4)">
+    <path d="M32 1 L59 15 L59 41 L32 63 L5 41 L5 15 Z" fill="#0d0d10"/>
+    <path d="M32 1 L59 15 L59 41 L32 63 L5 41 L5 15 Z" fill="none" stroke="url(#lgChrome)" stroke-width="2.6" stroke-linejoin="miter"/>
+    <g fill="url(#lgChrome)">
+      <polygon points="20,19 52,19 48,26 16,26"/>
+      <polygon points="24,30 52,30 48,37 20,37"/>
+      <polygon points="28,41 48,41 44,48 24,48"/>
+    </g>
+  </g>
+  <text x="84" y="34" fill="#f4f4f6" font-family="Oswald, 'Arial Narrow', Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="1.6">OCALA ELITE</text>
+  <text x="85" y="55" fill="#8b8b96" font-family="Oswald, 'Arial Narrow', Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="6.2">CAR DETAILING</text>
+</svg>
