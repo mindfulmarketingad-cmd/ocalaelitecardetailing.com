@@ -1,14 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-
-  "// build": "The generator writes plain HTML into the repository root, so the output directory is the root itself. Without outputDirectory, Vercel looks for public/ and fails the build.",
   "buildCommand": "node build.js && node tools/check-links.js",
   "outputDirectory": ".",
   "installCommand": "npm install --no-audit --no-fund",
-
   "cleanUrls": true,
   "trailingSlash": true,
-
   "headers": [
     {
       "source": "/assets/(.*)",
