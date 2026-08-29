@@ -957,9 +957,49 @@ function buildPostPage(p, older, newer) {
     { label: p.title, href: `/blog/${p.slug}/` }
   ];
 
-  const related = posts.filter((o) => o.slug !== p.slug).slice(0, 3);
   const toc = tocFromBlocks(p.body);
   const author = authorBySlug(p.author);
+
+  /* Topic cluster. The pillar lists every supporting article; each supporting
+   * article points back at the pillar and sideways at its siblings. That is
+   * the whole point of the structure: one page accumulates the authority and
+   * the others feed it. */
+  const topic = p.pillar || p.cluster;
+  const pillarPost = topic ? posts.find((o) => o.pillar === topic) : null;
+  const clusterPosts = topic
+    ? posts.filter((o) => o.cluster === topic && o.slug !== p.slug)
+    : [];
+
+  const clusterBlock = !topic
+    ? ''
+    : p.pillar
+      ? `<div class="callout">
+          <h3>In This Series</h3>
+          <p>Supporting articles that go deeper on individual parts of this guide.</p>
+          <ul class="checklist" style="margin-bottom:0">
+            ${clusterPosts
+              .map((o) => `<li><a href="/blog/${o.slug}/">${esc(o.title)}</a></li>`)
+              .join('\n            ')}
+          </ul>
+        </div>`
+      : `<div class="callout">
+          <h3>Part Of A Series</h3>
+          <p>This article is one part of our <a href="/blog/${pillarPost ? pillarPost.slug : 'ceramic-coating-guide'}/">${esc(pillarPost ? pillarPost.title : 'complete guide')}</a>, which covers the subject end to end.</p>
+          ${
+            clusterPosts.length
+              ? `<ul class="checklist" style="margin-bottom:0">
+            ${clusterPosts.map((o) => `<li><a href="/blog/${o.slug}/">${esc(o.title)}</a></li>`).join('\n            ')}
+          </ul>`
+              : ''
+          }
+        </div>`;
+
+  /* Related reading prefers same-cluster articles, then falls back to the
+   * rest of the blog so a standalone post is never left without any. */
+  const related = [
+    ...posts.filter((o) => o.slug !== p.slug && topic && (o.cluster === topic || o.pillar === topic)),
+    ...posts.filter((o) => o.slug !== p.slug && !(topic && (o.cluster === topic || o.pillar === topic)))
+  ].slice(0, 3);
 
   const nav = [];
   if (older) nav.push(`<a class="btn btn-ghost btn-sm" href="/blog/${older.slug}/">Previous: ${esc(older.title)}</a>`);
@@ -986,6 +1026,8 @@ function buildPostPage(p, older, newer) {
         <article class="prose">
           ${renderBlocks(p.body)}
         </article>
+
+        ${clusterBlock}
 
         <div class="callout" style="margin-bottom:0">
           <h3>About The Author</h3>
