@@ -172,6 +172,19 @@ const hubLinks = (exclude = '') => {
     </section>`;
 };
 
+/* The four services offered as the wizard's opening choice, in this order.
+ * The rest of the menu is still bookable: every service page has its own
+ * "Book <service>" button which deep-links with ?service=<slug>, and the
+ * wizard shows that service as chosen even though it is not one of the four.
+ * Keeping the first question short stops it becoming a nine-item wall. */
+const WIZARD_PRIMARY = ['interior-detailing', 'exterior-detailing', 'ceramic-coating', 'full-package'];
+
+/* Wizard-only labels, where the service page title is not the clearest
+ * phrasing for someone choosing between options. */
+const WIZARD_LABELS = {
+  'full-package': 'Full Package (Interior + Exterior)'
+};
+
 /**
  * Service options for the booking wizard, generated from src/data/services.js.
  * The wizard used to carry its own hardcoded copy of this list, which silently
@@ -180,11 +193,21 @@ const hubLinks = (exclude = '') => {
 function bookingServicesJson() {
   const payload = services.map((s) => ({
     value: s.slug,
-    title: s.name,
+    title: WIZARD_LABELS[s.slug] || s.name,
     desc: s.summary.split('. ')[0] + '.',
     price: 'From ' + s.priceFrom,
-    href: `/services/${s.slug}/`
+    href: `/services/${s.slug}/`,
+    primary: WIZARD_PRIMARY.indexOf(s.slug) !== -1
   }));
+  // Primary options first, in the order given above.
+  payload.sort((a, b) => {
+    const ai = WIZARD_PRIMARY.indexOf(a.value);
+    const bi = WIZARD_PRIMARY.indexOf(b.value);
+    if (ai === -1 && bi === -1) return 0;
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
   // Escaped so the JSON can never terminate the surrounding script element.
   return JSON.stringify(payload).replace(/</g, '\\u003c');
 }
@@ -2116,6 +2139,12 @@ function costTiers(s) {
   ];
 }
 
+/* Mobile detailing is excluded from the costs section: it is not really a
+ * separate purchase, it is how every other service is delivered, so pricing it
+ * alongside them invites the reader to compare things that are not
+ * alternatives. Its service page at /services/mobile-detailing/ is unaffected. */
+const COSTED_SERVICES = services.filter((s) => s.slug !== 'mobile-detailing');
+
 function buildCosts() {
   const trail = [
     { label: 'Home', href: '/' },
@@ -2126,7 +2155,7 @@ function buildCosts() {
   const description =
     'What every detailing service costs in Ocala, FL, what drives each price up or down, and what is not included. Starting prices for all nine services.';
 
-  const rows = services
+  const rows = COSTED_SERVICES
     .map(
       (s) => `<tr>
               <td><a href="/costs/${s.slug}/">${esc(s.name)}</a></td>
@@ -2137,7 +2166,7 @@ function buildCosts() {
     )
     .join('\n            ');
 
-  const cards = services
+  const cards = COSTED_SERVICES
     .map(
       (s) => `<a class="card" href="/costs/${s.slug}/">
             <span class="card-index">From ${esc(s.priceFrom)}</span>
@@ -2221,7 +2250,7 @@ ${ctaBand('Get A Firm Price', 'Tell us the service and the vehicle and we will c
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'Detailing Service Costs',
-          itemListElement: services.map((s, i) => ({
+          itemListElement: COSTED_SERVICES.map((s, i) => ({
             '@type': 'ListItem',
             position: i + 1,
             name: `${s.name} cost`,
@@ -2241,7 +2270,7 @@ ${ctaBand('Get A Firm Price', 'Tell us the service and the vehicle and we will c
     }
   );
 
-  services.forEach((s) => buildCostPage(s));
+  COSTED_SERVICES.forEach((s) => buildCostPage(s));
 }
 
 function buildCostPage(s) {
@@ -2264,7 +2293,7 @@ function buildCostPage(s) {
     .map((t) => `<tr><td>${esc(t.label)}</td><td>${esc(t.price)}</td></tr>`)
     .join('\n            ');
 
-  const others = services.filter((o) => o.slug !== s.slug);
+  const others = COSTED_SERVICES.filter((o) => o.slug !== s.slug);
 
   const body = `${pageHead({
     trail,

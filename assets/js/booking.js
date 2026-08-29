@@ -1,8 +1,9 @@
 /* Booking wizard.
  *
- * Five steps: service, vehicle, location, contact, review. The first question
- * is always which service the customer needs. On submit the request is written
- * to the `bookings` table in Supabase.
+ * Five steps: service, vehicle, location, contact, review. On submit the
+ * request is written to the shared `leads` table in Supabase, tagged to this
+ * site. Arriving from a "Book <service>" link answers the first question and
+ * opens the wizard on the vehicle step.
  */
 (function () {
   'use strict';
@@ -21,7 +22,7 @@
    * embedded as JSON, so adding a service to the site adds it here too. This
    * file previously carried its own hardcoded copy, which silently went stale
    * every time a new service page was created. */
-  var SERVICES = (function () {
+  var ALL_SERVICES = (function () {
     var el = document.querySelector('[data-booking-services]');
     if (!el) return [];
     try {
@@ -37,7 +38,7 @@
 
   // Without a service list the first step would render empty and the customer
   // could never advance, so fail visibly with a way to reach us instead.
-  if (!SERVICES.length) {
+  if (!ALL_SERVICES.length) {
     host.innerHTML =
       '<div class="callout" style="margin-top:0">' +
       '<h3>Online Booking Is Temporarily Unavailable</h3>' +
@@ -69,16 +70,18 @@
 
   var STEPS = ['Service', 'Vehicle', 'Location', 'Contact', 'Review'];
 
-  /* A "Book Now" link elsewhere on the site can name its service, e.g.
-   * /?service=ceramic-coating#book. The wizard opens with that option already
-   * selected so the choice is visible and confirmable, rather than silently
-   * skipping the step. An unrecognised value is ignored. */
+  /* A "Book Now" link elsewhere on the site names its service, e.g.
+   * /?service=ceramic-coating#book. That answers the first question, so the
+   * wizard opens on the vehicle step with the service already chosen; the
+   * progress bar marks Service complete and Back returns to it. Any service
+   * on the site is accepted here, not just the four primary ones. An
+   * unrecognised value is ignored and the wizard starts normally. */
   var preselected = (function () {
     try {
       var want = new URLSearchParams(window.location.search).get('service');
       if (!want) return '';
-      for (var i = 0; i < SERVICES.length; i++) {
-        if (SERVICES[i].value === want) return want;
+      for (var i = 0; i < ALL_SERVICES.length; i++) {
+        if (ALL_SERVICES[i].value === want) return want;
       }
     } catch (e) {
       /* URLSearchParams unavailable; fall through to no preselection. */
@@ -86,8 +89,18 @@
     return '';
   })();
 
+  /* The first question offers the four primary services. A service deep-linked
+   * from its own page is added to that list so the customer can see what they
+   * picked and change it, rather than it being silently held off-screen. */
+  var SERVICES = ALL_SERVICES.filter(function (s) {
+    return s.primary || s.value === preselected;
+  });
+
   var state = {
-    step: 0,
+    // Arriving from a "Book <service>" button means the first question is
+    // already answered, so the wizard opens on the vehicle step. The progress
+    // bar shows Service as complete and Back returns to it.
+    step: preselected ? 1 : 0,
     service: preselected,
     vehicle_type: '',
     vehicle_details: '',
