@@ -240,6 +240,16 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
 
+/* Compact call to action for use inside a table row. */
+.btn-table {
+  padding: 8px 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+td:has(> .btn-table) { text-align: right; }
+
 /* --- Hero --------------------------------------------------------------- */
 
 .hero {

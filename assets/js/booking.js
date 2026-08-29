@@ -69,9 +69,26 @@
 
   var STEPS = ['Service', 'Vehicle', 'Location', 'Contact', 'Review'];
 
+  /* A "Book Now" link elsewhere on the site can name its service, e.g.
+   * /?service=ceramic-coating#book. The wizard opens with that option already
+   * selected so the choice is visible and confirmable, rather than silently
+   * skipping the step. An unrecognised value is ignored. */
+  var preselected = (function () {
+    try {
+      var want = new URLSearchParams(window.location.search).get('service');
+      if (!want) return '';
+      for (var i = 0; i < SERVICES.length; i++) {
+        if (SERVICES[i].value === want) return want;
+      }
+    } catch (e) {
+      /* URLSearchParams unavailable; fall through to no preselection. */
+    }
+    return '';
+  })();
+
   var state = {
     step: 0,
-    service: '',
+    service: preselected,
     vehicle_type: '',
     vehicle_details: '',
     condition: '',
