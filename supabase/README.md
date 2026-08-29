@@ -91,6 +91,28 @@ curl -s -o /dev/null -w "%{http_code}\n" \
   "https://tbqigevoksabizjogvtm.supabase.co/rest/v1/leads?select=id&limit=1"
 ```
 
+### Reading the error without DevTools
+
+Append `?debug=1` to any page URL. Form errors then print the raw HTTP status,
+the Postgres error code, and the response body on screen instead of the
+customer-facing wording:
+
+```
+https://ocalaelitecardetailing.com/?debug=1#book
+```
+
+Leave the parameter off and customers only ever see the friendly message.
+
+### Is it just this table, or the whole Data API?
+
+The `/reviews/` page reads from Supabase on every load, through the same Data
+API and the same key. That makes it a free discriminator:
+
+| `/reviews/` loads reviews | `leads` insert 404s | Meaning |
+| --- | --- | --- |
+| yes | yes | The Data API and key are fine. The problem is specific to `leads` - schema, grant, or stale cache. |
+| no | yes | The Data API itself is not serving `public`, or the project is paused. |
+
 If a real submission fails, open the browser console — failed inserts log the
 exact HTTP status and Postgres message.
 
@@ -100,7 +122,7 @@ Common results:
 | --- | --- | --- |
 | 401 | API key rejected | Wrong/rotated key in `assets/js/supabase.js` |
 | 403 | RLS or column grant blocks the insert | anon needs `INSERT` on `leads` for the columns listed above |
-| 404 | Table not found | Table name in `LEAD_TABLE` is wrong |
+| 404 | PostgREST cannot find the table **in its schema cache** - not a permissions error | Run [`diagnose-404.sql`](./diagnose-404.sql). Usually a stale cache (`notify pgrst, 'reload schema';`), a table outside the exposed schemas, or no `anon` grant at all |
 | 400 + `22P02` | An ENUM column got an unrecognised value | Something is writing `status`/`project_type`/`job_category` |
 | 400 + `PGRST204` | A column in the payload does not exist | Column name drift — compare against the list above |
 

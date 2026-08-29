@@ -65,6 +65,19 @@
   var lastFocused = null;
   var root = null;
 
+  /* Someone who has already started filling something in - the booking wizard,
+   * the contact form, the review form - has answered this question by doing.
+   * Interrupting them mid-form with a modal that steals focus and resets their
+   * journey would be worse than never showing it. */
+  var engaged = false;
+  function markEngaged() {
+    engaged = true;
+    document.removeEventListener('input', markEngaged, true);
+    document.removeEventListener('change', markEngaged, true);
+  }
+  document.addEventListener('input', markEngaged, true);
+  document.addEventListener('change', markEngaged, true);
+
   function close(answered) {
     if (!root) return;
     remember();
@@ -102,6 +115,8 @@
   }
 
   function build() {
+    if (engaged) return;
+
     // Do not interrupt someone already looking at the wizard.
     var wizard = document.querySelector('[data-booking-wizard]');
     if (wizard) {

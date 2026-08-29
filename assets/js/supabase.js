@@ -90,6 +90,8 @@ window.OECD = window.OECD || {};
           var message = (data && (data.message || data.hint || data.details)) || 'Request failed (' + res.status + ')';
           var err = new Error(message);
           err.status = res.status;
+          err.pgCode = (data && data.code) || '';
+          err.pgBody = data || text || '';
           // Customers see a friendly string; whoever is debugging needs the
           // real status and Postgres message, so surface it in the console.
           if (window.console && console.error) {
@@ -100,6 +102,14 @@ window.OECD = window.OECD || {};
             // 42501 = RLS or grant denial, 23502 = a NOT NULL column has no
             // default, PGRST204 = unknown column, 22P02 = bad enum value,
             // 401 = every key was rejected.
+            if (res.status === 404) {
+              console.error(
+                '[OECD] A 404 here means PostgREST could not find "' + table + '" in its schema cache. ' +
+                  'Usual causes: the table is not in a schema exposed to the Data API, or the cache is ' +
+                  'stale after a grant change (fix with: NOTIFY pgrst, \'reload schema\';). ' +
+                  'See supabase/diagnose-404.sql in the repository.'
+              );
+            }
             console.error('[OECD] full response:', data || text);
             console.error('[OECD] payload sent:', row);
           }
@@ -209,8 +219,35 @@ window.OECD = window.OECD || {};
       .replace(/'/g, '&#39;');
   }
 
+  /* Owner diagnostics. Append ?debug=1 to any URL and form errors show the
+   * raw HTTP status and Postgres code on screen as well as in the console.
+   * Off by default, so customers only ever see the friendly wording. */
+  function debugMode() {
+    try {
+      return new URLSearchParams(window.location.search).get('debug') === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
   /** Friendly message for the failures users can actually act on. */
   function friendlyError(err) {
+    if (debugMode() && err) {
+      var body = err.pgBody;
+      if (body && typeof body === 'object') {
+        try {
+          body = JSON.stringify(body);
+        } catch (e) {
+          body = String(body);
+        }
+      }
+      return (
+        'DEBUG - HTTP ' + (err.status || '?') +
+        (err.pgCode ? ' [' + err.pgCode + ']' : '') +
+        ' - ' + (err.message || 'no message') +
+        (body ? ' | ' + String(body).slice(0, 400) : '')
+      );
+    }
     if (err && err.status === 401) return 'We could not reach the booking system. Please call us instead.';
     if (err && err.status === 404) return 'The booking system is not set up yet. Please call or email us and we will take your details.';
     if (err && err.status === 429) return 'Too many submissions from this connection. Please wait a moment and try again.';
