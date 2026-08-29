@@ -18,18 +18,22 @@ re-grants it, and nothing should. [`schema.sql`](./schema.sql) only creates the
 
 ## Keys
 
-| Key | Status |
+| Key | Role |
 | --- | --- |
-| Anon JWT (`eyJ…role":"anon"…`) | In `assets/js/supabase.js`. **Returning HTTP 401 — needs replacing.** |
-| Publishable key (`sb_publishable_…`) | Also returned HTTP 401. Not in use. |
+| Publishable key (`sb_publishable_…`) | Tried first. Sent in the `apikey` header only. |
+| Anon JWT (`eyJ…role":"anon"…`) | Fallback. Sent in `apikey` **and** `Authorization: Bearer`. |
 | Service role key | **Never** in this repository, in client code, or in any deployed asset. Dashboard and trusted server use only. |
 
-> **⚠️ Both public keys supplied when this site was built now return 401.**
-> Every other cause has been eliminated against the live database (grants, RLS
-> and the `status` column all check out) and the deployed build is current, so
-> a rejected key is the only remaining explanation. Get the current public key
-> from **Project Settings → API Keys** in the Supabase dashboard and replace
-> `KEY` in `assets/js/supabase.js`. That is the only change needed.
+Both public keys are listed in `assets/js/supabase.js`. A request rejected with
+401 is retried once with the other key, and whichever one works is reused for
+the rest of the page's life, so the site works under either of Supabase's key
+systems without needing to know which is active.
+
+> **The header matters.** Supabase parses `Authorization: Bearer` as a JWT. A
+> publishable key is not a JWT, so sending it in that header makes the request
+> fail with 401 even when the `apikey` header is perfectly valid. This code
+> sends `Authorization` only for JWT-shaped keys. That bug was the cause of the
+> original 401 on the publishable key.
 
 ## How this site tags its leads
 

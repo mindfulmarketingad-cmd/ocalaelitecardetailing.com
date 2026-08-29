@@ -5,12 +5,9 @@
  * bundle. The key below is public by design; what protects the data is Row
  * Level Security, defined in supabase/schema.sql.
  *
- * KEY CHOICE: the newer `sb_publishable_...` key returned HTTP 401 from this
- * project, which means the project does not have the new API key system
- * enabled (or that key was rotated). The legacy anon JWT below is the
- * equivalent public key and is what this project accepts. Both are equally
- * safe to ship; RLS is the actual protection. If you later enable new API
- * keys in the dashboard, swap PUBLISHABLE_KEY back in.
+ * KEY HANDLING: both of this project's public keys are listed, and a request
+ * rejected with 401 is retried once with the next one, so the site works
+ * whichever key system the project has active. See KEYS below.
  */
 window.OECD = window.OECD || {};
 
@@ -19,27 +16,67 @@ window.OECD = window.OECD || {};
 
   var URL = 'https://tbqigevoksabizjogvtm.supabase.co';
 
-  // Kept for reference — returned 401 on this project as of Aug 2026.
-  // var PUBLISHABLE_KEY = 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a';
+  /* Two public keys exist for this project, from Supabase's two key systems.
+   * Which one a project accepts depends on whether it has migrated to the
+   * newer publishable/secret keys and whether legacy JWT keys are still
+   * enabled. Rather than guess, both are listed and tried in order: a request
+   * that comes back 401 is retried once with the next key, and whichever key
+   * works is remembered for the rest of the page's life.
+   *
+   * Both are public by design. Row Level Security is the actual protection.
+   * The service_role key must never appear here. */
+  var KEYS = [
+    // Newer publishable key.
+    'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a',
+    // Legacy anon JWT.
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRicWlnZXZva3NhYml6am9ndnRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNjQ3NTUsImV4cCI6MjA5NTY0MDc1NX0.2jK6OVrl3Mdw_xj-Z6G9QsfvZxxv28z8nriLYsJYvFw'
+  ];
 
-  var KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRicWlnZXZva3NhYml6am9ndnRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNjQ3NTUsImV4cCI6MjA5NTY0MDc1NX0.2jK6OVrl3Mdw_xj-Z6G9QsfvZxxv28z8nriLYsJYvFw';
+  var activeKey = 0;
 
-  function headers(extra) {
-    var h = {
-      apikey: KEY,
-      Authorization: 'Bearer ' + KEY,
-      'Content-Type': 'application/json'
-    };
+  /** Three dot-separated base64url segments. */
+  function isJwt(key) {
+    return /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(key);
+  }
+
+  /* The Authorization header is only sent for JWT-shaped keys. Supabase parses
+   * that header as a JWT, so putting a non-JWT publishable key in it makes the
+   * whole request fail with 401 even though the apikey header is valid. That
+   * was a real bug here: it broke the publishable key on every request. */
+  function buildHeaders(key, extra) {
+    var h = { apikey: key, 'Content-Type': 'application/json' };
+    if (isJwt(key)) h.Authorization = 'Bearer ' + key;
     for (var k in extra) if (Object.prototype.hasOwnProperty.call(extra, k)) h[k] = extra[k];
     return h;
   }
 
+  /** fetch with automatic failover to the next key on 401. */
+  function request(path, options, keyIndex) {
+    if (keyIndex === undefined) keyIndex = activeKey;
+    var opts = {
+      method: options.method,
+      headers: buildHeaders(KEYS[keyIndex], options.headers)
+    };
+    if (options.body) opts.body = options.body;
+
+    return fetch(URL + path, opts).then(function (res) {
+      if (res.status === 401 && keyIndex + 1 < KEYS.length) {
+        if (window.console && console.warn) {
+          console.warn('[OECD] Supabase rejected key ' + (keyIndex + 1) + ', retrying with the next one.');
+        }
+        activeKey = keyIndex + 1;
+        return request(path, options, keyIndex + 1);
+      }
+      if (res.ok) activeKey = keyIndex;
+      return res;
+    });
+  }
+
   /** Insert one row into a table. Resolves with the inserted row. */
   function insert(table, row) {
-    return fetch(URL + '/rest/v1/' + table, {
+    return request('/rest/v1/' + table, {
       method: 'POST',
-      headers: headers({ Prefer: 'return=representation' }),
+      headers: { Prefer: 'return=representation' },
       body: JSON.stringify(row)
     }).then(function (res) {
       return res.text().then(function (text) {
@@ -61,7 +98,8 @@ window.OECD = window.OECD || {};
               '[OECD] Supabase insert into "' + table + '" failed: HTTP ' + res.status + code + ' - ' + message
             );
             // 42501 = RLS or grant denial, 23502 = a NOT NULL column has no
-            // default, PGRST204 = unknown column, 22P02 = bad enum value.
+            // default, PGRST204 = unknown column, 22P02 = bad enum value,
+            // 401 = every key was rejected.
             console.error('[OECD] full response:', data || text);
             console.error('[OECD] payload sent:', row);
           }
@@ -74,10 +112,7 @@ window.OECD = window.OECD || {};
 
   /** Select rows. `query` is a PostgREST query string, e.g. "select=*&order=id". */
   function select(table, query) {
-    return fetch(URL + '/rest/v1/' + table + '?' + query, {
-      method: 'GET',
-      headers: headers()
-    }).then(function (res) {
+    return request('/rest/v1/' + table + '?' + query, { method: 'GET' }).then(function (res) {
       if (!res.ok) {
         var err = new Error('Request failed (' + res.status + ')');
         err.status = res.status;

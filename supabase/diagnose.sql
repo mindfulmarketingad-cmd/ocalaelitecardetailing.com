@@ -17,25 +17,19 @@
 --       7473098, which is the build containing the anon JWT and the status
 --       fix. The live site is running current code.
 --
--- CONCLUSION (2026-08-29): the anon JWT in assets/js/supabase.js is being
--- REJECTED. The front end still reports the HTTP 401 message, which is the
--- only path to that string, so the request is refused before it ever reaches
--- Postgres. Every database-side cause has been eliminated against the live
--- database and the deployed build is current.
+-- CAUSE FOUND (2026-08-29): a client bug, not a stale key.
 --
--- Both keys supplied at the start of this project now return 401: the
--- sb_publishable_ key and this anon JWT. Two stale keys together point at the
--- project's API keys having been rotated, or legacy JWT keys having been
--- disabled in favour of the new publishable/secret key system.
+-- The helper sent `Authorization: Bearer <key>` on every request. Supabase
+-- parses that header as a JWT. The publishable key is not a JWT, so the
+-- request failed with 401 even though the apikey header was valid. Switching
+-- to the anon JWT then hit a separate 401, which made the keys look stale when
+-- the header was the real problem all along.
 --
--- FIX: fetch the current public key from the Supabase dashboard
--- (Project Settings -> API Keys) and replace KEY in assets/js/supabase.js.
--- Nothing else in the integration needs to change.
+-- Fixed in assets/js/supabase.js: Authorization is sent only for JWT-shaped
+-- keys, and both public keys are tried in order with automatic failover on
+-- 401. If submissions still fail after this deploys, the console will log the
+-- status and Postgres code for each attempt.
 --
--- Section 4 (the live test insert) settles the first two in one run.
--- The curl in section 5 settles the third.
--- =============================================================================
-
 -- =============================================================================
 -- Why is the booking form not saving leads?
 --
