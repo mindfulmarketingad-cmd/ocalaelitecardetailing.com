@@ -51,8 +51,9 @@ begin
     select count(*) into visible from public.leads;
     n_read := case when visible = 0 then '0  - good'
                    else visible::text || '  ** every one of these is public **' end;
-  exception when insufficient_privilege then
-    n_read := 'denied outright - good';
+  exception
+    when insufficient_privilege then n_read := 'denied outright - good';
+    when others then n_read := '** ERROR: ' || sqlstate || ' ' || sqlerrm || ' **';
   end;
 
   begin
@@ -60,8 +61,9 @@ begin
     get diagnostics changed = row_count;
     n_update := case when changed = 0 then '0  - good'
                      else changed::text || '  ** anon can rewrite these **' end;
-  exception when insufficient_privilege then
-    n_update := 'denied outright - good';
+  exception
+    when insufficient_privilege then n_update := 'denied outright - good';
+    when others then n_update := '** ERROR: ' || sqlstate || ' ' || sqlerrm || ' **';
   end;
 
   begin
@@ -69,8 +71,9 @@ begin
     get diagnostics changed = row_count;
     n_delete := case when changed = 0 then '0  - good'
                      else changed::text || '  ** anon can destroy these **' end;
-  exception when insufficient_privilege then
-    n_delete := 'denied outright - good';
+  exception
+    when insufficient_privilege then n_delete := 'denied outright - good';
+    when others then n_delete := '** ERROR: ' || sqlstate || ' ' || sqlerrm || ' **';
   end;
 
   reset role;
