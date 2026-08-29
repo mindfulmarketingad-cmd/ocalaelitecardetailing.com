@@ -2099,7 +2099,6 @@ function buildCosts() {
               <td><a href="/costs/${s.slug}/">${esc(s.name)}</a></td>
               <td>${esc(s.priceFrom)}</td>
               <td>${esc(s.duration)}</td>
-              <td>${esc(costs[s.slug].lead.split(',')[0])}</td>
               <td><a class="btn btn-table" href="/?service=${s.slug}#book">Book Now</a></td>
             </tr>`
     )
@@ -2130,7 +2129,7 @@ function buildCosts() {
         <h2>Starting Prices, All Services</h2>
         <div class="table-scroll" style="margin-top:24px">
           <table>
-            <thead><tr><th scope="col">Service</th><th scope="col">From</th><th scope="col">Duration</th><th scope="col">Main cost driver</th><th scope="col">Book</th></tr></thead>
+            <thead><tr><th scope="col">Service</th><th scope="col">From</th><th scope="col">Duration</th><th scope="col">Book</th></tr></thead>
             <tbody>
             ${rows}
             </tbody>
