@@ -14,15 +14,15 @@ const photos = {
   tesla: {
     src: '/assets/img/photo-tesla-driveway.jpg',
     alt: 'Grey Tesla Model S detailed to a mirror finish on a paver driveway outside a private home',
-    width: 1875,
-    height: 2500
+    width: 1050,
+    height: 1400
   },
   // Full package service page, homepage "Who We Are" split's alternate, about page.
   wash: {
     src: '/assets/img/photo-gwagon-wash.jpg',
     alt: 'Detailer hand washing a silver Mercedes-AMG G-Wagon covered in foam in a residential driveway',
-    width: 1920,
-    height: 1080
+    width: 1600,
+    height: 900
   },
   // Mobile detailing service page and the homepage "Who We Are" split.
   foam: {
@@ -35,8 +35,8 @@ const photos = {
   ferrari: {
     src: '/assets/img/photo-ferrari-foam.jpg',
     alt: 'Silver Ferrari fully coated in cleaning foam inside a professional detailing bay',
-    width: 1080,
-    height: 1920
+    width: 788,
+    height: 1400
   },
   // Exterior detailing service page and the reviews page.
   wheel: {
@@ -63,8 +63,8 @@ const photos = {
   interiorBA3: {
     src: '/assets/img/photo-interior-before-after-3.webp',
     alt: 'Split before and after photo of a stained Toyota seat fully cleaned and restored',
-    width: 2500,
-    height: 2500
+    width: 1400,
+    height: 1400
   },
   // Interior detailing service page gallery.
   interiorBA1: {

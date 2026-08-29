@@ -191,7 +191,7 @@ const HOME_H1 = 'Best Ocala Elite Car Detailing - Find Top-Rated Mobile Detailin
 const HOME_TITLE =
   'Mobile Detailing Ocala | Mobile Car Detailing & Ceramic Coating | OECD Ocala Car Details Mobile Detailing';
 const HOME_DESC =
-  'We are Ocala Elite Car Detailing. We offer mobile car detailing services for the Ocala, Florida area, including exterior detailing, interior detailing, full packages, and ceramic coating, performed at your home or office.';
+  'Mobile car detailing in Ocala, FL. Exterior, interior, full packages, ceramic coating and more, performed at your home or office. Licensed and insured.';
 
 function buildHome() {
   const serviceCards = services
@@ -475,9 +475,9 @@ function buildServices() {
     { label: 'Services', href: '/services/' }
   ];
 
-  const title = 'Car Detailing Services in Ocala FL | Ocala Elite Car Detailing';
+  const title = 'Car Detailing Services in Ocala FL | Ocala Elite';
   const description =
-    'Every detailing service we dispatch across Ocala and Marion County: mobile detailing, ceramic coating, exterior detailing, interior detailing, and the full package.';
+    'Every detailing service we dispatch across Ocala and Marion County, with what each includes, how long it takes, and what it starts at.';
 
   const body = `${pageHead({
     trail,
@@ -489,7 +489,9 @@ function buildServices() {
 
     <section class="section">
       <div class="wrap">
-        <div class="grid grid-3">
+        <p class="eyebrow">The Full Menu</p>
+        <h2>All Car Detailing Services</h2>
+        <div class="grid grid-3" style="margin-top:30px">
           ${cards}
         </div>
       </div>
@@ -786,7 +788,7 @@ function buildBlog() {
 
   const title = 'Car Detailing Blog | Ocala Elite Car Detailing';
   const description =
-    'Practical detailing guidance for Ocala and Central Florida drivers: maintenance intervals, ceramic coating versus wax, love bug damage, and what to expect from an appointment.';
+    'Practical detailing guidance for Ocala drivers: maintenance intervals, coating versus wax, love bug damage, and what to expect from an appointment.';
 
   const body = `${pageHead({
     trail,
@@ -797,7 +799,9 @@ function buildBlog() {
 
     <section class="section">
       <div class="wrap">
-        <div class="grid grid-3">
+        <p class="eyebrow">Articles</p>
+        <h2>Detailing Guides For Florida Drivers</h2>
+        <div class="grid grid-3" style="margin-top:30px">
           ${cards}
         </div>
       </div>
@@ -1001,7 +1005,7 @@ function buildReviews() {
 
   const title = 'Customer Reviews | Ocala Elite Car Detailing';
   const description =
-    'Real customer reviews of Ocala Elite Car Detailing, plus a form to submit your own. Reviews are published as written, with no editing and no fabricated testimonials.';
+    'Real customer reviews of Ocala Elite Car Detailing, plus a form to submit your own. Published as written, with no editing and no invented testimonials.';
 
   const featuredCards = featuredReviews
     .map(
@@ -1232,7 +1236,7 @@ function buildAbout() {
 
   const title = 'About Ocala Elite Car Detailing | Who We Are';
   const description =
-    'Ocala Elite Car Detailing is a booking and dispatch service connecting Marion County drivers with vetted mobile detailing operators. Here is how that works and why.';
+    'Ocala Elite Car Detailing connects Marion County drivers with vetted mobile detailing operators. How the dispatch model works, and why.';
 
   const body = `${pageHead({
     trail,
@@ -1562,7 +1566,8 @@ function buildSitemapPage() {
 
     <section class="section">
       <div class="wrap">
-        <div class="grid grid-4">
+        <h2>Every Page On This Site</h2>
+        <div class="grid grid-4" style="margin-top:30px">
           ${cols}
         </div>
       </div>
@@ -1943,9 +1948,9 @@ function buildServiceAreaPage(s, a) {
     { label: a.name, href: `/services/${s.slug}/${a.slug}-fl/` }
   ];
 
-  const title = `${s.name} in ${a.name} FL | Ocala Elite Car Detailing`;
+  const title = `${s.name} in ${a.name}, FL | Ocala Elite`;
   const h1 = `${s.name} in ${a.name}, Florida`;
-  const description = `${content.lead} ${s.name} in ${a.name}, FL from ${s.priceFrom}, performed at your address.`;
+  const description = `${s.name} in ${a.name}, FL from ${s.priceFrom}. ${content.lead}`;
 
   const siblingServices = services.filter((o) => o.slug !== s.slug);
   const otherAreas = areas.filter((o) => o.slug !== a.slug);
@@ -2246,8 +2251,8 @@ function buildCostPage(s) {
     { label: s.name, href: `/costs/${s.slug}/` }
   ];
 
-  const title = `How Much Does ${s.name} Cost in Ocala FL? | Ocala Elite Car Detailing`;
-  const description = `${s.name} starts at ${s.priceFrom} in Ocala, FL. ${c.lead} What is included, what drives the price, and what is not covered.`;
+  const title = `${s.name} Cost in Ocala FL | Ocala Elite`;
+  const description = `${s.name} starts at ${s.priceFrom} in Ocala, FL. ${c.lead}`;
 
   const tierRows = costTiers(s)
     .map((t) => `<tr><td>${esc(t.label)}</td><td>${esc(t.price)}</td></tr>`)
@@ -2381,7 +2386,7 @@ function buildAuthors() {
       .sort((x, y) => y.date.localeCompare(x.date));
 
     const title = `${a.name} | Author at Ocala Elite Car Detailing`;
-    const description = `${a.name} is a detailer with Ocala Elite Car Detailing in Ocala, FL. ${a.summary}`;
+    const description = `${a.name}, detailer at Ocala Elite Car Detailing, Ocala FL. ${a.summary}`;
 
     const cards = written
       .map(
@@ -2511,7 +2516,8 @@ function buildNotFound() {
 
     <section class="section">
       <div class="wrap">
-        <div class="grid grid-4">
+        <h2>Try One Of These Instead</h2>
+        <div class="grid grid-4" style="margin-top:30px">
           <a class="card" href="/"><h3>Home</h3><p>Start over from the top, including the booking wizard.</p><span class="card-link">Go Home</span></a>
           <a class="card" href="/services/"><h3>Services</h3><p>All five detailing services with scope and pricing.</p><span class="card-link">Open</span></a>
           <a class="card" href="/blog/"><h3>Blog</h3><p>Guides on paint protection and Florida-specific damage.</p><span class="card-link">Open</span></a>

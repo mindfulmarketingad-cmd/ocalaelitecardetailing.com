@@ -10,7 +10,7 @@ const disclaimer = {
   title: 'Disclaimer',
   metaTitle: 'Disclaimer | Ocala Elite Car Detailing',
   metaDescription:
-    'Disclaimer for Ocala Elite Car Detailing covering service referrals, independent operators, pricing estimates, results, and the limits of information published on this site.',
+    'Disclaimer covering service referrals, independent operators, pricing estimates, results, and the limits of information published on this site.',
   lead:
     'Please read this disclaimer carefully. It explains the limits of the information published on this site and the nature of the services arranged through it.',
   body: [

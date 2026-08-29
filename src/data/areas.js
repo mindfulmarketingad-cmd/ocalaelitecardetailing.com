@@ -16,7 +16,7 @@ const areas = [
     summary:
       'Our home base. Horse country dust, the Interstate 75 corridor, and a canopy of live oaks make Ocala harder on paint than most of Florida.',
     metaDescription:
-      'Mobile car detailing in Ocala, FL. We bring water, power, and professional product to your driveway anywhere in Ocala and Marion County. Exterior, interior, ceramic coating, and more.',
+      'Mobile car detailing in Ocala, FL. Water, power, and professional product brought to your driveway anywhere in Marion County.',
     lead:
       'Ocala is where we are based and where most of our appointments happen. Everything we offer runs fully mobile here, usually with same-week availability.',
     intro: [
@@ -42,7 +42,7 @@ const areas = [
     summary:
       'A short run south of Ocala on US-441. Quieter roads, more garage-kept vehicles, and the humidity that comes with sitting close to Lake Weir.',
     metaDescription:
-      'Mobile car detailing in Belleview, FL. We come to your driveway anywhere in Belleview and around Lake Weir with water and power on board. Exterior, interior, ceramic coating, and more.',
+      'Mobile car detailing in Belleview, FL. We come to your driveway anywhere around Lake Weir, fully self-contained. Every service available.',
     lead:
       'Belleview is a short run south of us on US-441, and it is one of our steadiest service areas. Every service on this site is available here at the same pricing.',
     intro: [
@@ -68,7 +68,7 @@ const areas = [
     summary:
       'Golf carts as much as cars. Low-mileage vehicles that look older than they are, because sun exposure does more damage here than driving does.',
     metaDescription:
-      'Mobile car detailing in The Villages, FL. We detail cars and golf carts at your home, with water and power on board. Exterior, interior, ceramic coating, headlight restoration, and more.',
+      'Mobile car detailing in The Villages, FL. Cars and golf carts detailed at your home, with water and power on board. Every service available.',
     lead:
       'The Villages is unlike anywhere else we work, and the vehicles reflect that. We detail cars and golf carts here, at your home, with everything needed carried on the truck.',
     intro: [

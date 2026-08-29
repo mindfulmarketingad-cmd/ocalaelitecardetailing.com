@@ -9,10 +9,10 @@ const services = [
     // Used as the H3 blurb on the homepage and the card copy on the hub page.
     summary:
       'We bring the whole operation to your driveway, office lot, or job site. Power, water, and every product travel with the truck, so your vehicle is restored where it already sits and you never give up an afternoon to a waiting room.',
-    metaTitle: 'Mobile Car Detailing in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Mobile Car Detailing Services | Ocala Elite Car Detailing',
     metaDescription:
       'Mobile car detailing in Ocala, FL. We arrive fully self-contained with water and power, detail your vehicle at home or at work, and hand it back the same day.',
-    h1: 'Mobile Detailing in Ocala, Florida',
+    h1: 'Mobile Car Detailing That Comes To You',
     lead:
       'Detailing that comes to you. Our mobile units carry their own water supply, generator, extraction equipment, and full chemical inventory, which means the work happens in your driveway on your schedule instead of in a shop queue.',
     priceFrom: '$149',
@@ -68,10 +68,10 @@ const services = [
     name: 'Ceramic Coating',
     summary:
       'A semi-permanent liquid glass layer that cross-links to your clear coat and stays there for years. Ceramic coating gives paint a hard, slick, hydrophobic shell that shrugs off love bugs, tree sap, hard water, and the UV load a Florida summer puts on a finish.',
-    metaTitle: 'Ceramic Coating in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Ceramic Coating Services | Ocala Elite Car Detailing',
     metaDescription:
-      'Professional ceramic coating in Ocala, FL. Multi-stage paint correction, panel prep, and a coating installed to spec for years of gloss, UV defense, and easy washing.',
-    h1: 'Ceramic Coating in Ocala, Florida',
+      'Ceramic coating in Ocala, FL. Paint correction, panel prep, and a coating installed to spec for years of gloss, UV defense, and easy washing.',
+    h1: 'Professional Ceramic Coating',
     lead:
       'Ceramic coating is the strongest paint protection we install. It bonds to the clear coat rather than sitting on top of it, and once cured it delivers years of gloss, chemical resistance, and water behavior that no wax or sealant can approach.',
     priceFrom: '$999+',
@@ -152,10 +152,10 @@ const services = [
     name: 'Exterior Detailing',
     summary:
       'A complete outside reset. Safe wash technique, iron and tar decontamination, clay treatment, and a protective topper that leaves paint clean to the touch, sharp under light, and defended against the next round of Florida weather.',
-    metaTitle: 'Exterior Car Detailing in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Exterior Car Detailing | Ocala Elite Car Detailing',
     metaDescription:
       'Exterior detailing in Ocala, FL. Decontamination wash, clay treatment, wheel and trim restoration, and sealant protection that leaves paint slick and defended.',
-    h1: 'Exterior Detailing in Ocala, Florida',
+    h1: 'Exterior Car Detailing',
     lead:
       'Exterior detailing is about removing what a normal wash leaves behind. Iron particles, road tar, tree sap, mineral deposits, and bug residue all bond to clear coat and stay there until something is used that is designed to break them loose.',
     priceFrom: '$199+',
@@ -227,10 +227,10 @@ const services = [
     name: 'Interior Detailing',
     summary:
       'Deep cleaning for the cabin you actually live in. Hot water extraction on carpet and cloth, leather cleaned and conditioned, every vent and seam addressed, and odors removed at the source rather than covered with fragrance.',
-    metaTitle: 'Interior Car Detailing in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Interior Car Detailing | Ocala Elite Car Detailing',
     metaDescription:
       'Interior car detailing in Ocala, FL. Hot water extraction, steam cleaning, leather care, and odor removal that treats the source instead of masking it.',
-    h1: 'Interior Detailing in Ocala, Florida',
+    h1: 'Interior Car Detailing',
     lead:
       'The cabin takes more abuse than the paint. Sweat, sunscreen, spilled drinks, pet hair, school runs, and job site dust all end up ground into carpet fiber and packed into seams. Interior detailing pulls that back out.',
     priceFrom: '$199+',
@@ -299,10 +299,10 @@ const services = [
     name: 'Full Package',
     summary:
       'Inside and outside, taken to the same standard in one appointment. Full decontamination and protection on the exterior, extraction and conditioning on the interior, and a finished vehicle that presents like it just came off a showroom floor.',
-    metaTitle: 'Full Detail Package in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Full Detail Package | Ocala Elite Car Detailing',
     metaDescription:
       'The full detailing package in Ocala, FL. Complete exterior decontamination and protection plus full interior extraction and conditioning in one appointment.',
-    h1: 'Full Detail Package in Ocala, Florida',
+    h1: 'The Full Detail Package',
     lead:
       'The full package is our complete service: everything in the exterior detail and everything in the interior detail, executed in a single appointment so the vehicle comes back to you finished on every surface.',
     priceFrom: '$299',
@@ -356,10 +356,10 @@ const services = [
     name: 'Paint Correction',
     summary:
       'Machine polishing that removes swirl marks, wash marring, oxidation, and light scratches from the clear coat itself, rather than covering them up. The step that turns a clean car into one with real depth and gloss.',
-    metaTitle: 'Paint Correction in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Paint Correction Services | Ocala Elite Car Detailing',
     metaDescription:
-      'Professional paint correction in Ocala, FL. Machine polishing removes swirl marks, oxidation, and light scratches from clear coat, restoring true gloss before sealant or ceramic coating.',
-    h1: 'Paint Correction in Ocala, Florida',
+      'Paint correction in Ocala, FL. Machine polishing removes swirl marks, oxidation, and light scratches, restoring true gloss before sealant or coating.',
+    h1: 'Paint Correction & Swirl Removal',
     lead:
       'Washing removes dirt. Correction removes damage. Machine polishing levels the clear coat itself, cutting away the swirl marks, wash marring, and oxidation that years of washing and Florida sun leave behind, and brings back the depth and reflection the paint had when it was new.',
     priceFrom: '$399',
@@ -432,10 +432,10 @@ const services = [
     name: 'Wash & Wax',
     summary:
       'A proper hand wash finished with a real coat of wax. No decontamination, no correction, just the maintenance service that keeps a healthy finish looking sharp between full details.',
-    metaTitle: 'Wash and Wax in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Hand Wash & Wax | Ocala Elite Car Detailing',
     metaDescription:
       'Mobile wash and wax in Ocala, FL. A gentle hand wash followed by a quality carnauba wax for a glossy, protected finish, starting at $199.',
-    h1: 'Wash & Wax in Ocala, Florida',
+    h1: 'Hand Wash & Wax',
     lead:
       'Not every visit needs to be a full detail. Wash and wax is the maintenance service: a careful hand wash to lift surface dirt safely, followed by a real coat of wax for shine and short-term protection.',
     priceFrom: '$199',
@@ -486,10 +486,10 @@ const services = [
     name: 'Engine Detailing',
     summary:
       'A careful clean of the engine bay, with sensitive electronics covered and controlled low pressure throughout. Degreased, detailed, and conditioned so hoses and plastics look right and stay protected.',
-    metaTitle: 'Engine Bay Detailing in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Engine Bay Detailing | Ocala Elite Car Detailing',
     metaDescription:
-      'Engine bay detailing in Ocala, FL. Sensitive components covered, degreased and agitated by hand, then dressed and conditioned. Starting at $169.99, done at your address.',
-    h1: 'Engine Detailing in Ocala, Florida',
+      'Engine bay detailing in Ocala, FL. Sensitive components covered, degreased by hand, then dressed and conditioned. From $169.99, at your address.',
+    h1: 'Engine Bay Detailing',
     lead:
       'The engine bay is the part of the vehicle most owners never clean and every buyer opens. Done properly it is a careful, low-pressure process with the electronics protected the whole way through, not a pressure washer pointed at an open hood.',
     priceFrom: '$169.99',
@@ -553,10 +553,10 @@ const services = [
     name: 'Headlight Restoration',
     summary:
       'Wet sanding and polishing that cuts away the oxidized outer layer of a yellowed headlight lens, then seals it against UV so it stays clear. Restores night-time output as much as it restores appearance.',
-    metaTitle: 'Headlight Restoration in Ocala FL | Ocala Elite Car Detailing',
+    metaTitle: 'Headlight Restoration | Ocala Elite Car Detailing',
     metaDescription:
-      'Headlight restoration in Ocala, FL. Multi-stage wet sanding, polishing, and a UV sealant that keeps lenses clear instead of yellowing again in months. From $179.99.',
-    h1: 'Headlight Restoration in Ocala, Florida',
+      'Headlight restoration in Ocala, FL. Wet sanding, polishing, and a UV sealant that keeps lenses clear instead of yellowing again. From $179.99.',
+    h1: 'Headlight Restoration',
     lead:
       'Cloudy headlights are ultraviolet damage to the outer surface of the lens, and Florida produces them faster than almost anywhere. Restoration removes that damaged layer and seals what is underneath, which is why it lasts where a wipe-on kit does not.',
     priceFrom: '$179.99',
