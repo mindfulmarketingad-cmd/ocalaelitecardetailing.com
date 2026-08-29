@@ -56,10 +56,14 @@ window.OECD = window.OECD || {};
           // Customers see a friendly string; whoever is debugging needs the
           // real status and Postgres message, so surface it in the console.
           if (window.console && console.error) {
+            var code = data && data.code ? ' [' + data.code + ']' : '';
             console.error(
-              '[OECD] Supabase insert into "' + table + '" failed: HTTP ' + res.status + ' - ' + message,
-              data || text
+              '[OECD] Supabase insert into "' + table + '" failed: HTTP ' + res.status + code + ' - ' + message
             );
+            // 42501 = RLS or grant denial, 23502 = a NOT NULL column has no
+            // default, PGRST204 = unknown column, 22P02 = bad enum value.
+            console.error('[OECD] full response:', data || text);
+            console.error('[OECD] payload sent:', row);
           }
           throw err;
         }
