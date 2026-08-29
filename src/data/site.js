@@ -12,7 +12,11 @@ const site = {
   email: 'info@ocalaelitecardetailing.com',
   addressLocality: 'Ocala',
   addressRegion: 'FL',
-  postalCode: '34470',
+  // Left empty deliberately. 34470 was a placeholder, and a postcode that does
+  // not match your Google Business Profile creates a NAP mismatch, which works
+  // against local ranking. Set the real one and it appears in the footer and
+  // in LocalBusiness schema automatically; left empty, both omit it.
+  postalCode: '',
   // The three cities actually served. This drives the homepage coverage
   // section and the areaServed field in LocalBusiness schema, so listing
   // towns we do not cover would generate leads for trips we cannot take.

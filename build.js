@@ -67,13 +67,29 @@ const businessSchema = {
   image: site.origin + '/assets/img/og-image.png',
   logo: site.origin + '/assets/img/logo-mark.svg',
   description:
-    'Ocala Elite Car Detailing arranges mobile car detailing across Ocala and Marion County, Florida, including exterior detailing, interior detailing, full packages, and ceramic coating.',
+    'Ocala Elite Car Detailing is a mobile car detailing service covering Ocala, Belleview and The Villages, Florida. Every service is performed at the customer address, with water and power carried on the vehicle. No drop-off and no shop visit.',
+  // Entity disambiguation: ties this business to the auto detailing concept
+  // rather than leaving Google to infer it from page text alone.
+  additionalType: 'https://en.wikipedia.org/wiki/Auto_detailing',
+  slogan: 'Mobile car detailing that comes to you',
+  knowsAbout: [
+    'Mobile car detailing',
+    'Ceramic coating',
+    'Paint correction',
+    'Interior detailing',
+    'Exterior detailing',
+    'Headlight restoration',
+    'Engine bay detailing'
+  ],
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
     addressLocality: site.addressLocality,
     addressRegion: site.addressRegion,
-    postalCode: site.postalCode,
+    // No streetAddress: this is a service-area business with no premises a
+    // customer visits, and Google asks such businesses not to publish one.
+    // postalCode is emitted only when a real one is configured.
+    ...(site.postalCode ? { postalCode: site.postalCode } : {}),
     addressCountry: 'US'
   },
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
@@ -99,6 +115,32 @@ const businessSchema = {
     itemListElement: services.map((s) => ({
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: s.name, url: `${site.origin}/services/${s.slug}/` }
+    }))
+  }
+};
+
+/* The business node says who we are; this says what we sell and where. A
+ * Service whose serviceType is literally "Mobile Car Detailing", tied to the
+ * business and to the three towns, is the clearest structured statement of
+ * the offering available. */
+const mobileServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': site.origin + '/#mobile-detailing-service',
+  name: 'Mobile Car Detailing',
+  serviceType: 'Mobile Car Detailing',
+  description:
+    'Car detailing performed at the customer address across Ocala, Belleview and The Villages, Florida. The crew arrives self-contained with water and power, so no drop-off or shop visit is required.',
+  provider: { '@id': site.origin + '/#business' },
+  areaServed: site.areaServed.map((a) => ({ '@type': 'City', name: a + ', FL' })),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Mobile Detailing Services',
+    itemListElement: services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s.name, url: `${site.origin}/services/${s.slug}/` },
+      priceCurrency: 'USD',
+      price: s.priceFrom.replace(/[^0-9.]/g, '')
     }))
   }
 };
@@ -271,6 +313,10 @@ function buildHome() {
     {
       q: 'Do you bring your own water and power?',
       a: 'Yes. Every mobile unit is self-contained with a water tank and generator, so no hookup at your property is required.'
+    },
+    {
+      q: 'Do you have a shop I can drop my car off at?',
+      a: 'No. Ocala Elite Car Detailing is fully mobile, with no drop-off location. Every service on this site, including ceramic coating and paint correction, is performed where your vehicle is parked: your driveway, your office lot, or wherever it happens to sit. You never drive to us.'
     }
   ];
 
@@ -461,7 +507,7 @@ ${ctaBand('Get Your Vehicle Back To Standard', 'Book online in under two minutes
       description: HOME_DESC,
       path: '/',
       body,
-      schema: [businessSchema, websiteSchema, faqSchema(homeFaqs)],
+      schema: [businessSchema, mobileServiceSchema, websiteSchema, faqSchema(homeFaqs)],
       scripts: ['/assets/js/supabase.js', '/assets/js/booking.js', '/assets/js/parallax.js']
     }),
     {
@@ -761,7 +807,10 @@ ${ctaBand(`Book ${s.name}`, 'Select this service in the booking wizard and we wi
           '@context': 'https://schema.org',
           '@type': 'Service',
           name: s.name,
-          serviceType: s.name,
+          // Every service is delivered at the customer address, so the type
+          // says so. Guarded to avoid "Mobile Mobile Detailing" where the
+          // name already carries the word.
+          serviceType: /mobile/i.test(s.name) ? s.name : 'Mobile ' + s.name,
           url: `${site.origin}/services/${s.slug}/`,
           description: s.metaDescription,
           provider: { '@id': site.origin + '/#business' },

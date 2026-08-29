@@ -95,7 +95,7 @@ function footer() {
         <div class="footer-brand">
           <img src="/assets/img/logo-mark.svg" width="46" height="46" alt="${esc(site.name)} logo">
           <p>${esc(site.name)} connects drivers across Ocala and Marion County with vetted mobile detailing operators. One request, one standard, work done at your address.</p>
-          <p class="small muted">${esc(site.addressLocality)}, ${esc(site.addressRegion)} ${esc(site.postalCode)}<br>
+          <p class="small muted">${esc(site.addressLocality)}, ${esc(site.addressRegion)}${site.postalCode ? ' ' + esc(site.postalCode) : ''}<br>
           <a href="tel:${site.phoneHref}">${site.phone}</a> &middot; <a href="mailto:${site.email}">${site.email}</a></p>
           ${socialLinks()}
         </div>
