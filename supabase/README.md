@@ -207,36 +207,83 @@ role, which includes `anon`. That is why an anonymous insert evaluated it at
 all. It is harmless while the function fails closed, but worth scoping to
 `authenticated` when the admin model is rebuilt.
 
-## Before repairing `is_admin()`: read the policies first
+## The real fix: remove the dead policy generation
 
-A live run confirmed `public.subscribers` exists and `public.contractors` does
-not, so Option B — repointing the function — is the likely repair rather than
-Option A.
+The full policy dump settled it. There are **two generations** of policy on
+`leads`, and the working one needs no repair.
 
-It also showed all three policies apply to the **`public`** role, and `public`
-includes `anon`, whose key is published in the JavaScript on every page.
+**Working**, checking the signed-in user's email against `public.subscribers`:
 
-That makes the repair non-trivial. Those policies do not currently evaluate;
-they raise. Repairing the function **activates** them. If any of their `USING`
-expressions is satisfiable by an anonymous caller, the repair converts a crash
-into a data leak across every site sharing the table.
+| Policy | Command | Roles |
+| --- | --- | --- |
+| `Active subscribers can read all leads` | SELECT | authenticated |
+| `Admin can read all leads` | SELECT | authenticated |
+| `Public can submit leads` / `anon can insert leads` | INSERT | anon |
 
-[`inspect-policies.sql`](./inspect-policies.sql) is the pre-flight: it prints
-every policy on `leads` and `analytics_events` in full — not only the ones
-calling `is_admin()`, because permissive policies OR together and one careless
-policy is enough — plus the columns of `subscribers` and whether RLS is
-enabled on each table. It reads definitions only.
+**Dead**, calling `is_admin()` and `is_active_contractor()`, both of which
+query the dropped `contractors` table:
 
-The expressions decide the answer:
+| Policy | Command | Roles |
+| --- | --- | --- |
+| `active subscribers read leads` | SELECT | **public** |
+| `admins manage leads` | ALL | **public** |
+| `admins read analytics events` (on `analytics_events`) | SELECT | **public** |
 
-- A subscriber check hanging off `auth.uid()` is safe for `anon`, because
-  `auth.uid()` is null for an anonymous request and matches no row.
-- Anything satisfiable without a signed-in user is not. Scope the policy to
-  `authenticated` before repairing the function, not after.
+`public` includes every caller, anonymous and signed-in alike, so those three
+are evaluated for everyone — and they raise `42P01` instead of returning
+false. That is why the booking form 404s **and** why no subscriber can read a
+lead today.
 
-Worth checking in the same output: if `subscribers` has RLS disabled and
-`anon` holds `SELECT` on it, the subscriber list itself is readable with the
-public key.
+### Repointing the function is not possible, and not needed
+
+`subscribers` is keyed on `email` with columns `active`, `notes`,
+`subscribed_at`. There is no `id` and no `is_admin`, so `is_admin()` cannot be
+repointed at it — the shape is entirely different. The email-based policies
+already replaced it. The dead generation is leftovers.
+
+Removing them grants nothing new: the working generation already covers every
+case. Verified on PostgreSQL 16 against a fixture reproducing this exact
+policy set:
+
+| Caller | Before | After removing the three |
+| --- | --- | --- |
+| anon insert (booking) | `42P01` | succeeds |
+| anon read leads | `42P01` | 0 rows |
+| active subscriber | `42P01` | all leads |
+| admin email | `42P01` | all leads |
+| other signed-in user | `42P01` | 0 rows |
+
+[`cleanup-dead-policies.sql`](./cleanup-dead-policies.sql) does it, checks for
+remaining references before dropping the two functions, and carries the
+original definitions for reversal.
+
+### A prerequisite worth checking
+
+`Active subscribers can read all leads` sub-queries `subscribers`, and that
+sub-query runs as the **calling** role. So `authenticated` needs `SELECT` on
+`public.subscribers` *and* must pass that table's own RLS — which is enabled.
+In the fixture the policy silently returned zero leads until both were in
+place. If subscribers still see nothing after the cleanup, that is where to
+look.
+
+## ⚠️ `analytics_events` is world-readable
+
+Separate from everything above, and not broken — it works, and has been:
+
+```
+"Public can read analytics events"  SELECT  to {anon, authenticated}  USING true
+```
+
+`USING true` with `anon` in the role list means anyone holding the public key
+can read every row. Confirmed on the fixture: an anonymous session read every
+analytics row including page URLs.
+
+Whether it matters depends on what the table holds — aggregate page counts are
+one thing, referrers or anything joinable back to a lead are another.
+[`fix-analytics-exposure.sql`](./fix-analytics-exposure.sql) shows the columns
+first, then closes reading while leaving writing open. Verified: after the
+fix, anon can still log an event and can no longer read one, and the admin
+email reads all of them.
 
 ## ⚠️ anon privileges on `leads`
 
