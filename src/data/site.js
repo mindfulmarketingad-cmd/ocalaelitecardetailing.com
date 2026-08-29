@@ -48,6 +48,9 @@ const site = {
 const headerNav = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services/' },
+  // Labelled "Prices" rather than "Costs" because that is the word people
+  // scan a nav bar for. The hub itself lives at /costs/.
+  { label: 'Prices', href: '/costs/' },
   // Sits next to Services because the two are closely related: the areas hub
   // fans out into the same services scoped to each town.
   { label: 'Service Areas', href: '/service-areas/' },

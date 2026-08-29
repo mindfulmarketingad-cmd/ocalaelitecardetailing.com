@@ -184,6 +184,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
 .nav a:hover { color: var(--white); border-bottom-color: var(--steel); }
 .nav a[aria-current="page"] { color: var(--white); border-bottom-color: var(--chrome); }
 
+/* Eight nav items do not fit between the 960px menu breakpoint and roughly
+   1180px at full tracking. Tighten the links across that band rather than
+   raising the breakpoint, which would hand laptops a menu button they do
+   not need. */
+@media (min-width: 961px) and (max-width: 1180px) {
+  .nav a { padding: 10px 9px; letter-spacing: 0.07em; font-size: 0.82rem; }
+}
+
 .nav-toggle {
   display: none;
   background: transparent;
