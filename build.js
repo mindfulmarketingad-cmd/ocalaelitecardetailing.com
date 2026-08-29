@@ -880,7 +880,8 @@ function buildPostPage(p, older, newer) {
   const body = `${pageHead({
     trail,
     h1: p.title,
-    lead: `<span class="muted">${fmtDate(p.date)} &middot; ${esc(p.readTime)} &middot; ${esc(p.category)}</span>`
+    lead: `<span class="muted">${fmtDate(p.date)} &middot; ${esc(p.readTime)} &middot; ${esc(p.category)}</span>`,
+    ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="tel:${site.phoneHref}">Call ${site.phone}</a>`
   })}
 
     <section class="section">
@@ -900,10 +901,10 @@ function buildPostPage(p, older, newer) {
 
         <div class="callout">
           <h3>Want This Handled For You?</h3>
-          <p>Ocala Elite Car Detailing dispatches mobile detailing across Ocala and Marion County. Book online and we will confirm scope, pricing, and an arrival window.</p>
+          <p>${esc(p.cta.blurb)}</p>
           <div class="btn-row">
             <a class="btn" href="/#book">Book Online</a>
-            <a class="btn btn-ghost" href="/services/">See Services</a>
+            <a class="btn btn-ghost" href="${p.cta.href}">${esc(p.cta.label)}</a>
           </div>
         </div>
 
@@ -931,7 +932,9 @@ function buildPostPage(p, older, newer) {
       </div>
     </section>
 
-${hubLinks('/blog/')}`;
+${hubLinks('/blog/')}
+
+${ctaBand('Book Your Detail', 'Pick your service in the booking wizard and we will confirm pricing and an arrival window before anything is scheduled.')}`;
 
   write(
     `/blog/${p.slug}`,
