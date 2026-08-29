@@ -3,12 +3,17 @@
 --
 --   [x] Column grants. anon holds INSERT on every column the site writes,
 --       including cart_items, best_time_to_call, service, site and zip.
---       Section 3 below confirmed this. It is not the cause.
 --
--- STILL TO CHECK, in order of likelihood:
---   [ ] RLS enabled with no INSERT policy for anon  -> HTTP 403, code 42501
---   [ ] status / id / created_at NOT NULL with no default -> HTTP 400, 23502
---   [ ] the anon JWT itself rejected                -> HTTP 401, never reaches Postgres
+--   [x] Row Level Security. Two permissive INSERT policies exist for anon
+--       ("Public can submit leads" and "anon can insert leads"), both with
+--       WITH CHECK (true). RLS is not blocking anything.
+--
+-- STILL TO CHECK:
+--   [ ] status NOT NULL with no default -> HTTP 400, code 23502.
+--       Now the leading suspect by elimination: status is NOT NULL, the site
+--       never writes it (it is an enum owned by the other sites sharing this
+--       table), so it must have a default or every insert fails.
+--   [ ] the anon JWT itself rejected -> HTTP 401, never reaches Postgres.
 --
 -- Section 4 (the live test insert) settles the first two in one run.
 -- The curl in section 5 settles the third.
