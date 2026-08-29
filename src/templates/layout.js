@@ -1,9 +1,21 @@
 const { site, headerNav, footerNav } = require('../data/site');
+const { wizardOptions } = require('../data/services');
 
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const year = new Date().getFullYear();
+
+/* Options for the service-intent popup (assets/js/intent-popup.js), which runs
+ * on every page. Only the four headline services, and only the fields the
+ * popup renders - the full wizard payload is embedded on the homepage alone,
+ * where the wizard itself lives. Escaped so the JSON can never terminate the
+ * surrounding script element. */
+const POPUP_SERVICES_JSON = JSON.stringify(
+  wizardOptions()
+    .filter((o) => o.primary)
+    .map((o) => ({ value: o.value, title: o.title, price: o.price }))
+).replace(/</g, '\\u003c');
 
 function nav(current) {
   return headerNav
@@ -208,7 +220,9 @@ function page(opts) {
 ${body}
   </main>
   ${footer()}
+  <script type="application/json" data-popup-services>${POPUP_SERVICES_JSON}</script>
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/intent-popup.js" defer></script>
   ${extraScripts}
 </body>
 </html>

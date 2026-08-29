@@ -1016,3 +1016,158 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
   .hero-media::before { display: none; }
   .card-media { margin: -30px -28px 22px; }
 }
+
+/* ==========================================================================
+   Service-intent popup
+   Fires five seconds in, on every page, as a lightweight front door to the
+   booking wizard. Markup is generated in assets/js/intent-popup.js.
+   ========================================================================== */
+
+.intent-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.intent-popup.is-open { opacity: 1; }
+
+.intent-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 4, 6, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.intent-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 40px 38px 34px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  transform: translateY(12px);
+  transition: transform 0.22s ease;
+}
+.intent-popup.is-open .intent-dialog { transform: translateY(0); }
+
+.intent-dialog .eyebrow { margin-top: 0; }
+.intent-dialog h2 {
+  font-size: clamp(1.4rem, 3.6vw, 1.95rem);
+  margin-bottom: 10px;
+}
+.intent-sub {
+  margin: 0 0 24px;
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+.intent-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--grey-dim);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.intent-close:hover, .intent-close:focus-visible { color: var(--white); }
+
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.intent-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 18px 16px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--chrome);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.intent-option:hover, .intent-option:focus-visible {
+  background: var(--ink);
+  border-color: var(--steel);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.intent-option-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+}
+.intent-option-price {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey-dim);
+}
+
+.intent-dismiss {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background: none;
+  border: 0;
+  color: var(--grey-dim);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.intent-dismiss:hover, .intent-dismiss:focus-visible { color: var(--chrome); }
+
+@media (max-width: 560px) {
+  .intent-dialog { padding: 34px 22px 26px; }
+  .intent-grid { grid-template-columns: 1fr; }
+  .intent-option { padding: 15px 16px; }
+}
+
+/* Confirms the service carried in from a Book button or the intent popup,
+   shown above the vehicle question when step 1 was skipped. */
+.wizard-chosen {
+  margin: 0 0 20px;
+  padding: 11px 14px;
+  background: var(--panel-2);
+  border-left: 2px solid var(--white);
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+.wizard-chosen strong { color: var(--white); }
+.linkish {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--chrome);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.linkish:hover, .linkish:focus-visible { color: var(--white); }

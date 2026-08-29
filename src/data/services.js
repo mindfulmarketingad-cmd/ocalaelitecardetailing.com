@@ -613,4 +613,44 @@ const services = [
   }
 ];
 
-module.exports = { services };
+/* The four services offered as the opening choice in the booking wizard and
+ * in the service-intent popup, in this order. The rest of the menu is still
+ * bookable: every service page has its own "Book <service>" button which
+ * deep-links with ?service=<slug>, and the wizard shows that service as chosen
+ * even though it is not one of the four. Keeping the first question short
+ * stops it becoming a nine-item wall. */
+const WIZARD_PRIMARY = ['interior-detailing', 'exterior-detailing', 'ceramic-coating', 'full-package'];
+
+/* Wizard-only labels, where the service page title is not the clearest
+ * phrasing for someone choosing between options. */
+const WIZARD_LABELS = {
+  'full-package': 'Full Package (Interior + Exterior)'
+};
+
+/**
+ * Option list for the booking wizard and the intent popup, generated from the
+ * services above. Both surfaces used to carry their own hardcoded copy, which
+ * silently fell out of date every time a service was added.
+ */
+function wizardOptions() {
+  const payload = services.map((s) => ({
+    value: s.slug,
+    title: WIZARD_LABELS[s.slug] || s.name,
+    desc: s.summary.split('. ')[0] + '.',
+    price: 'From ' + s.priceFrom,
+    href: `/services/${s.slug}/`,
+    primary: WIZARD_PRIMARY.indexOf(s.slug) !== -1
+  }));
+  // Primary options first, in the order given above.
+  payload.sort((a, b) => {
+    const ai = WIZARD_PRIMARY.indexOf(a.value);
+    const bi = WIZARD_PRIMARY.indexOf(b.value);
+    if (ai === -1 && bi === -1) return 0;
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+  return payload;
+}
+
+module.exports = { services, WIZARD_PRIMARY, WIZARD_LABELS, wizardOptions };

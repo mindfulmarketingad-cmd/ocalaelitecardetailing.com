@@ -14,7 +14,7 @@ const path = require('path');
 
 const { page, esc, site } = require('./src/templates/layout');
 const { renderBlocks, tocFromBlocks, breadcrumbSchema, pageHead, mediaFrame, faqBlock, faqSchema } = require('./src/templates/blocks');
-const { services } = require('./src/data/services');
+const { services, wizardOptions } = require('./src/data/services');
 const { posts } = require('./src/data/blog');
 const { photos } = require('./src/data/photos');
 const { featuredReviews } = require('./src/data/reviews');
@@ -214,44 +214,14 @@ const hubLinks = (exclude = '') => {
     </section>`;
 };
 
-/* The four services offered as the wizard's opening choice, in this order.
- * The rest of the menu is still bookable: every service page has its own
- * "Book <service>" button which deep-links with ?service=<slug>, and the
- * wizard shows that service as chosen even though it is not one of the four.
- * Keeping the first question short stops it becoming a nine-item wall. */
-const WIZARD_PRIMARY = ['interior-detailing', 'exterior-detailing', 'ceramic-coating', 'full-package'];
-
-/* Wizard-only labels, where the service page title is not the clearest
- * phrasing for someone choosing between options. */
-const WIZARD_LABELS = {
-  'full-package': 'Full Package (Interior + Exterior)'
-};
-
 /**
  * Service options for the booking wizard, generated from src/data/services.js.
  * The wizard used to carry its own hardcoded copy of this list, which silently
  * fell out of date every time a service was added.
  */
 function bookingServicesJson() {
-  const payload = services.map((s) => ({
-    value: s.slug,
-    title: WIZARD_LABELS[s.slug] || s.name,
-    desc: s.summary.split('. ')[0] + '.',
-    price: 'From ' + s.priceFrom,
-    href: `/services/${s.slug}/`,
-    primary: WIZARD_PRIMARY.indexOf(s.slug) !== -1
-  }));
-  // Primary options first, in the order given above.
-  payload.sort((a, b) => {
-    const ai = WIZARD_PRIMARY.indexOf(a.value);
-    const bi = WIZARD_PRIMARY.indexOf(b.value);
-    if (ai === -1 && bi === -1) return 0;
-    if (ai === -1) return 1;
-    if (bi === -1) return -1;
-    return ai - bi;
-  });
   // Escaped so the JSON can never terminate the surrounding script element.
-  return JSON.stringify(payload).replace(/</g, '\\u003c');
+  return JSON.stringify(wizardOptions()).replace(/</g, '\\u003c');
 }
 
 /* ------------------------------------------------------------------ home -- */

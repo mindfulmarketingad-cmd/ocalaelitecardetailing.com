@@ -147,6 +147,19 @@
     return d.toISOString().slice(0, 10);
   }
 
+  /* When the visitor arrives with a service already chosen - from a "Book
+   * <service>" button or the intent popup - the wizard skips straight to the
+   * vehicle question. Without this line their choice would be invisible, and
+   * there would be no obvious way to change it. */
+  function chosenServiceNote() {
+    if (!state.service) return '';
+    return (
+      '<p class="wizard-chosen">Booking <strong>' +
+      api.escapeHtml(labelFor(SERVICES, state.service)) +
+      '</strong>. <button type="button" class="linkish" data-change-service>Change service</button></p>'
+    );
+  }
+
   function stepMarkup(i) {
     switch (i) {
       case 0:
@@ -159,6 +172,7 @@
         );
       case 1:
         return (
+          chosenServiceNote() +
           '<h3>Tell us about the vehicle</h3>' +
           '<p class="step-hint">Size and condition drive the labor, so this is what a firm price depends on.</p>' +
           '<p class="field-label">Vehicle type</p>' +
@@ -395,6 +409,15 @@
     var next = host.querySelector('[data-next]');
     var back = host.querySelector('[data-back]');
     var status = host.querySelector('[data-status]');
+
+    var change = host.querySelector('[data-change-service]');
+    if (change) {
+      change.addEventListener('click', function () {
+        collect();
+        state.step = 0;
+        render();
+      });
+    }
 
     if (back) {
       back.addEventListener('click', function () {
