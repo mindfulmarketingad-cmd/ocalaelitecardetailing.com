@@ -1,4 +1,20 @@
 -- =============================================================================
+-- RULED OUT so far (confirmed 2026-08-29):
+--
+--   [x] Column grants. anon holds INSERT on every column the site writes,
+--       including cart_items, best_time_to_call, service, site and zip.
+--       Section 3 below confirmed this. It is not the cause.
+--
+-- STILL TO CHECK, in order of likelihood:
+--   [ ] RLS enabled with no INSERT policy for anon  -> HTTP 403, code 42501
+--   [ ] status / id / created_at NOT NULL with no default -> HTTP 400, 23502
+--   [ ] the anon JWT itself rejected                -> HTTP 401, never reaches Postgres
+--
+-- Section 4 (the live test insert) settles the first two in one run.
+-- The curl in section 5 settles the third.
+-- =============================================================================
+
+-- =============================================================================
 -- Why is the booking form not saving leads?
 --
 -- Run this whole file in the Supabase SQL editor and send back the output.
