@@ -13,10 +13,24 @@
 --       the INSERT grant on the column, so the site now writes status='new'
 --       explicitly. The insert no longer depends on a default existing.
 --
--- STILL TO CHECK, only if submissions still fail after deploying that change:
---   [ ] the anon JWT itself rejected -> HTTP 401, never reaches Postgres.
---       That would mean the project's JWT secret was rotated, invalidating
---       the key in assets/js/supabase.js. Section 5 below tests it.
+--   [x] Stale deployment. Ruled out: Vercel production is READY on commit
+--       7473098, which is the build containing the anon JWT and the status
+--       fix. The live site is running current code.
+--
+-- CONCLUSION (2026-08-29): the anon JWT in assets/js/supabase.js is being
+-- REJECTED. The front end still reports the HTTP 401 message, which is the
+-- only path to that string, so the request is refused before it ever reaches
+-- Postgres. Every database-side cause has been eliminated against the live
+-- database and the deployed build is current.
+--
+-- Both keys supplied at the start of this project now return 401: the
+-- sb_publishable_ key and this anon JWT. Two stale keys together point at the
+-- project's API keys having been rotated, or legacy JWT keys having been
+-- disabled in favour of the new publishable/secret key system.
+--
+-- FIX: fetch the current public key from the Supabase dashboard
+-- (Project Settings -> API Keys) and replace KEY in assets/js/supabase.js.
+-- Nothing else in the integration needs to change.
 --
 -- Section 4 (the live test insert) settles the first two in one run.
 -- The curl in section 5 settles the third.

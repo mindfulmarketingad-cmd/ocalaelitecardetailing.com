@@ -18,11 +18,18 @@ re-grants it, and nothing should. [`schema.sql`](./schema.sql) only creates the
 
 ## Keys
 
-| Key | Where it belongs |
+| Key | Status |
 | --- | --- |
-| Anon JWT (`eyJ…role":"anon"…`) | **Currently in use.** Client JavaScript, in `assets/js/supabase.js`. Public by design. |
-| Publishable key (`sb_publishable_…`) | Returned HTTP 401 on this project, meaning the new API key system is not enabled for it. Swap back in `assets/js/supabase.js` only if you enable new API keys in the dashboard. |
+| Anon JWT (`eyJ…role":"anon"…`) | In `assets/js/supabase.js`. **Returning HTTP 401 — needs replacing.** |
+| Publishable key (`sb_publishable_…`) | Also returned HTTP 401. Not in use. |
 | Service role key | **Never** in this repository, in client code, or in any deployed asset. Dashboard and trusted server use only. |
+
+> **⚠️ Both public keys supplied when this site was built now return 401.**
+> Every other cause has been eliminated against the live database (grants, RLS
+> and the `status` column all check out) and the deployed build is current, so
+> a rejected key is the only remaining explanation. Get the current public key
+> from **Project Settings → API Keys** in the Supabase dashboard and replace
+> `KEY` in `assets/js/supabase.js`. That is the only change needed.
 
 ## How this site tags its leads
 
