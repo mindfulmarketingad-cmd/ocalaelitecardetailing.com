@@ -47,7 +47,7 @@ The `oecd_leads` view created by `schema.sql` wraps exactly that query.
 ### Columns written
 
 `name`, `email`, `phone`, `address`, `city`, `zip`, `service`,
-`best_time_to_call`, `message`, `page_url`, `referrer`, `utm_source`,
+`best_time_to_call`, `message`, `status`, `page_url`, `referrer`, `utm_source`,
 `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid`, and
 `cart_items` (jsonb).
 
@@ -58,9 +58,13 @@ the inbox; `cart_items` holds the same detail structured for querying.
 
 | Column | Why |
 | --- | --- |
-| `status` | Postgres ENUM **and** `NOT NULL` — must keep its database default. Sending a wrong value fails the insert with `22P02`. |
-| `project_type`, `job_category` | Postgres ENUMs belonging to another site. Same failure mode. |
+| `project_type`, `job_category` | Postgres ENUMs belonging to another site. Their allowed values are unknown here, and an unrecognised value fails the whole insert with `22P02`. |
 | `id`, `created_at` | Rely on their database defaults. |
+
+`status` **is** written, as `new`. It is `NOT NULL` and uses the `lead_status`
+enum (`new`, `active`, `closed`). Writing it explicitly rather than relying on
+a database default means the insert cannot fail with `23502` if that default is
+ever missing or removed.
 
 Every other column (`event_*`, `chair_*`, `tier`, `provider_slug`,
 `size_estimate`, …) belongs to other sites and is left null.

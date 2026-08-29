@@ -8,12 +8,15 @@
 --       ("Public can submit leads" and "anon can insert leads"), both with
 --       WITH CHECK (true). RLS is not blocking anything.
 --
--- STILL TO CHECK:
---   [ ] status NOT NULL with no default -> HTTP 400, code 23502.
---       Now the leading suspect by elimination: status is NOT NULL, the site
---       never writes it (it is an enum owned by the other sites sharing this
---       table), so it must have a default or every insert fails.
+--   [x] status NOT NULL with no default. Addressed rather than diagnosed:
+--       the lead_status enum accepts 'new', 'active', 'closed', and anon holds
+--       the INSERT grant on the column, so the site now writes status='new'
+--       explicitly. The insert no longer depends on a default existing.
+--
+-- STILL TO CHECK, only if submissions still fail after deploying that change:
 --   [ ] the anon JWT itself rejected -> HTTP 401, never reaches Postgres.
+--       That would mean the project's JWT secret was rotated, invalidating
+--       the key in assets/js/supabase.js. Section 5 below tests it.
 --
 -- Section 4 (the live test insert) settles the first two in one run.
 -- The curl in section 5 settles the third.

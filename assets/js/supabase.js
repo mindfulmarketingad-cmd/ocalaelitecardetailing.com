@@ -95,12 +95,19 @@ window.OECD = window.OECD || {};
   var LEAD_TABLE = 'leads';
   var SITE = 'ocalaelitecardetailing.com';
 
-  /* Columns deliberately never written from the browser:
-   *   status, project_type, job_category  - Postgres ENUMs owned by other
-   *     sites / staff workflow; sending an unrecognised value fails the whole
-   *     insert with 22P02.
+  /* status is NOT NULL on the shared table and is the lead_status enum,
+   * whose allowed values are 'new', 'active' and 'closed'. It is now written
+   * explicitly as 'new' rather than left to a database default: anon holds
+   * the INSERT grant on the column, the value is known-valid, and sending it
+   * means the insert no longer depends on whether a default exists.
+   *
+   * Columns still deliberately never written from the browser:
+   *   project_type, job_category - Postgres ENUMs owned by the other sites
+   *     sharing this table. Their allowed values are unknown here, and an
+   *     unrecognised value fails the entire insert with 22P02.
    *   id, created_at - rely on their database defaults.
    */
+  var LEAD_STATUS = 'new';
 
   /** Marketing attribution from the URL and referrer, if present. */
   function attribution() {
@@ -129,6 +136,7 @@ window.OECD = window.OECD || {};
       site: SITE,
       source: 'website',
       lead_type: leadType,
+      status: LEAD_STATUS,
       page_url: String(window.location.href).slice(0, 500)
     };
     var extra = attribution();
