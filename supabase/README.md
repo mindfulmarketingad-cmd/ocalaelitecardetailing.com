@@ -125,6 +125,27 @@ Common results:
 | 404 | PostgREST cannot find the table **in its schema cache** - not a permissions error | Run [`diagnose-404.sql`](./diagnose-404.sql). Usually a stale cache (`notify pgrst, 'reload schema';`), a table outside the exposed schemas, or no `anon` grant at all |
 | 400 + `22P02` | An ENUM column got an unrecognised value | Something is writing `status`/`project_type`/`job_category` |
 | 400 + `PGRST204` | A column in the payload does not exist | Column name drift — compare against the list above |
+| 403 + `42501` | `anon` has `INSERT` on the table but not `USAGE` on its id sequence | Only affects `bigserial` ids: `grant usage on sequence leads_id_seq to anon;` |
+
+## Verified against a real database
+
+`schema.sql` and `diagnose-404.sql` are not written from memory — both were
+executed against PostgreSQL 16 with a `leads` fixture matching the live column
+list, in healthy and broken states. What that run established:
+
+- `schema.sql` applies cleanly and is idempotent; a second run changes nothing.
+- Acting as `anon`: submitting a review succeeds and lands as `pending`;
+  reading pending reviews returns **0 rows**; approving one is denied;
+  reading `leads` is denied. The table in the Reviews section below is
+  therefore tested behaviour, not intent.
+- Inserting the exact payload the booking wizard sends succeeds, and the row
+  appears in the `oecd_leads` view with every field populated.
+- `diagnose-404.sql` reports correctly when `leads` sits outside `public`,
+  when `anon` holds no grant, and when the id sequence grant is missing.
+
+The one thing that run cannot cover is PostgREST itself, which is not part of
+a stock PostgreSQL install. Anything about the schema *cache* is reasoning
+from PostgREST's documented behaviour, not observation.
 
 ## Reviews
 
