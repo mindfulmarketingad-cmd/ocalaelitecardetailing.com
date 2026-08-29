@@ -1002,6 +1002,491 @@ const posts = [
       { p: 'For the paint side of the same climate problem, see the <a href="/blog/ceramic-coating-guide/">ceramic coating guide</a>.' }
     ]
   }
+  ,
+  {
+    slug: 'how-to-interior-detail-a-2021-hyundai-elantra',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'If the cabin needs extraction rather than a wipe-down, we bring the machines to your driveway.' },
+    author: 'jay',
+    title: 'How To Interior Detail a 2021 Hyundai Elantra',
+    metaTitle: 'How To Interior Detail a 2021 Hyundai Elantra',
+    metaDescription:
+      'A step-by-step interior detail for the 2021 Hyundai Elantra, including the removable wireless charging pad insert and the piano-black trim that scratches easily.',
+    excerpt:
+      'The seventh-generation Elantra has two traps that catch people out: a lift-out charging pad insert hiding grime, and gloss black trim that marks if you look at it wrong.',
+    date: '2026-09-01',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'interiorBA2',
+    body: [
+      { p: 'The 2021 Elantra is straightforward to detail, with two exceptions that catch most people out. There is a removable insert in the wireless charging pad that hides a surprising amount of grime, and there is a lot of gloss black trim that marks if you clean it carelessly.' },
+      { p: 'Work top to bottom throughout. Everything you dislodge from the headliner and dash lands lower down, so cleaning the carpets first means doing them twice.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'Soft detailing brushes for vents and panel gaps',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash and trim',
+        'Foam upholstery cleaner for cloth, or a pH-balanced leather cleaner and conditioner for leatherette'
+      ] },
+
+      { h2: 'Step 1: Strip The Cabin' },
+      { h3: 'Everything Out' },
+      { p: 'Remove personal items, then the floor mats, then anything in the door pockets, the centre console bin and the glovebox. The glovebox and console are usually the dirtiest spaces in the car and the ones most often skipped.' },
+      { h3: 'The Wireless Charging Pad Insert' },
+      { p: 'This is the Elantra-specific step. The charging pad just ahead of the shifter has a removable rubber insert with a lift tab. Take it out. Underneath is dust, grit and whatever has been dropped in there since the car was new, and it is invisible until you lift it.' },
+      { p: 'Wash the insert separately and leave it out until the cabin is completely dry.' },
+
+      { h2: 'Step 2: First Vacuum' },
+      { p: 'A preliminary pass to pull loose material before anything wet goes near it. Seats, carpets, seat rails, and the channels either side of the centre console.' },
+      { p: 'Take the mats out of the car to vacuum them. Beating and vacuuming them on the ground gets far more out than working around them in the footwell.' },
+
+      { h2: 'Step 3: Dash, Screens And Trim' },
+      { h3: 'Dust First, Wet Second' },
+      { p: 'Work a soft brush through the vents and panel gaps to lift dust out before introducing any liquid. Spraying a dusty vent just turns dust into a paste that sets in the louvres.' },
+      { h3: 'Hard Plastics' },
+      { p: 'Spray a diluted interior cleaner onto the towel, never onto the panel, then wipe. Spraying directly puts product into switchgear, seams and the instrument binnacle.' },
+      { h3: 'The Screens' },
+      { p: 'The digital cluster and the infotainment touchscreen take a dry or very slightly damp lint-free microfiber and nothing else. Use an ammonia-free product if you use one at all; ammonia attacks anti-glare coatings.' },
+      { h3: 'Piano Black Trim' },
+      { p: 'The gloss black surround marks more easily than any other surface in the car. Use a clean, plush towel with no grit in it, minimal pressure, and never the same towel you just used on the carpets. Most of the fine scratching on these cars is self-inflicted during cleaning.' },
+      { image: 'interiorBA1', caption: 'Cabin surfaces respond well when the dust is lifted before anything wet is applied.' },
+
+      { h2: 'Step 4: Seats And Upholstery' },
+      { h3: 'Cloth' },
+      { p: 'Apply a foam upholstery cleaner, agitate gently with a soft brush, then extract or blot the residue out. If you cannot extract, use as little moisture as possible; cloth that gets soaked and never fully dries is how a cabin ends up smelling worse than before.' },
+      { h3: 'Leatherette' },
+      { p: 'The Elantra uses synthetic leather on higher trims. Clean with a pH-balanced product and a soft brush, wipe off, then apply a conditioner rated for synthetic surfaces. It does not feed the material the way conditioner feeds real hide, but it does add ultraviolet resistance, which is what actually matters in Florida.' },
+
+      { h2: 'Step 5: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not onto the glass, and never near a screen. Do the inside of the windscreen last, and finish with a dry towel in a different direction so you can tell which side any remaining streak is on.' },
+      { p: 'Refit the mats and the charging pad insert only once everything is fully dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Finish the dash and upper door cards with a matte ultraviolet protectant. Sun through the windscreen is what hardens and eventually cracks a dashboard here, and a cracked dash is a replacement rather than a repair. Matte, not glossy: a shiny dash throws glare into the windscreen on a bright afternoon.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Ground-in stains, pet hair woven into carpet fibre, or a musty smell from the ventilation system all need extraction and steam rather than towels and spray. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tesla-model-3',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'White Tesla seats and gloss black trim are unforgiving. We do them properly, at your address.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tesla Model 3',
+    metaTitle: 'How To Interior Detail a Tesla Model 3',
+    metaDescription:
+      'Detailing a Model 3 cabin: Screen Clean Mode, synthetic seats that are not leather, the dash vent slot, gloss black trim, and keeping white seats white.',
+    excerpt:
+      'A Model 3 cabin has almost no buttons and a great deal of screen, gloss trim and white upholstery. That changes the order you work in.',
+    date: '2026-09-01',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'teslaModel3Interior',
+    body: [
+      { p: 'A Model 3 interior is mostly three materials: a very large touchscreen, synthetic upholstery, and gloss black trim. All three are easy to damage with products that are perfectly safe on an ordinary car.' },
+
+      { h2: 'Start By Disabling The Screen' },
+      { p: 'Before touching the display, enable Screen Clean Mode from the Controls menu under Display. The screen dims to black and stops responding to touch, so you can wipe it properly without opening menus, changing settings or triggering the wipers.' },
+      { p: 'This is the single most useful thing to know about detailing any Tesla, and most owners have never found it.' },
+
+      { h2: 'The Seats Are Not Leather' },
+      { h3: 'What They Actually Are' },
+      { p: 'Tesla uses a synthetic upholstery. It is durable and wipes clean easily, but it does not need, and does not benefit from, a traditional leather conditioner. Feeding it does nothing; the material has no pores to feed.' },
+      { h3: 'Cleaning Them' },
+      { p: 'Mild pH-neutral cleaner or diluted soap on a microfiber, worked gently, then wiped dry. Avoid solvents, alcohol-heavy wipes and anything abrasive, all of which can dull or craze the surface over time.' },
+      { h3: 'Keeping White Seats White' },
+      { p: 'The white interior transfers dye from denim, and it does it quickly. Address it early with a dedicated interior cleaner while it is still on the surface; once it has migrated into the material it is far harder to remove and aggressive attempts do more damage than the stain.' },
+
+      { h2: 'The Dash Vent Slot' },
+      { h3: 'Why It Traps Dust' },
+      { p: 'The Model 3 runs a continuous slot vent across the dash instead of conventional louvres. It looks clean and it collects dust along its whole length, out of reach of a cloth.' },
+      { h3: 'Clearing It' },
+      { p: 'Use a soft long-bristled detailing brush or a low-pressure air blower and work along the slot, then vacuum what falls out. Do not spray cleaner into it.' },
+
+      { h2: 'Gloss Black Trim Is The Fragile Part' },
+      { p: 'The console surround and door trim mark from almost nothing. Use a plush, clean, dedicated towel and light pressure. Never use the towel that has been on the carpets, and never dry-wipe a dusty gloss panel; lift the dust first, then wipe.' },
+      { image: 'teslaGlassRoof', caption: 'The glass roof needs cleaning from the inside too, and streaks show against a bright sky.' },
+
+      { h2: 'The Glass Roof' },
+      { p: 'The interior face of the glass roof builds a film from off-gassing plastics that shows badly in direct sun. Ammonia-free glass cleaner on the towel, wiped in one direction, then buffed dry with a second towel.' },
+
+      { h2: 'Carpets, Console And Storage' },
+      { p: 'The sliding console cover comes back easily; underneath it is the compartment that collects everything. Vacuum with a crevice tool, then wipe. Do the same in the door pockets and the rear seat-back pockets.' },
+      { p: 'Model 3 carpet is thin and responds well to extraction. If you are not extracting, keep moisture low and dry it thoroughly.' },
+
+      { h2: 'What Not To Use Anywhere In A Tesla' },
+      { list: [
+        'Ammonia-based glass cleaner, particularly near the screen',
+        'Alcohol-heavy or solvent wipes on the upholstery',
+        'Silicone-heavy glossy dressings, which throw glare and attract dust',
+        'Any abrasive pad or magic-eraser type sponge on gloss trim'
+      ] },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tesla-model-y/">Model Y</a> shares this cabin architecture with a much larger cargo area. For the outside, see <a href="/blog/how-to-exterior-detail-a-tesla-model-3/">exterior detailing a Model 3</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tesla-model-y',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Cargo areas, third rows and white seats. We bring extraction to your driveway.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tesla Model Y',
+    metaTitle: 'How To Interior Detail a Tesla Model Y',
+    metaDescription:
+      'Detailing a Model Y cabin, including the under-floor cargo wells, folding rear seats, Screen Clean Mode, and the synthetic upholstery that is not leather.',
+    excerpt:
+      'The Model Y shares the Model 3 dashboard and adds the part that actually gets filthy: a large cargo area with hidden wells underneath it.',
+    date: '2026-09-01',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'teslaGlassRoof',
+    body: [
+      { p: 'Everything true of a Model 3 cabin is true here, because the dashboard, screen and materials are shared. What the Model Y adds is volume: a hatchback opening, a large load floor, storage wells beneath it, and on some cars a third row.' },
+      { p: 'That cargo area is where the real work is, and it is the part most owners vacuum least.' },
+
+      { h2: 'Screen Clean Mode First' },
+      { p: 'Controls, then Display, then Screen Clean Mode. The display blanks and stops accepting touch so you can wipe it without changing settings or triggering anything. Do this before you start rather than fighting the screen halfway through.' },
+
+      { h2: 'The Cargo Area' },
+      { h3: 'Lift The Floor' },
+      { p: 'The load floor lifts out to reveal storage wells underneath. These collect sand, leaf litter and whatever has leaked from a shopping bag, and because they are covered, nothing prompts you to look. Empty them, vacuum them, and wipe them out.' },
+      { h3: 'Fold The Seats Forward' },
+      { p: 'Drop the rear seats and vacuum the seams and the carpet that lives underneath them. On a Model Y this area holds more debris than the footwells do.' },
+      { h3: 'Liners Are Worth It' },
+      { p: 'If the car carries dogs, sports kit or anything from a hardware store, a fitted cargo liner turns a recurring deep clean into a rinse. It is the highest-value accessory for this vehicle from a cleaning point of view.' },
+
+      { h2: 'Seats And Upholstery' },
+      { h3: 'Denim Is The Enemy Of White Seats' },
+      { p: 'Synthetic upholstery, not leather. Mild cleaner, gentle agitation, wipe dry, and no traditional conditioner. Denim dye transfer onto white seats is the recurring complaint; deal with it early while it is still sitting on the surface.' },
+      { image: 'teslaModel3Interior', caption: 'The Model Y shares this dash and screen layout with the Model 3.' },
+
+      { h2: 'Dash Vent Slot And Gloss Trim' },
+      { p: 'Same continuous slot vent as the Model 3: brush or blow the dust out along its length rather than spraying into it. Same fragile gloss black console trim, which needs a clean plush towel and light pressure.' },
+
+      { h2: 'The Glass Roof' },
+      { p: 'The Model Y roof is large, and the interior face develops a haze from plastics off-gassing. Ammonia-free cleaner applied to the towel, one direction, then buffed with a dry towel. Doing it in shade rather than direct sun makes streaks far easier to see and remove.' },
+
+      { h2: 'Third Row, If Fitted' },
+      { p: 'Fold it, vacuum underneath it, and check the seat-back pockets and the gap between the seat base and the wheel arch trim. Third rows that are rarely used are rarely cleaned, and it shows when they are finally folded up.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tesla-model-3/">Model 3 guide</a> covers the shared dashboard in more detail. For paint and glass, see <a href="/blog/how-to-exterior-detail-a-tesla-model-y/">exterior detailing a Model Y</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tesla-model-s',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Real wood veneer and a yoke wheel need a gentler hand than a normal cabin. We bring the right products.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tesla Model S',
+    metaTitle: 'How To Interior Detail a Tesla Model S',
+    metaDescription:
+      'Detailing a Model S cabin: the wood veneer dash, the yoke or round wheel, three screens, Screen Clean Mode, and synthetic upholstery care.',
+    excerpt:
+      'The Model S has the one interior material the other Teslas do not: real wood veneer, which does not want the cleaner you use on everything else.',
+    date: '2026-09-01',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'teslaModelSInterior',
+    body: [
+      { p: 'The Model S cabin differs from the rest of the range in ways that matter for cleaning. There is a genuine wood veneer running the width of the dash, a landscape main screen plus a driver display and a rear screen, and on many cars a yoke rather than a round wheel.' },
+
+      { h2: 'Screen Clean Mode, Then All Three Screens' },
+      { p: 'Enable Screen Clean Mode under Controls and Display before you begin. Then work the main screen, the driver display and the rear-seat screen with a dry or barely damp lint-free microfiber.' },
+      { p: 'Nothing ammonia-based goes anywhere near any of them. If a screen needs more than a dry cloth, dampen the cloth very slightly with distilled water rather than reaching for a chemical.' },
+
+      { h2: 'The Wood Veneer' },
+      { h3: 'Treat It As Finished Wood, Not Plastic' },
+      { p: 'The dash veneer is sealed timber. A damp microfiber and a light pH-neutral cleaner is all it wants. Solvents, alcohol wipes and aggressive all-purpose cleaner can dull or cloud the lacquer, and that damage does not polish out the way it would on plastic.' },
+      { h3: 'Dry It Properly' },
+      { p: 'Never leave standing moisture along the veneer seams. Wipe, then follow immediately with a dry towel.' },
+
+      { h2: 'The Yoke Or Wheel' },
+      { p: 'Whichever is fitted, it is the highest-contact surface in the car and holds skin oils, sunscreen and hand cream. A pH-neutral cleaner on a towel, worked into the seams, then dried. Avoid dressings entirely here: a slippery wheel or yoke is a genuine safety issue.' },
+      { image: 'teslaModelSInterior', caption: 'Wood veneer, three screens and a yoke, none of which want an aggressive cleaner.' },
+
+      { h2: 'Seats And Upholstery' },
+      { h3: 'Synthetic, Not Hide' },
+      { p: 'Synthetic upholstery as elsewhere in the range. Mild cleaner, light agitation, wiped dry, no traditional leather conditioner. Light interiors pick up dye transfer from clothing; catch it while it is still on the surface.' },
+
+      { h2: 'Vents, Trim And Glass' },
+      { h3: 'Vents And Gloss Trim' },
+      { p: 'Brush or blow dust from the vent slot before anything wet. Gloss trim gets a clean plush towel and minimal pressure. The glass roof is cleaned from the inside with ammonia-free cleaner on the towel, then buffed dry.' },
+
+      { h2: 'The Larger Cabin Problem' },
+      { p: 'A Model S has more surface area than the rest of the range, which mostly means it takes longer rather than being harder. Budget more time for the rear cabin, which on a chauffeured or family car often needs more attention than the front.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside, see <a href="/blog/how-to-exterior-detail-a-tesla-model-s/">exterior detailing a Model S</a>. The <a href="/blog/how-to-interior-detail-a-tesla-model-3/">Model 3 guide</a> covers the shared Tesla-wide points in more depth.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tesla-cybertruck',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Work trucks that are also showpieces. We bring extraction and steam to your driveway.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tesla Cybertruck',
+    metaTitle: 'How To Interior Detail a Tesla Cybertruck',
+    metaDescription:
+      'Detailing a Cybertruck cabin: the large centre screen, hard-wearing surfaces, the glass roof, and the grit a truck bed brings into the cabin.',
+    excerpt:
+      'A Cybertruck cabin is built to be hosed down in spirit if not in practice, which changes what it needs and what it does not.',
+    date: '2026-09-01',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'teslaGlassRoof',
+    body: [
+      { p: 'The Cybertruck cabin is the most utilitarian in the Tesla range: larger, flatter surfaces, a very large centre screen, and materials chosen to tolerate use rather than to look delicate. It is genuinely easier to clean than a Model S, and it gets dirtier, because it is a truck.' },
+
+      { h2: 'Screen Clean Mode First' },
+      { p: 'Same as every Tesla: enable Screen Clean Mode from Controls and Display so the display blanks and ignores touch. On a screen this size that matters more, not less, because there is more surface to wipe and more to trigger accidentally.' },
+      { p: 'Dry or barely damp lint-free microfiber only. Nothing ammonia-based.' },
+
+      { h2: 'The Grit Problem' },
+      { h3: 'It Comes From The Bed' },
+      { p: 'Anything used as a truck carries the bed into the cabin on boots and gloves: sand, sawdust, aggregate, dried mud. That material is abrasive, and left in the carpet it grinds every time someone shifts in the seat.' },
+      { h3: 'Vacuum Before Anything Else' },
+      { p: 'Take the mats out, beat them, and vacuum the cabin thoroughly with a crevice tool before introducing any moisture. Wetting grit first turns it into a paste that works deeper into the fibre.' },
+
+      { h2: 'Hard Surfaces' },
+      { h3: 'Flat Panels Clean Fast' },
+      { p: 'The Cybertruck uses large, mostly flat panels, which are quick to clean. Diluted pH-neutral cleaner sprayed onto the towel, not the panel, then wiped and dried. Soft brushes for the vents and the seams around the console.' },
+      { h3: 'Protect Them Afterwards' },
+      { p: 'Finish exposed upper surfaces with a matte ultraviolet protectant. The glass roof puts a lot of sun on the dash in Florida.' },
+
+      { h2: 'Seats' },
+      { p: 'Synthetic upholstery, as across the range. Mild cleaner and gentle agitation, wiped dry, and no traditional leather conditioner. For a truck that carries work clothes, clean more often and less aggressively rather than waiting and scrubbing hard.' },
+      { image: 'teslaGlassRoof', caption: 'The glass roof loads the cabin with sun, which is what a UV protectant is defending against.' },
+
+      { h2: 'The Glass Roof And Windscreen' },
+      { p: 'The interior face of the glass hazes from plastics off-gassing, and on a windscreen this large the streaks are obvious. Ammonia-free cleaner on the towel, one direction, buffed dry with a second towel, working in shade rather than sun.' },
+
+      { h2: 'Where People Go Wrong' },
+      { list: [
+        'Cleaning the carpets before the dash, so everything from above lands on freshly cleaned carpet',
+        'Wetting abrasive grit instead of vacuuming it out first',
+        'Using a glossy dressing on the dash, which throws glare through a large windscreen',
+        'Ammonia-based glass cleaner near the screen'
+      ] },
+
+      { h2: 'Related Guides' },
+      { p: 'The exterior is a completely different job from any other vehicle here, because the body is bare stainless steel rather than paint. See <a href="/blog/how-to-exterior-detail-a-tesla-cybertruck/">exterior detailing a Cybertruck</a> before you put anything on that panel.' }
+    ]
+  }
+  ,
+  {
+    slug: 'how-to-exterior-detail-a-tesla-model-3',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'Tesla paint marks easily. Decontamination and protection done with correct technique, at your address.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Tesla Model 3',
+    metaTitle: 'How To Exterior Detail a Tesla Model 3',
+    metaDescription:
+      'Washing and protecting a Model 3: soft paint and safe wash technique, aero wheel covers, Autopilot cameras, the charge port and the glass roof.',
+    excerpt:
+      'Tesla paint has a reputation for marking easily, which makes wash technique matter more on this car than on most.',
+    date: '2026-09-02',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'foam',
+    body: [
+      { p: 'Two things shape how you wash a Model 3. The paint is widely reported as being on the softer side, so it shows wash marring readily. And the car carries cameras and sensors that Autopilot depends on, which need cleaning without being blasted.' },
+
+      { h2: 'Wash Technique Matters More Here' },
+      { h3: 'Pre-Soak Before Contact' },
+      { p: 'Rinse, then foam, and give it time to dwell. The more dirt that leaves the panel before a mitt touches it, the less of it gets dragged across soft clear coat. This is the step that prevents swirl marks, and it is the step people skip.' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards, a pH-neutral soap, and clean media. One bucket with a sponge on a Model 3 will put a spider-web of fine scratches into the paint within a few washes, and removing them means <a href="/services/paint-correction/">polishing clear coat away</a>.' },
+      { h3: 'Never A Brush Tunnel' },
+      { p: 'Automatic washes with brushes are the fastest way to ruin this paint. If you must use an automatic, use touchless.' },
+
+      { h2: 'The Aero Wheel Covers' },
+      { p: 'If the car still wears the aero covers, take them off. They pop off by hand, and underneath is a wheel that has never been cleaned because nothing prompts you to look. Wash both faces of the cover and the wheel behind it.' },
+      { p: 'One genuine advantage of an electric car: regenerative braking means the friction brakes do far less work, so there is a fraction of the brake dust an equivalent petrol car produces. The wheels are much easier than you expect.' },
+
+      { h2: 'Cameras And Sensors' },
+      { p: 'The Model 3 has cameras in the B-pillars, in the front fender repeaters, above the rear plate and behind the windscreen. A dirty camera degrades Autopilot and produces warnings.' },
+      { p: 'Clean them with a damp microfiber and light pressure. Do not aim a pressure washer directly at a camera housing or a repeater, and do not use solvents on the lens covers.' },
+      { image: 'foam', caption: 'Foam, dwell, rinse. The dirt you remove before contact is the dirt that never scratches the paint.' },
+
+      { h2: 'The Glass Roof' },
+      { h3: 'Dry It First' },
+      { p: 'The roof is one large glass panel and it shows water spotting badly, particularly with Florida sprinkler overspray. Dry it first and dry it thoroughly, and consider a glass sealant so the next round of mineral water beads off instead of drying on.' },
+
+      { h2: 'Charge Port And Panel Gaps' },
+      { p: 'Rinse the charge port surround but keep water pressure low and let it dry before charging. Panel gaps on these cars hold water and soap; blow them out with air or a drying towel so nothing runs down the paint an hour later.' },
+
+      { h2: 'Protection' },
+      { p: 'Given how readily this paint marks, protection is doing more work than usual. A sealant will hold four to six months here; a <a href="/services/ceramic-coating/">ceramic coating</a> makes washing dramatically safer for years, which on soft paint is the real benefit rather than the gloss.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-tesla-model-3/">interior detailing a Model 3</a>. The <a href="/blog/how-to-exterior-detail-a-tesla-model-y/">Model Y guide</a> covers the same paint with a much larger roof.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-tesla-model-y',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'A large roof, soft paint and Florida sun. Decontamination and protection, done at your driveway.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Tesla Model Y',
+    metaTitle: 'How To Exterior Detail a Tesla Model Y',
+    metaDescription:
+      'Exterior detailing a Model Y: the large glass roof, height and reach, soft paint, aero covers, Autopilot cameras and the rear hatch area.',
+    excerpt:
+      'Same paint as a Model 3, considerably more of it, and a roof large enough that water spotting becomes the defining problem.',
+    date: '2026-09-02',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'wash',
+    body: [
+      { p: 'The Model Y washes like a Model 3 with two differences that matter: there is a great deal more glass overhead, and the car is tall enough that reaching the middle of the roof safely becomes part of the job.' },
+
+      { h2: 'Height And Reach' },
+      { h3: 'Do Not Reach Across The Roof' },
+      { p: 'Do not lean a mitt across the roof from the side. Dragging it over paint you cannot see is how the worst marring happens. Use a long-handled wash tool or a step, and always work with plenty of lubrication.' },
+      { p: 'Rinse top down and wash top down so dirty water never runs over a panel you have already cleaned.' },
+
+      { h2: 'The Glass Roof Is The Main Event' },
+      { h3: 'Why It Spots So Badly' },
+      { p: 'It is a large, near-horizontal glass surface, which is the worst possible shape for mineral-heavy Florida water. Sprinkler overspray and afternoon storms dry on it and leave deposits that ordinary washing will not lift.' },
+      { h3: 'What To Do About It' },
+      { p: 'Dry it immediately and completely, before you dry anything else. Then seal it. Glass sealant on that panel does more visible good than almost anything else you can do to a Model Y.' },
+
+      { h2: 'Soft Paint, Same Rules' },
+      { p: 'Pre-soak and foam before contact, two buckets with grit guards, pH-neutral soap, clean media, and no brush tunnels ever. Tesla clear coat marks readily and every shortcut shows up in sunlight later.' },
+      { image: 'wash', caption: 'Two buckets, clean media, top down. On soft paint the method matters more than the product.' },
+
+      { h2: 'Wheels And Aero Covers' },
+      { h3: 'Less Brake Dust Than You Expect' },
+      { p: 'Pull the aero covers if fitted and clean the wheel behind them. Thanks to regenerative braking there is far less brake dust than on a comparable petrol SUV, so this is usually quicker than expected.' },
+
+      { h2: 'Cameras, Charge Port And The Hatch' },
+      { p: 'Clean the B-pillar cameras, fender repeaters and the rear camera gently with a damp microfiber; a dirty rear camera on a hatchback is the one you will actually notice. Keep pressure away from camera housings and the charge port.' },
+      { p: 'Open the hatch and clean the shuts and the rubber seal. On a hatchback this lip collects road grime and then transfers it onto whatever you load, which is a complaint that reads as a cargo problem but starts outside.' },
+
+      { h2: 'Protection Priorities' },
+      { p: 'On a Model Y, in order: seal the glass roof, protect the paint, then worry about the wheels. A <a href="/services/ceramic-coating/">ceramic coating</a> covers all of it and makes the weekly wash far less risky on paint that marks easily.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin and cargo wells, see <a href="/blog/how-to-interior-detail-a-tesla-model-y/">interior detailing a Model Y</a>. The <a href="/blog/how-to-exterior-detail-a-tesla-model-3/">Model 3 guide</a> covers the same paint on a smaller car.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-tesla-model-s',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/ceramic-coating/', label: 'Ceramic Coating', blurb: 'On a car you intend to keep, coating is what stops soft paint accumulating wash marring for years.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Tesla Model S',
+    metaTitle: 'How To Exterior Detail a Tesla Model S',
+    metaDescription:
+      'Exterior detailing a Model S: long panels and reflective paint, flush door handles, cameras, the frunk, and why protection matters on soft clear coat.',
+    excerpt:
+      'Long, flat, highly reflective panels show every defect. The Model S rewards careful technique more visibly than any other car in the range.',
+    date: '2026-09-02',
+    readTime: '9 min read',
+    category: 'How To',
+    photo: 'tesla',
+    body: [
+      { p: 'The Model S has the largest uninterrupted panels in the Tesla range, and long flat panels are unforgiving. Wash marring that would hide in the creases of a smaller car sits in plain view across a Model S door in afternoon sun.' },
+
+      { h2: 'Why Technique Shows Up More Here' },
+      { h3: 'Flat Panels Hide Nothing' },
+      { p: 'A defect is visible when light hits it at the wrong angle. Big, flat, glossy panels give sunlight far more opportunity to do that, which is why the same wash that looks acceptable on a hatchback looks poor on a Model S.' },
+      { h3: 'The Method' },
+      { p: 'Pre-soak, foam, dwell, then two buckets with grit guards and genuinely clean media. Straight-line motions, no circles.' },
+
+      { h2: 'Flush Door Handles' },
+      { p: 'Older Model S handles present and retract. Whatever type is fitted, the recess collects grit and soap. Deploy or open the handles during the wash, clean inside the recess with a soft brush, and dry them so nothing runs out onto the door an hour later.' },
+
+      { h2: 'Drying Without Adding Marks' },
+      { p: 'Most damage on a well-washed car happens during drying. Use forced air where you can, a large plush drying towel where you cannot, and never drag a towel across a dry panel. Blot and draw, do not scrub.' },
+      { image: 'tesla', caption: 'Long, flat Model S panels show both good and careless work clearly.' },
+
+      { h2: 'Cameras, Charge Port And Frunk' },
+      { h3: 'Cameras And Charge Port' },
+      { p: 'Clean the B-pillar cameras, repeaters and rear camera with a damp microfiber and light pressure, keeping pressure washers away from housings. Rinse the charge port surround at low pressure and let it dry before charging.' },
+      { h3: 'The Frunk' },
+      { p: 'There is no engine bay, but the frunk is not self-cleaning. Vacuum it, wipe the liner, and clean the shuts and seals; on a car this size the front shuts collect a surprising amount.' },
+
+      { h2: 'The Glass Roof' },
+      { p: 'Large, near-horizontal, and a magnet for mineral spotting from sprinklers and storms. Dry it first, dry it fully, and seal it so the next round beads off rather than etching in.' },
+
+      { h2: 'Protection Is The Real Answer' },
+      { p: 'On soft paint that shows everything, the value of a <a href="/services/ceramic-coating/">ceramic coating</a> is not the gloss, it is that every future wash becomes lower risk because dirt releases before contact. On a car being kept for years that compounds.' },
+      { p: 'If the paint already carries swirls, correction comes first; coating over them seals them in. See <a href="/services/paint-correction/">paint correction</a>.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the wood veneer and three screens inside, see <a href="/blog/how-to-interior-detail-a-tesla-model-s/">interior detailing a Model S</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-tesla-cybertruck',
+    cluster: 'how-to-detail',
+    cta: { href: '/contact/', label: 'Ask About Your Cybertruck', blurb: 'Stainless is not paint and should not be treated like it. Tell us what your panels look like and we will tell you honestly what helps.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Tesla Cybertruck',
+    metaTitle: 'How To Exterior Detail a Tesla Cybertruck',
+    metaDescription:
+      'The Cybertruck body is bare stainless steel, not painted. What that changes about washing, fingerprints, orange surface spotting, and protection.',
+    excerpt:
+      'Everything you know about detailing paint stops applying here. The body has no clear coat, and treating it like paint is how it gets damaged.',
+    date: '2026-09-02',
+    readTime: '10 min read',
+    category: 'How To',
+    photo: 'wheel',
+    body: [
+      { p: 'This is the one vehicle in the range where the usual advice actively does harm. A Cybertruck body panel is uncoated stainless steel. There is no colour coat and no clear coat, which means there is nothing to polish through and nothing to protect in the conventional sense, but also no sacrificial layer standing between the metal and whatever lands on it.' },
+      { p: 'Read this before you take anything abrasive to a panel. Marks in stainless are not corrected the way marks in clear coat are.' },
+
+      { h2: 'Why Stainless Changes Everything' },
+      { h3: 'No Clear Coat' },
+      { p: 'On a painted car, a wash scratch sits in a layer of clear coat that can be levelled by machine polishing. On bare stainless the mark is in the metal itself and in its brushed finish, which is directional. Correcting it means blending the grain rather than removing a layer, and that is specialist work.' },
+      { h3: 'It Shows Everything' },
+      { p: 'Fingerprints, oils from hands, water spots and smudges show far more readily than on paint. This is a property of the material, not a defect, and it is the single most common owner complaint.' },
+
+      { h2: 'Washing' },
+      { list: [
+        'Rinse thoroughly first; grit dragged across stainless marks it as surely as it marks paint',
+        'A pH-neutral car soap and clean, soft media, exactly as you would on paint',
+        'Work in straight lines, following the grain of the panel rather than in circles',
+        'Dry completely and promptly; standing water is what leaves spotting on this finish',
+        'Keep strong acids and harsh wheel cleaners away from the body entirely'
+      ] },
+
+      { h2: 'The Orange Spotting Question' },
+      { h3: 'It Is Usually Not The Steel Rusting' },
+      { p: 'Owners report small orange or brown specks appearing on panels. In the great majority of cases this is not the stainless itself rusting; it is airborne iron particles, from rail dust, brake dust or industrial fallout, landing on the surface and corroding there.' },
+      { h3: 'How To Remove It' },
+      { p: 'The fix is the same chemistry used on paint: an iron fallout remover, applied and rinsed, which dissolves the particles without abrading the panel. Doing this promptly matters, because contamination left in place can pit the surface underneath it.' },
+      { image: 'wheel', caption: 'Iron contamination is removed chemically, not scrubbed off. That is true on paint and more important on bare stainless.' },
+
+      { h2: 'What Not To Do' },
+      { list: [
+        'Do not use abrasive pads, steel wool or a magic-eraser type sponge; you will scratch the grain and it will not polish out',
+        'Do not use conventional cutting compound expecting paint-like results',
+        'Do not use a brush wash tunnel, ever',
+        'Do not leave bird droppings, bug residue or iron fallout sitting on the panel',
+        'Do not assume a product is safe because it is safe on paint'
+      ] },
+
+      { h2: 'Protection' },
+      { h3: 'What Actually Works' },
+      { p: 'Wax does very little on stainless. What does work is a coating formulated to bond to bare metal, or paint protection film, both of which reduce fingerprinting and make contamination far easier to rinse away. Both are also considerably harder to apply well on flat stainless panels than on paint, and a poor application is very visible.' },
+      { p: 'We install <a href="/services/ceramic-coating/">ceramic coatings</a> on painted vehicles. On a Cybertruck the honest answer is that stainless-specific protection is a specialised job, and we will tell you plainly whether what you want is something we should be doing.' },
+
+      { h2: 'Everything Else On The Truck' },
+      { p: 'The glass, wheels, cameras and charge port are conventional. Clean cameras with a damp microfiber and light pressure, keep pressure washers away from housings, and dry the glass roof properly since it spots as badly as any other Tesla.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The cabin is far more conventional than the body: see <a href="/blog/how-to-interior-detail-a-tesla-cybertruck/">interior detailing a Cybertruck</a>. For how the rest of the range differs, start with <a href="/blog/how-to-exterior-detail-a-tesla-model-3/">exterior detailing a Model 3</a>.' }
+    ]
+  }
 
 ];
 

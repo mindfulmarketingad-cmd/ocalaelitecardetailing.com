@@ -100,6 +100,25 @@ const photos = {
     width: 573,
     height: 624
   },
+  // Tesla interiors, used by the vehicle-specific detailing guides.
+  teslaModel3Interior: {
+    src: '/assets/img/photo-tesla-model3-interior.jpg',
+    alt: 'Tesla Model 3 interior showing the centre touchscreen, minimal dashboard and light synthetic-leather seats',
+    width: 1200,
+    height: 675
+  },
+  teslaModelSInterior: {
+    src: '/assets/img/photo-tesla-models-interior.avif',
+    alt: 'Tesla Model S interior with the yoke steering wheel, wood dash trim and landscape centre screen',
+    width: 1600,
+    height: 900
+  },
+  teslaGlassRoof: {
+    src: '/assets/img/photo-tesla-glassroof-interior.webp',
+    alt: 'Tesla cabin viewed from the rear, showing the full-length glass roof above light seats',
+    width: 800,
+    height: 600
+  },
   // Paint correction service page gallery.
   correctionBA2: {
     src: '/assets/img/photo-paint-correction-before-after-2.jpg',

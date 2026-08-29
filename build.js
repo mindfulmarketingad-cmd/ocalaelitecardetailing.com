@@ -983,8 +983,12 @@ function buildPostPage(p, older, newer) {
           </ul>
         </div>`
       : `<div class="callout">
-          <h3>Part Of A Series</h3>
-          <p>This article is one part of our <a href="/blog/${pillarPost ? pillarPost.slug : 'ceramic-coating-guide'}/">${esc(pillarPost ? pillarPost.title : 'complete guide')}</a>, which covers the subject end to end.</p>
+          <h3>${pillarPost ? 'Part Of A Series' : 'Related Guides'}</h3>
+          <p>${
+            pillarPost
+              ? `This article is one part of our <a href="/blog/${pillarPost.slug}/">${esc(pillarPost.title)}</a>, which covers the subject end to end.`
+              : 'Other guides covering the same ground for different vehicles.'
+          }</p>
           ${
             clusterPosts.length
               ? `<ul class="checklist" style="margin-bottom:0">
