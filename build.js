@@ -21,6 +21,7 @@ const { featuredReviews } = require('./src/data/reviews');
 const { areas } = require('./src/data/areas');
 const { serviceAreaContent } = require('./src/data/service-areas');
 const { costs } = require('./src/data/costs');
+const { authors } = require('./src/data/authors');
 const legal = require('./src/data/legal');
 
 const ROOT = __dirname;
@@ -772,7 +773,7 @@ function buildBlog() {
             <span class="card-index">${esc(p.category)}</span>
             <h3>${esc(p.title)}</h3>
             <p>${esc(p.excerpt)}</p>
-            <div class="card-meta"><span>${fmtDate(p.date)}</span><span>${esc(p.readTime)}</span></div>
+            <div class="card-meta"><span>${esc(authorBySlug(p.author).name)}</span><span>${fmtDate(p.date)}</span><span>${esc(p.readTime)}</span></div>
             <span class="card-link">Read Article</span>
           </a>`
     )
@@ -874,6 +875,7 @@ function buildPostPage(p, older, newer) {
 
   const related = posts.filter((o) => o.slug !== p.slug).slice(0, 3);
   const toc = tocFromBlocks(p.body);
+  const author = authorBySlug(p.author);
 
   const nav = [];
   if (older) nav.push(`<a class="btn btn-ghost btn-sm" href="/blog/${older.slug}/">Previous: ${esc(older.title)}</a>`);
@@ -882,7 +884,7 @@ function buildPostPage(p, older, newer) {
   const body = `${pageHead({
     trail,
     h1: p.title,
-    lead: `<span class="muted">${fmtDate(p.date)} &middot; ${esc(p.readTime)} &middot; ${esc(p.category)}</span>`,
+    lead: `<span class="muted">By <a href="/author/${author.slug}/">${esc(author.name)}</a> &middot; ${fmtDate(p.date)} &middot; ${esc(p.readTime)} &middot; ${esc(p.category)}</span>`,
     ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="tel:${site.phoneHref}">Call ${site.phone}</a>`
   })}
 
@@ -900,6 +902,14 @@ function buildPostPage(p, older, newer) {
         <article class="prose">
           ${renderBlocks(p.body)}
         </article>
+
+        <div class="callout" style="margin-bottom:0">
+          <h3>About The Author</h3>
+          <p><strong>${esc(author.name)}</strong> &mdash; ${esc(author.role)}. ${esc(author.summary)}</p>
+          <div class="btn-row">
+            <a class="btn btn-ghost btn-sm" href="/author/${author.slug}/">More From ${esc(author.name)}</a>
+          </div>
+        </div>
 
         <div class="callout">
           <h3>Want This Handled For You?</h3>
@@ -960,7 +970,11 @@ ${ctaBand('Book Your Detail', 'Pick your service in the booking wizard and we wi
           dateModified: p.date,
           articleSection: p.category,
           image: site.origin + '/assets/img/og-image.png',
-          author: { '@type': 'Organization', name: site.name, url: site.origin + '/' },
+          author: {
+            '@type': 'Person',
+            name: author.name,
+            url: `${site.origin}/author/${author.slug}/`
+          },
           publisher: { '@id': site.origin + '/#business' }
         }
       ]
@@ -1514,7 +1528,15 @@ function buildSitemapPage() {
     { label: 'Sitemap', href: '/sitemap/' }
   ];
 
-  const groups = ['Main', 'Services', 'Blog', 'Legal'];
+  // Derived from the registry rather than hardcoded: a hardcoded list silently
+  // dropped whole sections from this page as new groups were added, while the
+  // XML sitemap kept listing them.
+  const preferredOrder = ['Main', 'Services', 'Service Areas', 'Costs', 'Blog', 'Authors', 'Legal'];
+  const present = [...new Set(registry.map((r) => r.group))];
+  const groups = [
+    ...preferredOrder.filter((g) => present.includes(g)),
+    ...present.filter((g) => !preferredOrder.includes(g))
+  ];
   const cols = groups
     .map((g) => {
       const items = registry.filter((r) => r.group === g);
@@ -2338,6 +2360,144 @@ ${ctaBand(`Get A Firm Price For ${s.name}`, 'Tell us the vehicle and its conditi
   );
 }
 
+/* --------------------------------------------------------------- authors -- */
+
+function authorBySlug(slug) {
+  const a = authors.find((x) => x.slug === slug);
+  if (!a) throw new Error(`Unknown author "${slug}". Add them to src/data/authors.js.`);
+  return a;
+}
+
+function buildAuthors() {
+  authors.forEach((a) => {
+    const trail = [
+      { label: 'Home', href: '/' },
+      { label: 'Blog', href: '/blog/' },
+      { label: a.name, href: `/author/${a.slug}/` }
+    ];
+
+    const written = posts
+      .filter((p) => p.author === a.slug)
+      .sort((x, y) => y.date.localeCompare(x.date));
+
+    const title = `${a.name} | Author at Ocala Elite Car Detailing`;
+    const description = `${a.name} is a detailer with Ocala Elite Car Detailing in Ocala, FL. ${a.summary}`;
+
+    const cards = written
+      .map(
+        (p) => `<a class="card" href="/blog/${p.slug}/">
+            <div class="card-media"><img src="${photos[p.photo].src}" alt="${esc(photos[p.photo].alt)}" loading="lazy" width="${photos[p.photo].width}" height="${photos[p.photo].height}"></div>
+            <span class="card-index">${esc(p.category)}</span>
+            <h3>${esc(p.title)}</h3>
+            <p class="small">${esc(p.excerpt)}</p>
+            <div class="card-meta"><span>${fmtDate(p.date)}</span><span>${esc(p.readTime)}</span></div>
+          </a>`
+      )
+      .join('\n          ');
+
+    const others = authors.filter((o) => o.slug !== a.slug);
+
+    const body = `${pageHead({
+      trail,
+      h1: a.name,
+      lead: esc(a.role),
+      ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="/blog/">All Articles</a>`
+    })}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy prose">
+            <h2>About ${esc(a.name)}</h2>
+            ${a.bio.map((para) => `<p>${esc(para)}</p>`).join('\n            ')}
+          </div>
+          <div class="split-media">
+            <div class="callout" style="margin-top:0">
+              <h3>At A Glance</h3>
+              <ul class="summary-list" style="margin-top:16px">
+                <li><span class="k">Role</span><span class="v">${esc(a.role.split(',')[0])}</span></li>
+                <li><span class="k">Based</span><span class="v">Ocala, Florida</span></li>
+                <li><span class="k">Covers</span><span class="v">Marion County</span></li>
+                <li><span class="k">Articles</span><span class="v">${written.length}</span></li>
+              </ul>
+            </div>
+            ${mediaFrame(a.slug === 'jay' ? 'interiorBA1' : a.slug === 'matt' ? 'correctionBA1' : 'foam', {
+              className: 'is-wide'
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Articles</p>
+        <h2>Written by ${esc(a.name)}</h2>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">The Rest Of The Team</p>
+        <h2>Other Authors</h2>
+        <div class="grid grid-2" style="margin-top:28px">
+          ${others
+            .map(
+              (o) => `<a class="card" href="/author/${o.slug}/">
+            <h3>${esc(o.name)}</h3>
+            <p class="small">${esc(o.summary)}</p>
+            <span class="card-link">Read ${esc(o.name)}</span>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+        <p style="margin-top:28px"><a href="/blog/">All articles</a>, <a href="/about/">about the business</a>, or <a href="/">back to the homepage</a>.</p>
+      </div>
+    </section>
+
+${ctaBand('Book With The Team', 'Pick your service and we will confirm pricing and an arrival window.')}`;
+
+    write(
+      `/author/${a.slug}`,
+      page({
+        title,
+        description,
+        path: `/author/${a.slug}/`,
+        current: '/blog/',
+        body,
+        schema: [
+          breadcrumbSchema(site.origin, trail),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ProfilePage',
+            mainEntity: {
+              '@type': 'Person',
+              '@id': `${site.origin}/author/${a.slug}/#person`,
+              name: a.name,
+              jobTitle: a.role,
+              description: a.bio[0],
+              worksFor: { '@id': site.origin + '/#business' },
+              url: `${site.origin}/author/${a.slug}/`
+            }
+          }
+        ]
+      }),
+      {
+        title,
+        description,
+        label: a.name,
+        group: 'Authors',
+        priority: '0.4',
+        changefreq: 'monthly',
+        keywords: `${a.name} author detailer ocala elite car detailing`
+      }
+    );
+  });
+}
+
 /* ------------------------------------------------------------------- 404 -- */
 
 function buildNotFound() {
@@ -2388,6 +2548,7 @@ function main() {
   buildContact();
   buildServiceAreas();
   buildCosts();
+  buildAuthors();
   buildLegal(legal.disclaimer, 'disclaimer');
   buildLegal(legal.privacy, 'privacy');
   buildLegal(legal.terms, 'terms');

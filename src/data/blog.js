@@ -4,6 +4,7 @@
 const posts = [
   {
     slug: 'how-often-should-you-detail-your-car-in-florida',
+    author: 'matt',
     cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'Not sure where your paint currently stands? Decontamination and fresh protection is the service that resets the clock.' },
     title: 'How Often Should You Detail Your Car in Florida?',
     metaTitle: 'How Often Should You Detail Your Car in Florida? | Ocala Elite Car Detailing',
@@ -47,6 +48,7 @@ const posts = [
   },
   {
     slug: 'ceramic-coating-vs-wax-which-is-worth-it',
+    author: 'matt',
     cta: { href: '/services/ceramic-coating/', label: 'Ceramic Coating', blurb: 'If a coating is the right call for how you use the vehicle, here is exactly what installing one involves.' },
     title: 'Ceramic Coating vs Wax: Which Is Actually Worth It?',
     metaTitle: 'Ceramic Coating vs Wax: Which Is Worth It? | Ocala Elite Car Detailing',
@@ -96,6 +98,7 @@ const posts = [
   },
   {
     slug: 'love-bug-season-paint-damage-prevention',
+    author: 'matt',
     cta: { href: '/services/ceramic-coating/', label: 'Ceramic Coating', blurb: 'The most effective defense before a hatch is a slick, protected surface. Bug residue rinses off a coated panel instead of etching it.' },
     title: 'Love Bug Season: Preventing Permanent Paint Damage',
     metaTitle: 'Love Bug Season Paint Damage Prevention | Ocala Elite Car Detailing',
@@ -134,6 +137,7 @@ const posts = [
   },
   {
     slug: 'mobile-detailing-vs-drive-through-car-wash',
+    author: 'ivan',
     cta: { href: '/services/mobile-detailing/', label: 'Mobile Detailing', blurb: 'Everything a tunnel wash cannot do, performed in your driveway while you carry on with the day.' },
     title: 'Mobile Detailing vs the Drive-Through Car Wash',
     metaTitle: 'Mobile Detailing vs Drive-Through Car Wash | Ocala Elite Car Detailing',
@@ -171,6 +175,7 @@ const posts = [
   },
   {
     slug: 'what-to-expect-at-your-first-detailing-appointment',
+    author: 'ivan',
     cta: { href: '/services/full-package/', label: 'Full Package', blurb: 'If this is your first detail and the vehicle has gone a while, the full package is the reset most people are actually after.' },
     title: 'What to Expect at Your First Detailing Appointment',
     metaTitle: 'What to Expect at Your First Detailing Appointment | Ocala Elite Car Detailing',
@@ -212,6 +217,7 @@ const posts = [
   ,
   {
     slug: 'does-mobile-car-detailing-include-engine-cleaning',
+    author: 'ivan',
     cta: { href: '/services/engine-detailing/', label: 'Engine Detailing', blurb: 'Booked on its own, with sensitive components covered and controlled low pressure throughout.' },
     title: 'Does Mobile Car Detailing Include Engine Cleaning?',
     metaTitle: 'Does Mobile Car Detailing Include Engine Cleaning? | Ocala Elite Car Detailing',
@@ -249,6 +255,7 @@ const posts = [
   },
   {
     slug: 'does-mobile-car-detailing-include-air-vents',
+    author: 'jay',
     cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Tell us it is the smell rather than the dust when you book, and we will bring what that actually takes.' },
     title: 'Does Mobile Car Detailing Include Air Vents?',
     metaTitle: 'Does Mobile Car Detailing Include Air Vents? | Ocala Elite Car Detailing',
@@ -284,6 +291,7 @@ const posts = [
   },
   {
     slug: 'is-mobile-car-detailing-expensive',
+    author: 'ivan',
     cta: { href: '/services/', label: 'All Services', blurb: 'Every service on this site lists a starting price and a realistic duration, so you can compare before contacting anyone.' },
     title: 'Is Mobile Car Detailing Expensive?',
     metaTitle: 'Is Mobile Car Detailing Expensive? | Ocala Elite Car Detailing',
@@ -329,6 +337,7 @@ const posts = [
   ,
   {
     slug: 'best-mobile-car-detailing-service-in-ocala-florida',
+    author: 'jay',
     cta: { href: '/service-areas/ocala/', label: 'Ocala Detailing', blurb: 'What we do in Ocala specifically, and every service available here.' },
     title: 'What Is The Best Mobile Car Detailing Service in Ocala, Florida?',
     metaTitle: 'Best Mobile Car Detailing Service in Ocala Florida | Ocala Elite Car Detailing',
@@ -370,6 +379,7 @@ const posts = [
   },
   {
     slug: 'best-mobile-car-detailing-service-in-belleview-florida',
+    author: 'jay',
     cta: { href: '/service-areas/belleview/', label: 'Belleview Detailing', blurb: 'What we do in Belleview specifically, including the damp-cabin work this area needs most.' },
     title: 'What Is The Best Mobile Car Detailing Service in Belleview, Florida?',
     metaTitle: 'Best Mobile Car Detailing Service in Belleview Florida | Ocala Elite Car Detailing',
@@ -406,6 +416,7 @@ const posts = [
   },
   {
     slug: 'best-mobile-car-detailing-service-in-the-villages-florida',
+    author: 'matt',
     cta: { href: '/service-areas/the-villages/', label: 'The Villages Detailing', blurb: 'What we do in The Villages specifically, carts included.' },
     title: 'What Is The Best Mobile Car Detailing Service in The Villages, Florida?',
     metaTitle: 'Best Mobile Car Detailing Service in The Villages Florida | Ocala Elite Car Detailing',
@@ -446,6 +457,7 @@ const posts = [
   ,
   {
     slug: 'what-to-do-before-a-car-detailing',
+    author: 'jay',
     cta: { href: '/services/mobile-detailing/', label: 'Mobile Detailing', blurb: 'Booked at your address, with water and power on board. Ten minutes of prep is all we ask for.' },
     title: 'What To Do Before a Car Detailing Appointment',
     metaTitle: 'What To Do Before a Car Detailing Appointment | Ocala Elite Car Detailing',
