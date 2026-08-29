@@ -207,6 +207,37 @@ role, which includes `anon`. That is why an anonymous insert evaluated it at
 all. It is harmless while the function fails closed, but worth scoping to
 `authenticated` when the admin model is rebuilt.
 
+## Before repairing `is_admin()`: read the policies first
+
+A live run confirmed `public.subscribers` exists and `public.contractors` does
+not, so Option B — repointing the function — is the likely repair rather than
+Option A.
+
+It also showed all three policies apply to the **`public`** role, and `public`
+includes `anon`, whose key is published in the JavaScript on every page.
+
+That makes the repair non-trivial. Those policies do not currently evaluate;
+they raise. Repairing the function **activates** them. If any of their `USING`
+expressions is satisfiable by an anonymous caller, the repair converts a crash
+into a data leak across every site sharing the table.
+
+[`inspect-policies.sql`](./inspect-policies.sql) is the pre-flight: it prints
+every policy on `leads` and `analytics_events` in full — not only the ones
+calling `is_admin()`, because permissive policies OR together and one careless
+policy is enough — plus the columns of `subscribers` and whether RLS is
+enabled on each table. It reads definitions only.
+
+The expressions decide the answer:
+
+- A subscriber check hanging off `auth.uid()` is safe for `anon`, because
+  `auth.uid()` is null for an anonymous request and matches no row.
+- Anything satisfiable without a signed-in user is not. Scope the policy to
+  `authenticated` before repairing the function, not after.
+
+Worth checking in the same output: if `subscribers` has RLS disabled and
+`anon` holds `SELECT` on it, the subscriber list itself is readable with the
+public key.
+
 ## ⚠️ anon privileges on `leads`
 
 A diagnostic run on the live project returned this for the `anon` role:
