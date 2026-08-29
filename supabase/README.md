@@ -127,6 +127,48 @@ Common results:
 | 400 + `PGRST204` | A column in the payload does not exist | Column name drift — compare against the list above |
 | 403 + `42501` | `anon` has `INSERT` on the table but not `USAGE` on its id sequence | Only affects `bigserial` ids: `grant usage on sequence leads_id_seq to anon;` |
 
+## ⚠️ anon privileges on `leads`
+
+A diagnostic run on the live project returned this for the `anon` role:
+
+```
+DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE
+```
+
+The websites use **`INSERT` and nothing else**. The anon key is public by
+design — it ships in the JavaScript on every page — so every other privilege
+there is surface area with no purpose.
+
+`TRUNCATE` is the one to understand properly. Row Level Security governs
+SELECT, INSERT, UPDATE and DELETE. It does **not** govern TRUNCATE, which is
+decided by the grant alone, so no policy can restrain it. Verified directly:
+with RLS enabled and only an INSERT policy present, `anon` read 0 rows and
+deleted 0 rows, then truncated the table and removed every row, including rows
+belonging to the other sites sharing it.
+
+The mitigating factor today is that PostgREST exposes no HTTP verb that maps
+to TRUNCATE, so it is not reachable through the Data API as things stand. It
+becomes reachable the moment any RPC function touches the table.
+
+`SELECT`, `UPDATE` and `DELETE` **are** reachable over HTTP. Whether they are
+actually exposed depends on the policies: a `PERMISSIVE` policy that is
+`FOR ALL` with `USING (true)` applying to `public` or `anon` opens all three.
+
+Two scripts:
+
+| Script | Does |
+| --- | --- |
+| [`audit-leads-access.sql`](./audit-leads-access.sql) | Runs the real operations as `anon` inside a transaction and rolls back, reporting observed behaviour rather than inference |
+| [`harden-leads.sql`](./harden-leads.sql) | Dry run first, then revokes everything except `INSERT` |
+
+Confirmed after hardening: booking inserts still succeed, TRUNCATE is denied,
+and read/update/delete are denied outright **even with a permissive
+`FOR ALL USING (true)` policy still present** — the grant revoke alone closes
+it.
+
+Before running the revoke, confirm no other site reads `leads` with the anon
+key. All the sites share this one project and therefore this one `anon` role.
+
 ## Verified against a real database
 
 `schema.sql` and `diagnose-404.sql` are not written from memory — both were
