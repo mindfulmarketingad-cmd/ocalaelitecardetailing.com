@@ -127,6 +127,57 @@ Common results:
 | 400 + `PGRST204` | A column in the payload does not exist | Column name drift — compare against the list above |
 | 403 + `42501` | `anon` has `INSERT` on the table but not `USAGE` on its id sequence | Only affects `bigserial` ids: `grant usage on sequence leads_id_seq to anon;` |
 
+## The booking 404: root cause
+
+**A policy on `leads` calls `public.is_admin()`, and that function queries
+`public.contractors`, which does not exist in this project.**
+
+The chain, reproduced end to end on PostgreSQL 16:
+
+1. The booking wizard `POST`s to `/rest/v1/leads`.
+2. The client used to send `Prefer: return=representation`, which makes
+   PostgREST run `INSERT ... RETURNING`.
+3. `RETURNING` reads the row back, which evaluates the table's SELECT-side
+   policies — including `admins manage leads` (`FOR ALL`), which calls
+   `is_admin()`.
+4. `is_admin()` queries the missing `contractors` table, so Postgres raises
+   **`42P01` undefined_table**.
+5. PostgREST reports `42P01` as **HTTP 404**.
+6. The site mapped 404 to "The booking system is not set up yet."
+
+Every database check passed because the grants and policies really are fine
+for a plain insert. Only the `RETURNING` path was broken.
+
+Observed directly, same table, same session:
+
+| Statement as `anon` | Result |
+| --- | --- |
+| `insert into leads (...) values (...)` | `INSERT 0 1` |
+| `insert into leads (...) values (...) returning *` | `ERROR: 42P01 relation "public.contractors" does not exist` |
+
+### The fix that shipped
+
+`assets/js/supabase.js` no longer asks for the row back. Nothing on the site
+ever used it — every caller's `.then` takes no argument — and not asking means
+the `anon` role needs no `SELECT` privilege at all, which is what makes the
+lockdown in the section below safe to apply.
+
+### Why repairing `is_admin()` alone would not have fixed it
+
+With `RETURNING`, the new row must also be **visible** under the SELECT
+policies, and `anon` has no SELECT policy on `leads`. Repairing the function
+turns the 404 into `new row violates row-level security policy` — a different
+error, still a failed booking. Verified. The client change is the fix; the
+function repair matters for everything else that calls it, and is in
+[`fix-is-admin.sql`](./fix-is-admin.sql).
+
+### `is_admin()` is broken for every caller
+
+The same function is presumably referenced by policies on other tables in this
+shared project. `fix-is-admin.sql` lists them, then offers two repairs: fail
+closed if `contractors` is genuinely gone, or repoint the function if admins
+now live in a different table.
+
 ## ⚠️ anon privileges on `leads`
 
 A diagnostic run on the live project returned this for the `anon` role:

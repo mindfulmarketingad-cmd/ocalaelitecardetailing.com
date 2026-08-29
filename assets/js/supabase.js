@@ -72,11 +72,25 @@ window.OECD = window.OECD || {};
     });
   }
 
-  /** Insert one row into a table. Resolves with the inserted row. */
+  /**
+   * Insert one row into a table.
+   *
+   * Deliberately does NOT ask for the row back. `Prefer: return=representation`
+   * makes PostgREST run INSERT ... RETURNING, and RETURNING reads the row it
+   * just wrote, which evaluates the table's SELECT policies. That turned a
+   * working insert into a hard failure here: a policy on `leads` calls an
+   * is_admin() function that queries a `contractors` table which does not
+   * exist in this project, so the RETURNING raised 42P01, which PostgREST
+   * reports as HTTP 404 - the "booking system is not set up yet" error.
+   *
+   * Nothing on this site uses the returned row; every caller's .then takes no
+   * argument. Not asking for it also means the anon role needs no SELECT
+   * privilege, which is what lets the leads table be locked down to INSERT
+   * only. Resolves with null.
+   */
   function insert(table, row) {
     return request('/rest/v1/' + table, {
       method: 'POST',
-      headers: { Prefer: 'return=representation' },
       body: JSON.stringify(row)
     }).then(function (res) {
       return res.text().then(function (text) {
