@@ -32,7 +32,7 @@ const areas = [
       'Full sun exposure on most driveways and open lots year round'
     ],
     coverage:
-      'We cover the whole city, including the historic district, Southeast Ocala, Silver Springs Shores, the State Road 200 corridor, Ocala Palms, and the horse farm properties north and west of town.',
+      'We cover the whole city, including the historic district, Southeast Ocala, the State Road 200 corridor, Ocala Palms, and the horse farm properties north and west of town.',
     travel: 'Base of operations. No travel surcharge anywhere inside the city.'
   },
   {
@@ -58,7 +58,7 @@ const areas = [
       'Quieter residential streets make driveway access straightforward'
     ],
     coverage:
-      'We cover Belleview proper plus the surrounding Lake Weir communities, including Summerfield, Ocklawaha, and the neighbourhoods along US-441 and County Road 25.',
+      'We cover Belleview proper, including the neighbourhoods along US-441 and County Road 25 and out toward Lake Weir.',
     travel: 'Roughly fifteen minutes from base. No travel surcharge.'
   },
   {

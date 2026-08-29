@@ -77,6 +77,12 @@ const businessSchema = {
     addressCountry: 'US'
   },
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  // Ties this site to the business's Google Business Profile and social
+  // accounts. Populated from site.social; omitted entirely while empty,
+  // since an empty or invented sameAs is worse than none.
+  ...(Object.values(site.social || {}).filter(Boolean).length
+    ? { sameAs: Object.values(site.social).filter(Boolean) }
+    : {}),
   areaServed: site.areaServed.map((a) => ({ '@type': 'City', name: a + ', FL' })),
   openingHoursSpecification: [
     {
@@ -188,8 +194,10 @@ function bookingServicesJson() {
 // H1 stays a readable headline; the title tag is the keyword-heavy string set
 // separately below, since the two no longer need to match word for word.
 const HOME_H1 = 'Best Ocala Elite Car Detailing - Find Top-Rated Mobile Detailing Near You';
-const HOME_TITLE =
-  'Mobile Detailing Ocala | Mobile Car Detailing & Ceramic Coating | OECD Ocala Car Details Mobile Detailing';
+// 56 chars, so it renders in full in search results. The previous 109-char
+// version truncated around "Ceramic Coating" and repeated the same phrase
+// three times, which reads as keyword stuffing.
+const HOME_TITLE = 'Mobile Car Detailing Ocala FL | Ocala Elite Car Detailing';
 const HOME_DESC =
   'Mobile car detailing in Ocala, FL. Exterior, interior, full packages, ceramic coating and more, performed at your home or office. Licensed and insured.';
 
@@ -223,7 +231,7 @@ function buildHome() {
   const homeFaqs = [
     {
       q: 'What areas does Ocala Elite Car Detailing cover?',
-      a: 'We dispatch across Ocala and Marion County, including Belleview, Silver Springs, Dunnellon, Summerfield, Marion Oaks, Ocklawaha, Anthony, Citra, Reddick, and The Villages. Addresses outside that ring are quoted case by case.'
+      a: 'We currently serve Ocala, Belleview, and The Villages, Florida. Addresses just outside those three are quoted case by case, so send yours through and we will confirm coverage before anything is scheduled.'
     },
     {
       q: 'Do I need to be home during the appointment?',
@@ -1252,7 +1260,7 @@ function buildAbout() {
             <h2>How This Actually Works</h2>
             <p>Most detailing websites imply a single shop with a single crew. Ours does not, because that is not how we operate and you deserve to know before you book.</p>
             <p>Ocala Elite Car Detailing handles the front end: intake, scoping, quoting, scheduling, and follow-up. The detailing itself is performed by independent operators working in the Ocala area who meet our standard for equipment, insurance, and process. When you submit a request, we match it to an operator with the right capability and availability for that job.</p>
-            <p>The reason this model exists is coverage. A single crew can serve one part of Marion County reliably. A dispatch model can serve Belleview at eight in the morning and Dunnellon at two in the afternoon without either customer waiting a week for an opening.</p>
+            <p>The reason this model exists is coverage. A single crew can serve one part of the county reliably. A dispatch model can serve Belleview at eight in the morning and The Villages at two in the afternoon without either customer waiting a week for an opening.</p>
 
             <h2>What We Are Responsible For</h2>
             <p>We own the standard, the scoping, and the accountability. If the scope was wrong, we got it wrong. If an operator does not meet the standard described on this site, we want to hear about it and we stop referring work to operators who do not correct it.</p>
@@ -1748,10 +1756,8 @@ function buildServiceAreas() {
     <section class="section">
       <div class="wrap">
         <p class="eyebrow">Outside These Towns</p>
-        <h2>Wider Marion County Coverage</h2>
-        <p style="max-width:760px">We regularly work beyond the three areas above, including ${esc(
-          site.areaServed.filter((a) => !areas.some((ar) => ar.name === a)).join(', ')
-        )}. Those do not have their own pages yet, so send us the address and we will confirm coverage and any travel time before anything is scheduled.</p>
+        <h2>Just Outside Our Coverage?</h2>
+        <p style="max-width:760px">Ocala, Belleview, and The Villages are the three areas we serve today. If you are close to one of them, send the address through anyway. We will tell you honestly whether we can reach you and what the travel time means for scheduling, rather than taking the booking and sorting it out later.</p>
         <div class="btn-row" style="margin-top:26px">
           <a class="btn btn-ghost" href="/contact/">Check Your Address</a>
         </div>

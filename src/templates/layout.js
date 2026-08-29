@@ -44,6 +44,46 @@ function header(current) {
   </header>`;
 }
 
+/* Inline SVG marks, so the footer needs no icon font or extra request.
+ * Only profiles with a configured URL in src/data/site.js are rendered. */
+const SOCIAL_ICONS = {
+  google:
+    '<path d="M12 10.2v3.9h5.5a4.7 4.7 0 0 1-2 3.1v2.6h3.3c1.9-1.8 3-4.4 3-7.5 0-.7-.1-1.4-.2-2.1H12z"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.3-2.6c-.9.6-2.1 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3v2.6A10 10 0 0 0 12 22z"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3a10 10 0 0 0 0 9z"/><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3 7.5l3.4 2.6C7.2 7.8 9.4 5.9 12 5.9z"/>',
+  facebook:
+    '<path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>',
+  instagram:
+    '<path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1 0-1.7.2-2.1.3-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.1.4-.3 1-.3 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c0 1.1.2 1.7.3 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.1 1 .3 2.1.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1 0 1.7-.2 2.1-.3.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.1-.4.3-1 .3-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c0-1.1-.2-1.7-.3-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.1-1-.3-2.1-.3-1.2-.1-1.6-.1-4.7-.1z"/><path d="M12 15.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm0-8.4a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2z"/><circle cx="17.3" cy="6.7" r="1.2"/>',
+  youtube:
+    '<path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/>',
+  tiktok:
+    '<path d="M16.6 5.8a4.8 4.8 0 0 1-1-2.8h-3v12.2a2.4 2.4 0 1 1-2.4-2.4c.2 0 .5 0 .7.1v-3a5.5 5.5 0 1 0 4.7 5.4V8.9a7.8 7.8 0 0 0 4.4 1.4V7.4a4.8 4.8 0 0 1-3.4-1.6z"/>',
+  x: '<path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.3 3h6.4l4.4 5.8zm-1.1 16.1h1.7L7.7 4.8H5.9z"/>'
+};
+
+const SOCIAL_LABELS = {
+  google: 'Google Business Profile',
+  facebook: 'Facebook',
+  instagram: 'Instagram',
+  youtube: 'YouTube',
+  tiktok: 'TikTok',
+  x: 'X'
+};
+
+/** Footer icon row. Renders nothing at all until a URL is configured. */
+function socialLinks() {
+  const entries = Object.entries(site.social || {}).filter(([k, v]) => v && SOCIAL_ICONS[k]);
+  if (!entries.length) return '';
+  return `<ul class="social-row" aria-label="Social profiles">
+            ${entries
+              .map(
+                ([k, url]) => `<li><a href="${url}" target="_blank" rel="noopener me" aria-label="${SOCIAL_LABELS[k]}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SOCIAL_ICONS[k]}</svg>
+            </a></li>`
+              )
+              .join('\n            ')}
+          </ul>`;
+}
+
 function footer() {
   const links = footerNav
     .map((item) => `<li><a href="${item.href}">${item.label}</a></li>`)
@@ -57,6 +97,7 @@ function footer() {
           <p>${esc(site.name)} connects drivers across Ocala and Marion County with vetted mobile detailing operators. One request, one standard, work done at your address.</p>
           <p class="small muted">${esc(site.addressLocality)}, ${esc(site.addressRegion)} ${esc(site.postalCode)}<br>
           <a href="tel:${site.phoneHref}">${site.phone}</a> &middot; <a href="mailto:${site.email}">${site.email}</a></p>
+          ${socialLinks()}
         </div>
         <div>
           <h4>Services</h4>

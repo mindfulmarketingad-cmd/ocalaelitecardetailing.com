@@ -721,6 +721,23 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
 .footer-brand img { width: 46px; height: 46px; margin-bottom: 14px; }
 .footer-brand p { max-width: 380px; font-size: 0.92rem; }
 
+/* Footer social icons. Rendered only for profiles configured in
+   src/data/site.js, so this block is inert until URLs are added. */
+.social-row { display: flex; gap: 10px; list-style: none; margin: 18px 0 0; padding: 0; }
+.social-row a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.social-row a:hover { border-color: var(--steel); background: var(--panel-2); }
+.social-row svg { width: 17px; height: 17px; fill: var(--grey); }
+.social-row a:hover svg { fill: var(--white); }
+
 .footer-nav {
   display: flex;
   flex-wrap: wrap;

@@ -54,7 +54,7 @@ const services = [
       },
       {
         q: 'How far outside Ocala will you travel?',
-        a: 'We cover Ocala and the surrounding Marion County communities, including Belleview, Silver Springs, Dunnellon, Summerfield, Marion Oaks, and The Villages. Longer runs are quoted case by case at the time of booking.'
+        a: 'We currently serve three areas: Ocala, Belleview, and The Villages. Addresses just outside those are quoted case by case at the time of booking, so send yours through and we will confirm before scheduling.'
       },
       {
         q: 'What happens if it rains on my appointment day?',

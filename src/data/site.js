@@ -13,26 +13,34 @@ const site = {
   addressLocality: 'Ocala',
   addressRegion: 'FL',
   postalCode: '34470',
-  areaServed: [
-    'Ocala',
-    'Silver Springs',
-    'Belleview',
-    'Dunnellon',
-    'Marion Oaks',
-    'The Villages',
-    'Ocklawaha',
-    'Anthony',
-    'Citra',
-    'Reddick',
-    'Summerfield',
-    'Fort McCoy'
-  ],
+  // The three cities actually served. This drives the homepage coverage
+  // section and the areaServed field in LocalBusiness schema, so listing
+  // towns we do not cover would generate leads for trips we cannot take.
+  areaServed: ['Ocala', 'Belleview', 'The Villages'],
   hours: [
     { days: 'Monday - Friday', time: '7:00 AM - 7:00 PM' },
     { days: 'Saturday', time: '8:00 AM - 5:00 PM' },
     { days: 'Sunday', time: 'By appointment' }
   ],
   geo: { lat: 29.1872, lng: -82.1401 },
+
+  // ---- Social & listing profiles -------------------------------------------
+  // Fill in the real URLs. Each one you add does two things automatically:
+  // it renders an icon in the footer, and it is emitted in the sameAs array of
+  // the LocalBusiness schema, which is how Google ties this site to your
+  // Google Business Profile and social accounts.
+  //
+  // Leave a value as an empty string and it is skipped entirely - no broken
+  // icon, no empty sameAs entry. Nothing here is guessed: an invented profile
+  // URL would either 404 or point at somebody else's account.
+  social: {
+    google: '',    // Google Business Profile share link or maps place URL
+    facebook: '',
+    instagram: '',
+    youtube: '',
+    tiktok: '',
+    x: ''
+  },
   // ---- Supabase -----------------------------------------------------------
   // The publishable key is safe in client code. Row Level Security on the
   // bookings / reviews tables is what protects the data - see supabase/schema.sql.
