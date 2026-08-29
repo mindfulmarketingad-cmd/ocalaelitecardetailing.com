@@ -20,6 +20,7 @@ const { photos } = require('./src/data/photos');
 const { featuredReviews } = require('./src/data/reviews');
 const { areas } = require('./src/data/areas');
 const { serviceAreaContent } = require('./src/data/service-areas');
+const { costs } = require('./src/data/costs');
 const legal = require('./src/data/legal');
 
 const ROOT = __dirname;
@@ -141,7 +142,8 @@ const hubLinks = (exclude = '') => {
     { href: '/blog/', label: 'Blog', copy: 'Field notes on protecting paint and interiors through a Central Florida year.' },
     { href: '/reviews/', label: 'Reviews', copy: 'Feedback from customers, published unedited, and the form to leave your own.' },
     { href: '/search/', label: 'Search', copy: 'Search every page on this site by service, question, or keyword.' },
-    { href: '/service-areas/', label: 'Service Areas', copy: 'The towns we cover, what each one does to a vehicle, and every service available there.' }
+    { href: '/service-areas/', label: 'Service Areas', copy: 'The towns we cover, what each one does to a vehicle, and every service available there.' },
+    { href: '/costs/', label: 'Costs', copy: 'What every service starts at, what pushes the price up, and what is not included.' }
   ].filter((h) => h.href !== exclude);
 
   return `    <section class="section">
@@ -2063,6 +2065,279 @@ ${ctaBand(`Book ${s.name} in ${a.name}`, 'Select the service in the booking wiza
   );
 }
 
+/* ----------------------------------------------------------------- costs -- */
+
+/**
+ * Estimated tier pricing, derived from the service's own starting price so the
+ * two can never disagree. Sedan is the published start; larger classes are
+ * uplifted. Clearly labelled as estimates on the page itself.
+ */
+function costTiers(s) {
+  const base = parseFloat(s.priceFrom.replace(/[^0-9.]/g, ''));
+  const round = (n) => '$' + Math.round(n / 5) * 5;
+  return [
+    { label: 'Sedan or coupe', price: s.priceFrom },
+    { label: 'SUV or crossover', price: round(base * 1.25) + '+' },
+    { label: 'Truck', price: round(base * 1.3) + '+' },
+    { label: 'Three-row or van', price: round(base * 1.5) + '+' }
+  ];
+}
+
+function buildCosts() {
+  const trail = [
+    { label: 'Home', href: '/' },
+    { label: 'Costs', href: '/costs/' }
+  ];
+
+  const title = 'Car Detailing Costs in Ocala FL | Prices For Every Service';
+  const description =
+    'What every detailing service costs in Ocala, FL, what drives each price up or down, and what is not included. Starting prices for all nine services.';
+
+  const rows = services
+    .map(
+      (s) => `<tr>
+              <td><a href="/costs/${s.slug}/">${esc(s.name)}</a></td>
+              <td>${esc(s.priceFrom)}</td>
+              <td>${esc(s.duration)}</td>
+              <td>${esc(costs[s.slug].lead.split(',')[0])}</td>
+            </tr>`
+    )
+    .join('\n            ');
+
+  const cards = services
+    .map(
+      (s) => `<a class="card" href="/costs/${s.slug}/">
+            <span class="card-index">From ${esc(s.priceFrom)}</span>
+            <h3>${esc(s.name)}</h3>
+            <p>${esc(costs[s.slug].lead)}</p>
+            <span class="card-link">${esc(s.name)} Costs</span>
+          </a>`
+    )
+    .join('\n          ');
+
+  const body = `${pageHead({
+    trail,
+    h1: 'Car Detailing Costs in Ocala, Florida',
+    lead:
+      'Every service we offer, what it starts at, and an honest account of what moves that number. No hidden call-for-pricing, and no bait figures we have no intention of honouring.',
+    ctas: `<a class="btn" href="/#book">Book Online</a><a class="btn btn-ghost" href="/services/">See Services</a>`
+  })}
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">At A Glance</p>
+        <h2>Starting Prices, All Services</h2>
+        <div class="table-scroll" style="margin-top:24px">
+          <table>
+            <thead><tr><th scope="col">Service</th><th scope="col">From</th><th scope="col">Duration</th><th scope="col">Main cost driver</th></tr></thead>
+            <tbody>
+            ${rows}
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted">Starting prices are for a standard sedan in average condition. Final pricing is confirmed after we assess the vehicle and before any work begins.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">In Detail</p>
+        <h2>What Each Service Actually Costs</h2>
+        <p style="max-width:760px">Each page below covers what is in the starting price, the specific things that push it up, and what that service does not include.</p>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy">
+            <p class="eyebrow">Why Quotes Vary</p>
+            <h2>Comparing Detailing Prices Fairly</h2>
+            <p>The single biggest reason detailing quotes differ is not margin, it is scope. One business calls a wash and a vacuum a full detail; another means decontamination, extraction, and sealant by the same phrase. Comparing the headline number without comparing what is in it is how people conclude that detailing is a rip-off.</p>
+            <p>Condition is the second reason, and the one customers underestimate most. A garage-kept sedan and a work truck that has never been cleaned are the same vehicle count and completely different jobs. Pet hair alone can add an hour.</p>
+            <p>We publish starting prices so you can compare us against anyone before making contact, and we confirm a firm number after seeing the vehicle rather than pretending one figure fits every car.</p>
+            <div class="btn-row" style="margin-top:24px">
+              <a class="btn btn-ghost btn-sm" href="/blog/is-mobile-car-detailing-expensive/">Is Detailing Expensive?</a>
+              <a class="btn btn-ghost btn-sm" href="/contact/">Ask About Your Vehicle</a>
+            </div>
+          </div>
+          <div class="split-media">
+            ${mediaFrame('finished', { className: 'is-tall' })}
+          </div>
+        </div>
+      </div>
+    </section>
+
+${hubLinks('/costs/')}
+
+${ctaBand('Get A Firm Price', 'Tell us the service and the vehicle and we will confirm exact pricing before anything is scheduled.')}`;
+
+  write(
+    '/costs',
+    page({
+      title,
+      description,
+      path: '/costs/',
+      body,
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Detailing Service Costs',
+          itemListElement: services.map((s, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: `${s.name} cost`,
+            url: `${site.origin}/costs/${s.slug}/`
+          }))
+        }
+      ]
+    }),
+    {
+      title,
+      description,
+      label: 'Costs',
+      group: 'Costs',
+      priority: '0.8',
+      changefreq: 'monthly',
+      keywords: 'cost price pricing how much detailing ocala'
+    }
+  );
+
+  services.forEach((s) => buildCostPage(s));
+}
+
+function buildCostPage(s) {
+  const c = costs[s.slug];
+  // Fail loudly rather than shipping a cost page that is generic filler.
+  if (!c) {
+    throw new Error(`Missing cost copy for "${s.slug}". Add it to src/data/costs.js before building.`);
+  }
+
+  const trail = [
+    { label: 'Home', href: '/' },
+    { label: 'Costs', href: '/costs/' },
+    { label: s.name, href: `/costs/${s.slug}/` }
+  ];
+
+  const title = `How Much Does ${s.name} Cost in Ocala FL? | Ocala Elite Car Detailing`;
+  const description = `${s.name} starts at ${s.priceFrom} in Ocala, FL. ${c.lead} What is included, what drives the price, and what is not covered.`;
+
+  const tierRows = costTiers(s)
+    .map((t) => `<tr><td>${esc(t.label)}</td><td>${esc(t.price)}</td></tr>`)
+    .join('\n            ');
+
+  const others = services.filter((o) => o.slug !== s.slug);
+
+  const body = `${pageHead({
+    trail,
+    h1: `How Much Does ${s.name} Cost in Ocala?`,
+    lead: esc(c.lead),
+    ctas: `<a class="btn" href="/#book">Book ${esc(s.name)}</a><a class="btn btn-ghost" href="/services/${s.slug}/">${esc(s.name)} Details</a>`
+  })}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy prose">
+            <h2>What Drives The Price</h2>
+            ${c.body.map((para) => `<p>${para}</p>`).join('\n            ')}
+
+            <h2>What Moves The Number</h2>
+            <ul class="checklist">${c.factors.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+
+            <h2>What Is Not Included</h2>
+            <ul class="checklist">${c.notIncluded.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+
+            <h2>Is It Worth It?</h2>
+            <p>${c.value}</p>
+            <p>Full detail on what this service actually involves, step by step, is on the <a href="/services/${s.slug}/">${esc(s.name.toLowerCase())} page</a>.</p>
+          </div>
+          <div class="split-media">
+            <div class="callout" style="margin-top:0">
+              <h3>Estimated Pricing</h3>
+              <div class="table-scroll" style="margin-top:16px;border:0">
+                <table style="min-width:0">
+                  <thead><tr><th scope="col">Vehicle</th><th scope="col">Estimate</th></tr></thead>
+                  <tbody>
+            ${tierRows}
+                  </tbody>
+                </table>
+              </div>
+              <p class="small muted" style="margin-top:14px;margin-bottom:0">Estimates for a vehicle in average condition. Condition can move these more than size does. Firm pricing is confirmed after assessment.</p>
+            </div>
+            ${mediaFrame(s.photo, { className: 'is-tall' })}
+            <p class="media-caption">Real ${esc(s.name)} results</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Compare</p>
+        <h2>Costs For Our Other Services</h2>
+        <div class="grid grid-4" style="margin-top:28px">
+          ${others
+            .map(
+              (o) => `<a class="card" href="/costs/${o.slug}/">
+            <span class="card-index">From ${esc(o.priceFrom)}</span>
+            <h3>${esc(o.name)}</h3>
+            <p class="small">${esc(costs[o.slug].lead)}</p>
+          </a>`
+            )
+            .join('\n          ')}
+        </div>
+        <p style="margin-top:28px"><a href="/costs/">All service costs</a>, the <a href="/services/${s.slug}/">${esc(s.name)} service page</a>, or <a href="/">back to the homepage</a>.</p>
+      </div>
+    </section>
+
+${ctaBand(`Get A Firm Price For ${s.name}`, 'Tell us the vehicle and its condition and we will confirm exact pricing before scheduling.')}`;
+
+  write(
+    `/costs/${s.slug}`,
+    page({
+      title,
+      description,
+      path: `/costs/${s.slug}/`,
+      current: '/costs/',
+      body,
+      schema: [
+        breadcrumbSchema(site.origin, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: s.name,
+          serviceType: s.name,
+          url: `${site.origin}/costs/${s.slug}/`,
+          description,
+          provider: { '@id': site.origin + '/#business' },
+          areaServed: site.areaServed.map((a) => ({ '@type': 'City', name: a + ', FL' })),
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'USD',
+            price: s.priceFrom.replace(/[^0-9.]/g, ''),
+            availability: 'https://schema.org/InStock'
+          }
+        }
+      ]
+    }),
+    {
+      title,
+      description,
+      label: `${s.name} Cost`,
+      group: 'Costs',
+      priority: '0.7',
+      changefreq: 'monthly',
+      keywords: `${s.name} cost price how much ocala ${s.slug} pricing`
+    }
+  );
+}
+
 /* ------------------------------------------------------------------- 404 -- */
 
 function buildNotFound() {
@@ -2112,6 +2387,7 @@ function main() {
   buildAbout();
   buildContact();
   buildServiceAreas();
+  buildCosts();
   buildLegal(legal.disclaimer, 'disclaimer');
   buildLegal(legal.privacy, 'privacy');
   buildLegal(legal.terms, 'terms');

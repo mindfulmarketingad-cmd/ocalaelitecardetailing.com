@@ -443,6 +443,70 @@ const posts = [
     ]
   }
 
+  ,
+  {
+    slug: 'what-to-do-before-a-car-detailing',
+    cta: { href: '/services/mobile-detailing/', label: 'Mobile Detailing', blurb: 'Booked at your address, with water and power on board. Ten minutes of prep is all we ask for.' },
+    title: 'What To Do Before a Car Detailing Appointment',
+    metaTitle: 'What To Do Before a Car Detailing Appointment | Ocala Elite Car Detailing',
+    metaDescription:
+      'How to prepare for a mobile detailing appointment: what to remove, what to photograph, where to park, and the four things you should not do beforehand.',
+    excerpt:
+      'Ten minutes of preparation measurably changes what you get back. Here is what actually helps, and the well-meant things that quietly make the result worse.',
+    date: '2026-08-29',
+    readTime: '7 min read',
+    category: 'Getting Started',
+    photo: 'tesla',
+    body: [
+      { p: 'Almost nobody prepares for a detail, and it costs them. Not because detailers are precious about it, but because an appointment is a fixed block of time, and every minute spent moving your belongings out of the way is a minute not spent cleaning. Ten minutes of preparation genuinely changes the result you get back.' },
+      { p: 'This is the longer version of the checklist in our post on <a href="/blog/what-to-expect-at-your-first-detailing-appointment/">what to expect at your first appointment</a>. If you have booked and want the short answer: empty the car, clear the driveway, and tell us what is actually bothering you.' },
+      { h2: 'Empty The Vehicle Completely' },
+      { p: 'This is the single highest-value thing you can do, and most people do half of it. Clearing the seats is obvious. What gets forgotten is everything that hides the surfaces we are being paid to clean.' },
+      { list: [
+        'Boot and cargo area, including anything under a parcel shelf or floor panel',
+        'Glovebox and centre console, which are frequently the dirtiest spaces in the car',
+        'Door pockets, seat-back pockets, and the tray under the seats',
+        'Cup holders, including the removable rubber inserts',
+        'Phone mounts, dash cams, and anything suction-cupped to the glass',
+        'Roof boxes, bike racks, and boot liners if you want what is underneath cleaned'
+      ] },
+      { p: 'We will work around belongings if we have to, and the result will be visibly worse in exactly the places we had to work around. An empty vehicle always finishes better.' },
+      { h2: 'Decide About Car Seats Before We Arrive' },
+      { p: 'Child seats are the most common thing that turns a good interior detail into a compromised one. Underneath one is usually the most soiled area in the entire car, and it is invisible until the seat comes out.' },
+      { p: 'We will not remove or reinstall a child seat, and no reputable detailer should. Fitting one incorrectly is a genuine safety risk and it is not our liability to take on. If you want the area cleaned, take the seat out beforehand and refit it yourself afterwards. If that is not practical, tell us and we will clean around it without pretending otherwise.' },
+      { image: 'interiorBA1', caption: 'What is usually hiding under a child seat, before and after.' },
+      { h2: 'Remove Anything Valuable, And Photograph The Damage' },
+      { p: 'Take out cash, sunglasses, documents, garage remotes, and anything else you would not want handled. This is not about trusting the operator; it is about neither party having to think about it. Our <a href="/terms/">terms</a> are explicit that we are not responsible for personal property left in a vehicle, and every detailer worth booking says the same.' },
+      { p: 'Separately, and this is advice most detailers will not volunteer: photograph any existing damage before the appointment. Scuffed bumper, cracked trim, a chip on the wing. It takes two minutes on your phone. We do a walkaround and note damage at the start for exactly this reason, but having your own timestamped record protects both of us, and any operator who objects to you doing it is telling you something useful.' },
+      { h2: 'Sort Out Space, Shade, And Access' },
+      { p: 'For a mobile appointment the working area matters more than people expect. We need room to open every door fully and walk the full perimeter, which is more space than the car occupies parked normally.' },
+      { list: [
+        'Move other vehicles off the driveway before the arrival window, not during it',
+        'Shade is genuinely valuable, since products flash off too fast in direct Florida sun',
+        'A water spigot and outdoor outlet are welcome but not required, as the truck carries both',
+        'Clear bins, bikes, and hoses from the working area',
+        'For apartments or gated communities, confirm where a work vehicle may park'
+      ] },
+      { p: 'Access is the one that derails appointments. Gate codes, HOA rules about commercial vehicles, visitor parking limits, and barrier heights all need mentioning in the booking notes rather than discovered on the day. In The Villages specifically, give us your village and gate when you book.' },
+      { h2: 'Tell Us What Is Actually Bothering You' },
+      { p: 'The most useful sentence you can give a detailer is a specific complaint. "Clean the car" tells us nothing. "There is a milk spill under the back seat from June" tells us what to bring, how long to allow, and whether the job needs enzyme treatment rather than a shampoo.' },
+      { p: 'Say the words out loud when you book: the musty smell, the dog hair, the sticky patch on the console, the headlights you can barely see past at night. Vague bookings get generic results, and the detail that fixes the thing you actually care about is the one where you said what it was.' },
+      { h2: 'Four Things Not To Do' },
+      { p: 'These are all well-intentioned and all counterproductive.' },
+      { list: [
+        'Do not wash it first. It changes nothing about the price, and a rushed wash on a dusty car adds swirl marks we then have to correct',
+        'Do not apply a dressing or protectant beforehand. It has to come off before anything can bond, which adds work',
+        'Do not use an air freshener to cover a smell. It masks the diagnosis and the smell returns once it fades',
+        'Do not hide existing damage. It gets found during the walkaround, and pointing it out yourself keeps the conversation straightforward'
+      ] },
+      { h2: 'Plan For After, Not Just Before' },
+      { p: 'If any interior extraction is happening, the cabin will hold moisture for a few hours afterwards. Do not schedule the appointment for the morning of a long drive with the family, and do not plan to load the boot straight afterwards. Leave the windows cracked in a dry space if you can.' },
+      { p: 'If a sealant or coating is going on, there are curing rules for the first day or two, which we hand over in writing at the walkaround. The most common way a good result gets undone is somebody washing the car the next morning.' },
+      { h2: 'The Short Version' },
+      { p: 'Empty it, clear the driveway, remove anything valuable, photograph existing damage, and tell us the specific thing that is bothering you. That is about ten minutes of work and it reliably produces a better result than the same appointment without it.' }
+    ]
+  }
+
 ];
 
 module.exports = { posts };
