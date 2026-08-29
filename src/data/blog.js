@@ -534,7 +534,7 @@ const posts = [
     title: 'Ceramic Coating: The Complete Guide',
     metaTitle: 'Ceramic Coating: The Complete Guide | Ocala Elite',
     metaDescription:
-      'What ceramic coating is, what it does and does not do, how long it really lasts in Florida, what installation involves, and how it compares to wax and paint protection film.',
+      'What ceramic coating is, what it does and does not do, how long it really lasts in Florida, and how it compares to wax and paint protection film.',
     excerpt:
       'Everything worth knowing before you spend four figures on paint protection, including the parts of the pitch that are not true.',
     date: '2026-08-30',
