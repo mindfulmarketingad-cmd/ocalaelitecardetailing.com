@@ -173,10 +173,39 @@ function repair matters for everything else that calls it, and is in
 
 ### `is_admin()` is broken for every caller
 
-The same function is presumably referenced by policies on other tables in this
-shared project. `fix-is-admin.sql` lists them, then offers two repairs: fail
-closed if `contractors` is genuinely gone, or repoint the function if admins
-now live in a different table.
+Three policies across this shared project call it, and all three currently
+raise rather than evaluate:
+
+| Table | Policy | Command | While broken |
+| --- | --- | --- | --- |
+| `leads` | `admins manage leads` | ALL | admins cannot read or manage leads |
+| `leads` | `active subscribers read leads` | SELECT | **no subscriber can read any lead** |
+| `analytics_events` | `admins read analytics events` | SELECT | admins cannot read analytics |
+
+The second one is the significant one. It is how leads reach the people who
+pay for them, and while `is_admin()` raises, **every read of `leads` fails**
+project-wide — not just from this website. Booking works regardless, because
+the fix above means the wizard never evaluates a read policy.
+
+[`fix-is-admin.sql`](./fix-is-admin.sql) reports the current state as a single
+result set, then offers two repairs. Verified on a fixture reproducing all
+three policies:
+
+- **Before:** reading `leads` or `analytics_events` as `authenticated` raises
+  `42P01`.
+- **After Option A** (fail closed when `contractors` is absent): both return
+  **0 rows**, and `is_admin()` returns `false` without error.
+
+Note what that means. Option A stops the crash; it does not restore lead
+delivery, because nobody satisfies the subscriber policy any more. It turns a
+hard failure into an honest empty result. Restoring the subscriber table, or
+repointing the function at whatever replaced it (Option B), is what actually
+brings delivery back.
+
+One thing the fixture surfaced: `admins manage leads` applies to the `public`
+role, which includes `anon`. That is why an anonymous insert evaluated it at
+all. It is harmless while the function fails closed, but worth scoping to
+`authenticated` when the admin model is rebuilt.
 
 ## ⚠️ anon privileges on `leads`
 
