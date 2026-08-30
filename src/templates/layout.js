@@ -1,10 +1,28 @@
 const { site, headerNav, footerNav } = require('../data/site');
 const { wizardOptions } = require('../data/services');
+const { featuredReviews } = require('../data/reviews');
 
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const year = new Date().getFullYear();
+
+/* Star rating badge, header. Computed from the real reviews in
+ * src/data/reviews.js rather than hardcoded, so it can never say something
+ * the data does not support - if a lower rating is ever added there, the
+ * badge reflects it on the next build instead of quietly staying wrong. */
+const RATING_COUNT = featuredReviews.length;
+const RATING_AVERAGE = RATING_COUNT
+  ? featuredReviews.reduce((sum, r) => sum + r.rating, 0) / RATING_COUNT
+  : 0;
+const RATING_STARS = '\u2605'.repeat(Math.round(RATING_AVERAGE));
+function ratingBadge() {
+  if (!RATING_COUNT) return '';
+  return `<a class="rating-badge" href="/reviews/">
+          <span class="rating-stars" aria-hidden="true">${RATING_STARS}</span>
+          <span>${RATING_AVERAGE.toFixed(1)} (${RATING_COUNT} Review${RATING_COUNT === 1 ? '' : 's'})</span>
+        </a>`;
+}
 
 /* Options for the service-intent popup (assets/js/intent-popup.js), which runs
  * on every page. Only the four headline services, and only the fields the
@@ -31,7 +49,10 @@ function header(current) {
   return `<header class="site-header">
     <div class="topbar">
       <div class="wrap">
-        <span class="topbar-note">Mobile detailing across Ocala and Marion County</span>
+        <span class="topbar-left">
+          ${ratingBadge()}
+          <span class="topbar-note">Mobile detailing across Ocala and Marion County</span>
+        </span>
         <span class="topbar-actions">
           <a href="tel:${site.phoneHref}">${site.phone}</a>
           <a class="topbar-book" href="/#book">Book Online</a>

@@ -133,7 +133,19 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
 }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
 .topbar a { color: var(--chrome); }
+.topbar-left { display: flex; align-items: center; gap: 14px; overflow: hidden; min-width: 0; }
 .topbar-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.rating-badge:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+.rating-stars { color: var(--chrome); letter-spacing: 1px; font-size: 0.85em; }
 .topbar-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .topbar .topbar-book {
   background: var(--chrome);
@@ -828,7 +840,7 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
   .nav a { padding: 14px 22px; border-bottom: 1px solid var(--line-soft); border-left: 2px solid transparent; }
   .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--line-soft); border-left-color: var(--chrome); }
   .site-header .wrap { position: relative; }
-  .topbar-note { display: none; }
+  .topbar-left { display: none; }
 }
 
 @media (max-width: 700px) {
