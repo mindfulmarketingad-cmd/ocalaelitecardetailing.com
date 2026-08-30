@@ -70,6 +70,10 @@
 
   var STEPS = ['Service', 'Vehicle', 'Location', 'Contact', 'Review'];
 
+  // When the wizard mounted. Sent back with the submission so the server can
+  // reject anything answered faster than a person could fill four steps.
+  var startedAt = Date.now();
+
   /* A "Book Now" link elsewhere on the site names its service, e.g.
    * /?service=ceramic-coating#book. That answers the first question, so the
    * wizard opens on the vehicle step with the service already chosen; the
@@ -281,6 +285,12 @@
       }).join('') +
       '</ol>' +
       '<div class="wizard-body">' +
+      /* Honeypot. Invisible and unreachable by keyboard for a real visitor;
+       * a generic form-filling bot tends to populate a field named "website"
+       * because it looks like an ordinary contact-form field. Any value here
+       * marks the submission as spam server-side. */
+      '<input type="text" name="website" tabindex="-1" autocomplete="off" ' +
+      'aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">' +
       '<div class="wizard-step is-active">' + stepMarkup(state.step) + '</div>' +
       '<p class="form-status" data-status role="status" aria-live="polite"></p>' +
       '<div class="wizard-nav">' +
@@ -332,6 +342,17 @@
     }
   }
 
+  /** Friendly wording for the failures a customer can act on. Separate from
+   * assets/js/supabase.js's friendlyError, which speaks PostgREST's status
+   * codes - this endpoint is a plain JSON API with its own contract. */
+  function friendlyBookingError(err) {
+    if (err && err.status === 400 && err.message) return err.message;
+    if (err && err.status >= 500) {
+      return err.message || 'Could not send the request. Please call us instead.';
+    }
+    return 'We could not reach the booking system. Please check your connection, or call us instead.';
+  }
+
   function submit(button, status) {
     button.disabled = true;
     button.textContent = 'Sending';
@@ -342,44 +363,42 @@
     var conditionLabel = labelFor(CONDITIONS, state.condition);
     var windowLabel = labelFor(WINDOWS, state.time_window);
 
-    // The leads table is shared with other sites, so the human-readable
-    // summary goes in `message` (scannable straight from the inbox) while the
-    // detail-specific fields go in the cart_items jsonb catch-all.
-    var summary = [
-      'Booking request: ' + serviceLabel,
-      'Vehicle: ' + [vehicleLabel, state.vehicle_details].filter(Boolean).join(' - ') +
-        (conditionLabel ? ' (' + conditionLabel + ' condition)' : ''),
-      'Preferred: ' + [state.preferred_date, windowLabel].filter(Boolean).join(', '),
-      state.notes ? 'Notes: ' + state.notes : ''
-    ]
-      .filter(Boolean)
-      .join('\n');
+    var honeypot = host.querySelector('input[name="website"]');
 
-    api
-      .insertLead('booking', {
-        name: state.name,
-        email: state.email,
-        phone: state.phone,
-        address: state.address || null,
-        city: state.city || null,
-        zip: state.postal_code || null,
-        service: serviceLabel,
-        best_time_to_call: windowLabel || null,
-        message: summary,
-        cart_items: {
-          form: 'booking_wizard',
-          service_value: state.service,
-          service_label: serviceLabel,
-          vehicle_type: state.vehicle_type,
-          vehicle_type_label: vehicleLabel,
-          vehicle_details: state.vehicle_details || null,
-          condition: state.condition,
-          condition_label: conditionLabel,
-          preferred_date: state.preferred_date || null,
-          time_window: state.time_window,
-          time_window_label: windowLabel,
-          notes: state.notes || null
-        }
+    var payload = {
+      name: state.name,
+      email: state.email,
+      phone: state.phone,
+      service_label: serviceLabel,
+      vehicle_type_label: vehicleLabel,
+      vehicle_details: state.vehicle_details || '',
+      condition_label: conditionLabel,
+      address: state.address || '',
+      city: state.city || '',
+      zip: state.postal_code || '',
+      preferred_date: state.preferred_date || '',
+      time_window_label: windowLabel,
+      notes: state.notes || '',
+      page_url: String(window.location.href),
+      started_at: startedAt,
+      website: honeypot ? honeypot.value : ''
+    };
+
+    fetch('/api/send-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok) {
+            var err = new Error(data.error || 'Request failed (' + res.status + ')');
+            err.status = res.status;
+            err.message = data.error;
+            throw err;
+          }
+          return data;
+        });
       })
       .then(function () {
         host.innerHTML =
@@ -401,7 +420,7 @@
       .catch(function (err) {
         button.disabled = false;
         button.textContent = 'Send Request';
-        api.setStatus(status, api.friendlyError(err), 'error');
+        api.setStatus(status, friendlyBookingError(err), 'error');
       });
   }
 
