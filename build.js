@@ -237,6 +237,23 @@ const HOME_DESC =
   'Mobile car detailing in Ocala, FL. Exterior, interior, full packages, ceramic coating and more, performed at your home or office. Licensed and insured.';
 
 function buildHome() {
+  const homeBusinessSchema = {
+    ...businessSchema,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: (
+        featuredReviews.reduce((sum, r) => sum + r.rating, 0) / featuredReviews.length
+      ).toFixed(1),
+      reviewCount: featuredReviews.length,
+      bestRating: '5',
+      worstRating: '1'
+    }
+  };
+
+  const RATING_AVERAGE_TEXT = (
+    featuredReviews.reduce((sum, r) => sum + r.rating, 0) / featuredReviews.length
+  ).toFixed(1) + ' Stars';
+
   const serviceCards = services
     .map(
       (s, i) => `<article class="card">
@@ -248,6 +265,36 @@ function buildHome() {
           </article>`
     )
     .join('\n          ');
+
+  const POPULAR_SERVICE_SLUGS = ['exterior-detailing', 'interior-detailing', 'ceramic-coating'];
+  const popularServiceCards = POPULAR_SERVICE_SLUGS.map((slug) => {
+    const s = services.find((x) => x.slug === slug);
+    if (!s) throw new Error(`Popular service "${slug}" not found in src/data/services.js.`);
+    return `<article class="card">
+            <h3>${esc(s.name)}</h3>
+            <p class="card-price">From ${esc(s.priceFrom)}</p>
+            <a class="btn btn-sm" href="/?service=${s.slug}#book">Book Now</a>
+          </article>`;
+  }).join('\n          ');
+
+  /* Review carousel slides. Same source as /reviews/ and the aggregateRating
+   * schema, so the homepage can never show a review the reviews page does not. */
+  const reviewSlides = featuredReviews
+    .map(
+      (r, i) => `<li class="carousel-slide review" role="group" aria-roledescription="slide" aria-label="Review ${i + 1} of ${featuredReviews.length}"${i === 0 ? '' : ' aria-hidden="true"'}>
+              <div class="review-stars" aria-label="${r.rating} out of 5 stars">${'\u2605'.repeat(r.rating)}${'\u2606'.repeat(5 - r.rating)}</div>
+              <p class="review-body">${esc(r.body)}</p>
+              <p class="review-meta">${esc(r.name)} &middot; ${esc(r.service)}</p>
+            </li>`
+    )
+    .join('\n            ');
+
+  const reviewDots = featuredReviews
+    .map(
+      (r, i) =>
+        `<button type="button" class="carousel-dot${i === 0 ? ' is-active' : ''}" data-carousel-dot="${i}" aria-label="Go to review ${i + 1}"${i === 0 ? ' aria-current="true"' : ''}></button>`
+    )
+    .join('\n              ');
 
   const latestPosts = posts
     .slice()
@@ -314,6 +361,38 @@ function buildHome() {
               <span>Decontaminated, corrected where needed, and protected in your own driveway.</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Popular Services</p>
+        <h2>What Customers Book Most</h2>
+        <div class="grid grid-3" style="margin-top:30px">
+          ${popularServiceCards}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="eyebrow">Customer Reviews</p>
+        <h2>Rated ${RATING_AVERAGE_TEXT} By ${featuredReviews.length} Customers</h2>
+        <div class="carousel" data-carousel>
+          <button type="button" class="carousel-arrow carousel-prev" data-carousel-prev aria-label="Previous review">&#8249;</button>
+          <div class="carousel-viewport">
+            <ul class="carousel-track" data-carousel-track aria-live="polite">
+            ${reviewSlides}
+            </ul>
+          </div>
+          <button type="button" class="carousel-arrow carousel-next" data-carousel-next aria-label="Next review">&#8250;</button>
+        </div>
+        <div class="carousel-dots" role="tablist" aria-label="Choose a review">
+              ${reviewDots}
+        </div>
+        <div class="btn-row" style="margin-top:26px;justify-content:center">
+          <a class="btn btn-ghost btn-sm" href="/reviews/">Read All Reviews</a>
         </div>
       </div>
     </section>
@@ -477,8 +556,12 @@ ${ctaBand('Get Your Vehicle Back To Standard', 'Book online in under two minutes
       description: HOME_DESC,
       path: '/',
       body,
-      schema: [businessSchema, mobileServiceSchema, websiteSchema, faqSchema(homeFaqs)],
-      scripts: ['/assets/js/supabase.js', '/assets/js/booking.js', '/assets/js/parallax.js']
+      /* aggregateRating is attached here rather than to the shared
+       * businessSchema because Google asks that it only appear on pages that
+       * actually display the reviews behind it. The homepage now does, via
+       * the carousel; a privacy policy page does not. */
+      schema: [homeBusinessSchema, mobileServiceSchema, websiteSchema, faqSchema(homeFaqs)],
+      scripts: ['/assets/js/supabase.js', '/assets/js/booking.js', '/assets/js/parallax.js', '/assets/js/carousel.js']
     }),
     {
       title: HOME_TITLE,

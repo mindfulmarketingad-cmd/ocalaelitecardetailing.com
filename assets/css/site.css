@@ -391,6 +391,14 @@ td:has(> .btn-table) { text-align: right; }
   color: var(--steel);
 }
 
+.card-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
 .card-link {
   display: inline-flex; align-items: center; gap: 8px;
   margin-top: 20px;
@@ -1183,3 +1191,80 @@ mark { background: var(--chrome); color: var(--black); padding: 0 2px; }
   cursor: pointer;
 }
 .linkish:hover, .linkish:focus-visible { color: var(--white); }
+
+/* ==========================================================================
+   Review carousel (homepage)
+   One slide visible at a time, sliding horizontally. Built so that with
+   JavaScript off the track simply shows the first review rather than a
+   broken or empty region.
+   ========================================================================== */
+
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.carousel-track {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  /* The .review border/background comes from the shared review styles. */
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--chrome);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.carousel-arrow:hover,
+.carousel-arrow:focus-visible {
+  background: var(--panel-2);
+  border-color: var(--steel);
+  color: var(--white);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid var(--steel);
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.carousel-dot.is-active { background: var(--white); border-color: var(--white); }
+.carousel-dot:hover, .carousel-dot:focus-visible { border-color: var(--white); }
+
+@media (max-width: 700px) {
+  /* Arrows eat too much width on a phone; dots and swipe carry navigation. */
+  .carousel-arrow { display: none; }
+}
