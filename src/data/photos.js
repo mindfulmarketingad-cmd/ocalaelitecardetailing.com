@@ -119,6 +119,20 @@ const photos = {
     width: 800,
     height: 600
   },
+  // Corvette C8 how-to-exterior-detail guide.
+  corvetteC8Exterior: {
+    src: '/assets/img/674e344e1183dc3a4175343b_dsc04123.jpg',
+    alt: 'A blue Chevrolet Corvette C8 parked on a driveway, showing its clean, low mid-engine profile',
+    width: 1600,
+    height: 1066
+  },
+  // Corvette C6 how-to-exterior-detail guide.
+  corvetteC6Exterior: {
+    src: '/assets/img/images (29).jpg',
+    alt: 'A red Chevrolet Corvette C6 parked at dusk, showing its classic front-engine long-hood profile',
+    width: 387,
+    height: 516
+  },
   // Paint correction service page gallery.
   correctionBA2: {
     src: '/assets/img/photo-paint-correction-before-after-2.jpg',

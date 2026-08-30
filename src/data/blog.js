@@ -105,6 +105,7 @@ const posts = [
   },
   {
     slug: 'love-bug-season-paint-damage-prevention',
+    cluster: 'love-bug-protection',
     author: 'matt',
     cta: { href: '/services/ceramic-coating/', label: 'Ceramic Coating', blurb: 'The most effective defense before a hatch is a slick, protected surface. Bug residue rinses off a coated panel instead of etching it.' },
     title: 'Love Bug Season: Preventing Permanent Paint Damage',
@@ -119,6 +120,16 @@ const posts = [
     photo: 'exteriorBA',
     body: [
       { p: 'Twice a year, once around May and again around September, love bugs hatch in enormous numbers across Central Florida and spend their short adult lives flying into the front of moving vehicles. The nuisance is obvious. The damage is not, because it happens after the bugs are already dead and drying on your paint.' },
+      { h2: 'How To Protect Car Paint From Love Bugs' },
+      { p: 'The short version, if you only take one thing from this article: get residue off within 48 hours, use a proper bug remover with a soft microfiber rather than a dry towel, and have a slick, protected surface on the vehicle before each hatch starts. Everything below explains why each of those matters.' },
+      { list: [
+        'Book paint protection - a ceramic coating or a fresh sealant - in April and again in August, ahead of the May and September hatches',
+        'Add paint protection film to the front bumper, hood edge, and mirror caps if the vehicle sees heavy Interstate 75 mileage during hatch weeks',
+        'Remove residue within 48 hours in summer heat, before the acid has time to work into the clear coat',
+        'Soak first, use a dedicated bug remover or citrus pre-soak, and agitate only with a soft microfiber or bug sponge with plenty of lubrication',
+        'Never dry-scrub, and never let product dry in direct sun on the panel',
+        'Skip the home remedies - dryer sheets, mesh pads, and household cleaners all mar clear coat'
+      ] },
       { h2: 'Why The Residue Etches' },
       { p: 'Love bug remains are acidic, and they become more so as they decompose. On a hot hood the reaction accelerates. Within roughly forty eight hours in summer conditions the acid begins working into the clear coat, and what starts as a removable smear becomes a permanent crater that only machine polishing will address. Leave it long enough and even polishing will not reach the bottom of the etch.' },
       { p: 'Heat is the multiplier. The front bumper, hood, mirror caps, and windshield cowl take both the impact and the highest surface temperatures, which is exactly why those panels show the worst damage in September.' },
@@ -139,7 +150,9 @@ const posts = [
       { p: 'Paint protection film on the leading edges is the tier above that. For vehicles that see heavy Interstate 75 mileage during hatch weeks, film on the bumper, hood edge, and mirrors takes the impact damage entirely.' },
       { h2: 'If The Damage Is Already Done' },
       { p: 'Etching that you can see but not feel with a fingernail is usually correctable with a one-step or two-step machine polish. Etching you can catch a fingernail on has gone deep enough that correction becomes a judgment call about how much clear coat remains. We take paint depth readings before polishing for exactly this reason; removing more clear coat than the panel can spare creates a much larger problem than the etch.' },
-      { p: 'If you are heading into a hatch season with unprotected paint, get protection on the front of the vehicle first. Everything else can wait until the bugs are gone.' }
+      { p: 'If you are heading into a hatch season with unprotected paint, get protection on the front of the vehicle first. Everything else can wait until the bugs are gone.' },
+      { h2: 'Related Reading' },
+      { p: 'For the full seasonal routine, product-by-product protection comparison, and a hatch-week checklist, see <a href="/blog/how-to-protect-your-car-paint-from-love-bugs-in-florida/">How To Protect Your Car Paint From Love Bugs In Florida</a>.' }
     ]
   },
   {
@@ -1485,6 +1498,666 @@ const posts = [
 
       { h2: 'Related Guides' },
       { p: 'The cabin is far more conventional than the body: see <a href="/blog/how-to-interior-detail-a-tesla-cybertruck/">interior detailing a Cybertruck</a>. For how the rest of the range differs, start with <a href="/blog/how-to-exterior-detail-a-tesla-model-3/">exterior detailing a Model 3</a>.' }
+    ]
+  }
+  ,
+  {
+    slug: 'how-to-interior-detail-a-corvette-c6',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Targa seals, aging plastics and two-tone leather done properly, at your address.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Corvette C6',
+    metaTitle: 'How To Interior Detail a Corvette C6',
+    metaDescription:
+      'Detailing a C6 Corvette cabin: the targa top seal and headliner, hard interior plastics that mark easily, two-tone leather seats, and the removable roof panel storage.',
+    excerpt:
+      'The C6 cabin is simpler than what came after it, which is exactly why the targa seals and the interior plastics catch people out.',
+    date: '2026-09-03',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'interiorBA1',
+    body: [
+      { p: 'The C6 (2005 to 2013) has a straightforward cabin by modern standards: analog gauges, simple switchgear, and none of the touchscreens that make later Corvettes fussier to clean. What it does have is hard interior plastics that mark and dull faster than most owners expect, and, on targa-top cars, a roof seal that gets ignored until it leaks or tears.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A pH-balanced leather cleaner and conditioner',
+        'A rubber and vinyl-safe conditioner for the targa seal',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: The Targa Top, If Fitted' },
+      { h3: 'The Seal' },
+      { p: 'Coupe C6s have a removable targa roof panel sealed against the body by a rubber gasket that runs the full opening. That seal dries out in Florida heat and UV faster than most owners realize, and a dried, cracked seal is how water starts finding its way into the cabin during a storm rather than after one. Clean it with a mild soap and water, then dress it with a rubber-safe conditioner, not a silicone-heavy tire shine that was never meant for a weather seal.' },
+      { h3: 'Removing And Storing The Panel' },
+      { p: 'If you are detailing with the panel off, wipe both the exposed headliner channel and the underside of the panel itself before refitting it. Both collect dust that the seal then traps against the gasket, which accelerates exactly the wear you are trying to prevent.' },
+
+      { h2: 'Step 2: Strip And First Vacuum' },
+      { p: 'Remove floor mats and anything in the door pockets, the console bin, and the glovebox, then vacuum seats, carpets, and the seat rails before any liquid touches the cabin. The footwells on a C6 are narrow and deep; take the time to get the crevice tool into the pedal box, since that area is almost never cleaned.' },
+
+      { h2: 'Step 3: Hard Plastics And Trim' },
+      { h3: 'They Mark More Than You Expect' },
+      { p: 'C6 interior plastics, particularly on 2005 to 2007 cars, are harder and less forgiving than what most manufacturers used even a few years later. They show fine scratching from careless wiping and they fade under UV faster than a modern soft-touch dash. Spray a diluted interior cleaner onto the towel, never onto the panel, and use light, straight-line wipes rather than scrubbing.' },
+      { h3: 'The Analog Gauge Cluster' },
+      { p: 'No touchscreen to worry about, but the gauge cluster lens is a curved, easily scratched plastic. A dry or barely damp microfiber only, and never anything with grit carried over from another surface.' },
+      { image: 'interiorBA2', caption: 'Straight-line wipes with a clean towel prevent the fine marring that hard interior plastics show so readily.' },
+
+      { h2: 'Step 4: Seats And Upholstery' },
+      { h3: 'Two-Tone Leather' },
+      { p: 'Many C6s left the factory with two-tone leather seating, and the lighter of the two colors shows dye transfer from denim far more obviously than the darker one. Address transfer stains while they are fresh with a dedicated leather cleaner; letting them sit lets the dye migrate deeper into the hide.' },
+      { h3: 'Cloth Seats' },
+      { p: 'Base cars often ran cloth. Apply a foam upholstery cleaner, agitate gently with a soft brush, then extract or blot the residue rather than leaving the cloth to air dry soaked, which is how a Florida garage-kept car ends up smelling musty.' },
+
+      { h2: 'Step 5: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not the glass. The rear hatch glass on a coupe collects road film that the wipers never reach on the inside face, so give it the same attention as the windscreen. Refit mats and the targa panel only once everything is fully dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Dress the dash and upper trim with a matte ultraviolet protectant, and treat the targa seal on the same schedule. Both fail the same way here: heat and sun, not age by itself, and both are cheap to prevent and expensive to ignore once the seal actually splits.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Cracked leather bolsters, a musty smell from a seal that has already let water through, or genuinely aged interior plastic all go beyond a wipe-down. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside of the same generation, see <a href="/blog/how-to-exterior-detail-a-corvette-c6/">exterior detailing a C6</a>. The cabin changed considerably by the next generation: see <a href="/blog/how-to-interior-detail-a-corvette-c7/">interior detailing a C7</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-corvette-c7',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Suede-inserted competition seats need product most people should not be guessing with. We bring the right ones.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Corvette C7',
+    metaTitle: 'How To Interior Detail a Corvette C7',
+    metaDescription:
+      'Detailing a C7 Corvette cabin: suede-inserted competition seats, the stitched modern dash, the configurable digital cluster, and the MyLink touchscreen.',
+    excerpt:
+      'The C7 brought a genuinely modern cabin to the Corvette, and with it a material most detailers rarely see: suede seat inserts that cannot be cleaned like anything else in the car.',
+    date: '2026-09-03',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'interiorBA3',
+    body: [
+      { p: 'The C7 (2014 to 2019) cabin is a real step up from the C6: a stitched dash, a touchscreen infotainment system, and on cars with the Z51 or competition seat options, suede inserts that need completely different handling from the leather around them.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass, leather, and suede',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A pH-balanced leather cleaner and conditioner',
+        'A dedicated suede and Alcantara cleaner and a soft suede brush',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Strip And First Vacuum' },
+      { p: 'Remove mats, empty the door pockets and console, then vacuum seats and carpets before anything wet is introduced. Competition seat bolsters and bases have deep bolster channels that trap grit; work the crevice tool along every seam.' },
+
+      { h2: 'Step 2: The Suede Seat Inserts' },
+      { h3: 'Why They Are Different' },
+      { p: 'On Z51 and competition-seat cars, the seat insets are a suede-like microfiber, not leather. A leather cleaner and conditioner will not clean it properly and can leave it looking patchy or matted. It needs a cleaner formulated for suede or Alcantara, worked in with a soft dedicated brush in one direction to lift soiling without crushing the nap.' },
+      { h3: 'What Never Touches It' },
+      { p: 'No leather conditioner, no silicone-based dressing, and no scrubbing hard enough to flatten the texture. Once suede has been matted down with the wrong product it does not recover with a second cleaning; it needs to be re-napped, which is a specialist job.' },
+      { image: 'interiorBA1', caption: 'Suede inserts need their own cleaner and a dedicated brush, worked in one direction, never a leather product.' },
+
+      { h2: 'Step 3: The Leather Bolsters' },
+      { p: 'The bolsters surrounding the suede are usually genuine leather and take a conventional pH-balanced leather cleaner and conditioner. Keep both products off the suede insert entirely; conditioner in particular will darken and stiffen it.' },
+
+      { h2: 'Step 4: Dash, Touchscreen And Digital Cluster' },
+      { h3: 'The MyLink Touchscreen' },
+      { p: 'A dry or barely damp lint-free microfiber only. Ammonia-based cleaner attacks the anti-glare and anti-fingerprint coating over time, so use an ammonia-free product if you use one at all.' },
+      { h3: 'The Configurable Digital Cluster' },
+      { p: 'Cars with the full digital gauge cluster have a second screen directly ahead of the driver. Treat it exactly like the infotainment display, not like the analog-faced clusters on earlier Corvettes.' },
+      { h3: 'Stitched Dash And Trim' },
+      { p: 'The stitched upper dash is a soft-touch material that responds well to a diluted interior cleaner on the towel and light pressure. Avoid saturating the stitching itself, since trapped moisture along a seam is slow to dry out.' },
+
+      { h2: 'Step 5: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not the glass, keeping it well clear of both screens. Refit the mats only once everything is completely dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Dress the dash and upper trim with a matte ultraviolet protectant on a regular schedule. The C7 dash is soft-touch rather than hard plastic, and while that feels nicer, it is also more prone to sun damage over time than the harder material the C6 used.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Matted suede, deep leather staining, or a musty smell from moisture trapped under the targa panel seal all go beyond what a home cleaning kit will fix. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside of the same generation, see <a href="/blog/how-to-exterior-detail-a-corvette-c7/">exterior detailing a C7</a>. For the interior before and after this one, see <a href="/blog/how-to-interior-detail-a-corvette-c6/">the C6 guide</a> and <a href="/blog/how-to-interior-detail-a-corvette-c8/">the C8 guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-corvette-c8',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'A cabin built almost entirely from stitched leather and gloss trim. We know exactly how to clean it.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Corvette C8',
+    metaTitle: 'How To Interior Detail a Corvette C8',
+    metaDescription:
+      'Detailing a C8 Corvette cabin: the vertical HVAC switch panel, wraparound stitched leather, the squared steering wheel, and cleaning around the mid-engine bulkhead.',
+    excerpt:
+      'The mid-engine C8 moved the cabin forward as much as the drivetrain moved backward. The switch panel alone changes how you have to clean it.',
+    date: '2026-09-03',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'interiorBA2',
+    body: [
+      { p: 'The C8 is the first mid-engine production Corvette, and the cabin was redesigned around that layout rather than carried over. The result is a much more complex dash, dominated by a vertical strip of climate control switches, and a wraparound stitched leather treatment that runs across most of the interior surfaces.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass, leather, and gloss trim',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A pH-balanced leather cleaner and conditioner',
+        'Soft detailing brushes for switch gaps and vents',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Strip And First Vacuum' },
+      { p: 'Remove mats and empty the door pockets and console before vacuuming seats and carpets. Storage in the cabin is limited on this layout, so most owners keep more loose items within reach than on other cars, which means more to clear out first.' },
+
+      { h2: 'Step 2: The Vertical Switch Panel' },
+      { h3: 'Why It Needs Care' },
+      { p: 'The strip of buttons running down the centre stack, separating driver and passenger climate zones, has narrow gaps between switches where dust and skin oils build up in a way a flat panel never would. A soft detailing brush worked along each gap before wiping lifts what a cloth alone will just push deeper in.' },
+      { h3: 'Cleaning It' },
+      { p: 'Diluted interior cleaner on the towel, not sprayed directly at the panel; overspray here runs straight into the switch gaps rather than off a flat surface.' },
+
+      { h2: 'Step 3: The Squared Steering Wheel And Digital Cluster' },
+      { p: 'The flat-bottomed, flat-topped wheel is usually leather-wrapped and takes the same pH-balanced leather cleaner as the seats. The digital driver display ahead of it takes a dry or barely damp microfiber only, the same rule as every other screen in the car.' },
+
+      { h2: 'Step 4: Wraparound Leather And Gloss Trim' },
+      { h3: 'The Leather' },
+      { p: 'C8 interiors, particularly with the upgraded leather package, wrap stitched leather across the dash, doors, and centre console rather than confining it to the seats. Treat all of it as leather: clean with a pH-balanced cleaner, condition afterward, and keep conditioner off any suede or microfiber inserts if the car has them.' },
+      { h3: 'Gloss And Piano Black Accents' },
+      { p: 'Gloss trim around the shifter and console marks easily. Use a clean, plush towel reserved for gloss surfaces only, with light pressure, and lift dust before wiping rather than dragging it across the panel.' },
+      { image: 'interiorBA3', caption: 'Wraparound leather and gloss trim both respond to the same rule: lift the dust first, then wipe with minimal pressure.' },
+
+      { h2: 'Step 5: Seats' },
+      { p: 'Most C8s run leather or leather-and-suede competition seats. Clean the leather sections with a pH-balanced cleaner and condition afterward; if suede inserts are fitted, treat them exactly as on the C7, with a dedicated suede cleaner and brush and nothing else.' },
+
+      { h2: 'Step 6: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not the glass, and keep it away from the digital cluster and infotainment screen. Refit the mats once everything is fully dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Dress the dash and upper trim with a matte ultraviolet protectant. The cabin runs more leather-wrapped surface area than either earlier generation, and UV exposure through the glass targa roof panel affects a wider area of trim as a result.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Deep leather staining, matted suede, or grime packed into the switch panel gaps all go beyond a home cleaning kit. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside of the same generation, see <a href="/blog/how-to-exterior-detail-a-corvette-c8/">exterior detailing a C8</a>. For how the cabin evolved, see <a href="/blog/how-to-interior-detail-a-corvette-c7/">the C7 guide</a> and <a href="/blog/how-to-interior-detail-a-corvette-c6/">the C6 guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-corvette-c6',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'Fiberglass body panels do not behave like steel. We correct and protect them the right way.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Corvette C6',
+    metaTitle: 'How To Exterior Detail a Corvette C6',
+    metaDescription:
+      'Washing and correcting a C6 Corvette: fiberglass composite body panels, the targa top seal, exposed exhaust tips, and wheel care on chrome and polished aluminum.',
+    excerpt:
+      'A C6 body is not steel under the clear coat. It is fiberglass composite, and that changes how it should be washed, corrected and protected.',
+    date: '2026-09-04',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'corvetteC6Exterior',
+    body: [
+      { p: 'Most of a C6 Corvette body is a fiberglass composite (sheet molded compound) rather than stamped steel. It still wears a conventional clear coat, but the panel underneath behaves differently under machine polishing and can show a texture the correction has to work around rather than simply flatten.' },
+
+      { h2: 'Wash Technique' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards, a pH-neutral soap, and clean wash media. Composite panels mark under a wash mitt just as readily as steel ones once contamination is dragged across the surface rather than lifted off it.' },
+      { h3: 'Never A Brush Tunnel' },
+      { p: 'Automatic washes with brushes are the fastest way to put fine scratching into this clear coat. If an automatic wash is unavoidable, touchless only.' },
+
+      { h2: 'The Fiberglass Panels' },
+      { h3: 'Why They Are Different' },
+      { p: 'Composite body panels can show a very slight texture or waviness under the clear coat that steel panels do not, sometimes called print-through. It is not damage and it does not always polish away, because it comes from the panel material itself rather than from something sitting on top of it. Anyone correcting the paint should know this before they start, so an expectation gets set rather than chasing a texture that will not fully disappear.' },
+      { h3: 'Correction Approach' },
+      { p: 'Take paint depth readings before machine correction. Composite panels are generally more forgiving of clear coat thickness variance than steel, but that is not a reason to skip the measurement; it is a reason the measurement still matters just as much.' },
+      { image: 'exteriorBA', caption: 'Correction on a composite panel needs a paint depth reading first, the same discipline as on steel.' },
+
+      { h2: 'The Targa Top Seal' },
+      { p: 'On coupes, clean and dress the rubber seal around the removable roof panel with the same attention as any other exterior gasket. A dried, cracked seal here is a water-intrusion problem waiting to happen, not just a cosmetic one.' },
+
+      { h2: 'Wheels And Exhaust' },
+      { h3: 'Chrome And Polished Aluminum' },
+      { p: 'Many C6s ran chrome or polished aluminum wheels, both of which show brake dust more obviously than a dark finish and both of which need a wheel-safe cleaner rather than anything acidic that could pit the finish over repeated washes.' },
+      { h3: 'Exposed Exhaust Tips' },
+      { p: 'The quad or twin exhaust outlets on performance trims are usually polished stainless or chrome and collect heat-baked soot that a standard wheel brush will not fully lift. A dedicated metal polish, applied when the exhaust is cool, brings them back properly.' },
+
+      { h2: 'Protection' },
+      { p: 'A sealant holds reasonably well on composite paint, typically four to six months in Florida heat. A <a href="/services/ceramic-coating/">ceramic coating</a> lasts years and makes washing considerably safer on a car whose panels cannot simply be swapped for a fresh one the way a common steel panel can.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-corvette-c6/">interior detailing a C6</a>. The generation that followed changed the paint and body approach very little but the cabin a great deal: see <a href="/blog/how-to-exterior-detail-a-corvette-c7/">exterior detailing a C7</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-corvette-c7',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'Brake ducts, splitters and painted carbon accents need more than a rinse. We do it properly.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Corvette C7',
+    metaTitle: 'How To Exterior Detail a Corvette C7',
+    metaDescription:
+      'Exterior detailing a C7 Corvette: front brake cooling ducts that trap dust, the low front splitter, the functional hood vent on Z06 cars, and painted carbon accents.',
+    excerpt:
+      'The C7 added real aerodynamic hardware to the Corvette, and every piece of it is a place dirt collects that a quick wash will miss.',
+    date: '2026-09-04',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'foam',
+    body: [
+      { p: 'The C7, especially in Z51 and Z06 form, carries genuine aerodynamic hardware: a low front splitter, functional brake cooling ducts, and on the Z06, a hood vent that sits directly over a supercharger. All three collect dirt and brake dust in places a standard wash misses entirely.' },
+
+      { h2: 'Wash Technique' },
+      { h3: 'Pre-Soak Before Contact' },
+      { p: 'Rinse and foam first, and let it dwell before a mitt touches the panel. The lower front end on Z51 and Z06 cars runs closer to the road than most cars on it, and picks up correspondingly more road grime that needs to be loosened before contact rather than scrubbed off.' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards and clean media. One bucket puts fine scratching into this clear coat within a handful of washes.' },
+
+      { h2: 'The Front Brake Cooling Ducts' },
+      { p: 'These are functional ducts, not decoration, and they pack brake dust deep into the opening where a sponge cannot reach. A detailing brush and a wheel-safe cleaner, worked in and rinsed thoroughly, gets them properly clean; a surface wipe just moves the dust around the opening.' },
+
+      { h2: 'The Front Splitter' },
+      { p: 'Low front splitters on Z51 and Z06 cars are the first thing to contact a steep driveway or a curb, and they show it in curb rash and stone chips more than any other panel on the car. Check the leading edge specifically for chips each wash; paint protection film on this edge is the single most cost-effective protection option on the entire car.' },
+      { image: 'exteriorBA', caption: 'Low splitters take the worst of the road. Checking the leading edge on every wash catches damage before it spreads.' },
+
+      { h2: 'The Z06 Hood Vent' },
+      { p: 'On supercharged Z06 cars, the hood carries a functional vent directly above the supercharger. Clean around it without directing a pressure washer into the opening; water finding its way past the vent and onto hot engine components is a real risk that a standard hood does not present.' },
+
+      { h2: 'Painted Carbon Fiber Accents' },
+      { p: 'Splitter elements and other aero pieces on these cars are typically painted or clear coated the same as the rest of the body, not left as bare carbon weave. Treat them exactly like painted panels for washing and correction; the exception is any factory bare carbon trim, which needs UV protection specifically, since unprotected bare carbon fades and yellows under Florida sun in a way painted carbon does not.' },
+
+      { h2: 'Protection' },
+      { p: 'Given the amount of aero hardware collecting road contact and brake dust, a <a href="/services/ceramic-coating/">ceramic coating</a> earns its keep here more than on most cars: it makes the splitter, ducts and lower panels dramatically easier to rinse clean rather than scrub.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-corvette-c7/">interior detailing a C7</a>. For the generation before and after, see <a href="/blog/how-to-exterior-detail-a-corvette-c6/">the C6 guide</a> and <a href="/blog/how-to-exterior-detail-a-corvette-c8/">the C8 guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-corvette-c8',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'A mid-engine layout changes where the dirt collects. We know where to look.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Corvette C8',
+    metaTitle: 'How To Exterior Detail a Corvette C8',
+    metaDescription:
+      'Exterior detailing a mid-engine C8 Corvette: the rear glass engine cover, side intake vents feeding the front radiators, the frunk seal, and the rear haunch character lines.',
+    excerpt:
+      'Moving the engine behind the driver rearranged where a Corvette collects dirt and heat. The C8 needs washing in an order the earlier cars never did.',
+    date: '2026-09-04',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'corvetteC8Exterior',
+    body: [
+      { p: 'The C8 is the first mid-engine Corvette, and the layout moved more than the drivetrain. Cooling intakes moved to the front fenders, a glass panel over the engine bay replaced a conventional rear window, and there is a front trunk, the frunk, where a radiator used to sit on earlier generations.' },
+
+      { h2: 'Wash Technique' },
+      { h3: 'Pre-Soak Before Contact' },
+      { p: 'Rinse, foam, and let it dwell before a mitt touches the paint. The rear haunches carry deep character-line scoops that feed the side intakes, and dirt sits in those creases in a way flatter panels never collect it.' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards and clean media, the same rule as every generation before it.' },
+
+      { h2: 'The Rear Glass Engine Cover' },
+      { p: 'A large glass panel sits over the engine bay so the drivetrain is visible from outside. It collects road grime and bugs like any other glass, but a pressure washer aimed carelessly at its edges is a poor idea this close to the engine bay. Hand wash it with the same glass-safe technique as any window, and keep high-pressure water well clear of the seams around it.' },
+
+      { h2: 'The Side Intake Vents' },
+      { h3: 'What They Actually Feed' },
+      { p: 'Unlike a conventional mid-engine layout, the C8 keeps its radiators up front and feeds them through vents in the front fenders and lower doors, not through the rear haunches the way the engine cooling air is drawn. Both sets of vents collect road grime and need brushing out, not just a surface rinse, since a clogged intake affects cooling.' },
+      { h3: 'Cleaning Them' },
+      { p: 'A soft detailing brush worked into each vent opening, followed by a low-pressure rinse, clears what a wash mitt passing over the surface will not reach.' },
+      { image: 'wheel', caption: 'Intake vents need brushing out, not just a rinse over the surface. A clogged vent is a cooling problem, not just a cosmetic one.' },
+
+      { h2: 'The Frunk Seal' },
+      { p: 'The front trunk has its own weather seal, and a dirty, dried seal is a water-intrusion risk in exactly the storage compartment most owners assume is sealed the same as the rest of the body. Clean it with mild soap and dress it with a rubber-safe conditioner on the same schedule as any other exterior gasket.' },
+
+      { h2: 'Rear Haunches And Character Lines' },
+      { p: 'The deep scoops feeding the side intakes are also the most complex surface on the car to correct, since a machine polisher needs a pad small enough to follow the contour without walking off the character line edge. This is not a beginner panel; a poor pass here leaves a visible line where the correction stopped short of the crease.' },
+
+      { h2: 'Protection' },
+      { p: 'The intake creases and the front splitter take more road contact than the flatter panels, and a <a href="/services/ceramic-coating/">ceramic coating</a> makes both dramatically easier to keep clean between washes rather than letting contamination bake into a scoop that is already hard to reach.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-corvette-c8/">interior detailing a C8</a>. For how the earlier front-engine cars differ, see <a href="/blog/how-to-exterior-detail-a-corvette-c7/">the C7 guide</a> and <a href="/blog/how-to-exterior-detail-a-corvette-c6/">the C6 guide</a>.' }
+    ]
+  }
+  ,
+  {
+    slug: 'how-to-interior-detail-a-nissan-altima',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Zero Gravity cloth, a panoramic moonroof and camera-based driver aids done properly.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Nissan Altima',
+    metaTitle: 'How To Interior Detail a Nissan Altima',
+    metaDescription:
+      'Detailing an Altima cabin: Zero Gravity seats in cloth or leather, the panoramic moonroof on upper trims, piano black trim, and the ProPILOT Assist camera behind the mirror.',
+    excerpt:
+      'The Altima packs more premium features into a mid-size sedan than its price suggests, which means more surfaces that need the correct product rather than whatever is under the sink.',
+    date: '2026-09-05',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'interiorBA2',
+    body: [
+      { p: 'The Altima is a mid-size sedan that carries some genuinely upmarket features on higher trims: Nissan\'s Zero Gravity seats, a panoramic moonroof, and the ProPILOT Assist camera package. None of it is hard to clean correctly, but each one has a wrong way to do it that is easy to reach for by habit.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A pH-balanced leather cleaner and conditioner, or a foam upholstery cleaner for cloth',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Strip And First Vacuum' },
+      { p: 'Remove mats, empty the door pockets and console bin, then vacuum seats and carpets before any liquid is introduced. The Zero Gravity seat design uses a thicker foam and a different internal frame than a conventional seat, which does not change how you vacuum it but does mean debris settles differently along the seat base seam; take the crevice tool along it specifically.' },
+
+      { h2: 'Step 2: The ProPILOT Assist Camera' },
+      { p: 'Cars fitted with ProPILOT Assist have a forward-facing camera mounted behind the rearview mirror, reading the lane markings through the windscreen. Clean the interior glass directly in front of it with an ammonia-free glass cleaner and a lint-free towel, and check that no residue or streak is left directly in the camera\'s field of view; a smeared patch of glass there can affect how the system reads lane markings.' },
+
+      { h2: 'Step 3: Zero Gravity Seats' },
+      { h3: 'Cloth Trim' },
+      { p: 'Base and mid trims typically run cloth. Apply a foam upholstery cleaner, agitate gently with a soft brush, then extract or blot the residue rather than leaving it to air dry soaked through.' },
+      { h3: 'Leather Trim' },
+      { p: 'Upper trims run leather. Clean with a pH-balanced leather cleaner, then condition. The seat\'s internal structure is different from a conventional seat but the surface material is not, so the cleaning method is the same as any other leather seat.' },
+      { image: 'interiorBA1', caption: 'Zero Gravity seats clean the same as any cloth or leather seat; the difference is only in how the foam is built underneath.' },
+
+      { h2: 'Step 4: Piano Black Trim' },
+      { p: 'The console surround and shifter trim on mid and upper trims run gloss black plastic that marks easily. Use a clean, plush towel reserved for gloss surfaces, light pressure, and lift dust before wiping rather than dragging it across the panel.' },
+
+      { h2: 'Step 5: The Panoramic Moonroof' },
+      { p: 'On SL and Platinum trims, the panoramic moonroof has a sliding shade and a much larger glass area than a standard sunroof. Clean the interior face with an ammonia-free glass cleaner, working the shade fully open so the whole panel gets attention rather than just the section normally visible.' },
+
+      { h2: 'Step 6: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not the glass, and keep it well clear of the ProPILOT camera housing and the touchscreen. Refit the mats only once everything is fully dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Dress the dash and upper trim with a matte ultraviolet protectant. The panoramic moonroof lets in more direct sun across the cabin than a standard roof, which accelerates dash fading on cars that have one.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Ground-in stains, a musty smell from the ventilation system, or cloth that has never been properly extracted all go beyond towels and spray. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside of the same car, see <a href="/blog/how-to-exterior-detail-a-nissan-altima/">exterior detailing an Altima</a>. Nissan\'s smaller sedan shares some of the same interior thinking: see <a href="/blog/how-to-interior-detail-a-nissan-sentra/">interior detailing a Sentra</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-nissan-sentra',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'A compact cabin that still deserves the correct product on every surface, not just the visible ones.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Nissan Sentra',
+    metaTitle: 'How To Interior Detail a Nissan Sentra',
+    metaDescription:
+      'Detailing a Sentra cabin: Zero Gravity cloth seats on base and mid trims, the compact rear seat area, piano black trim, and the touchscreen infotainment display.',
+    excerpt:
+      'A Sentra is a smaller, simpler car than an Altima, but the cabin still has a piano black panel and a touchscreen that will not forgive the wrong cleaner.',
+    date: '2026-09-05',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'interiorBA1',
+    body: [
+      { p: 'The Sentra is Nissan\'s compact sedan, and the cabin is simpler than the Altima\'s: fewer available options, mostly cloth seats, and a smaller touchscreen. Simpler does not mean it forgives the wrong cleaner any more than a larger, pricier car does.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A foam upholstery cleaner for cloth seats',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Strip And First Vacuum' },
+      { p: 'Remove mats, empty the door pockets and console, then vacuum front and rear seats and carpets. The rear seat area is noticeably tighter than in the Altima, so work the crevice tool along the seat base seams rather than trying to fit a full brush head into the gap.' },
+
+      { h2: 'Step 2: Zero Gravity Seats In Cloth' },
+      { p: 'Base and mid-trim Sentras run cloth versions of Nissan\'s Zero Gravity seat design. Apply a foam upholstery cleaner, agitate gently with a soft brush, then extract or blot rather than leaving the material to air dry soaked. Higher trims with leatherette or leather take a pH-balanced leather cleaner and conditioner instead.' },
+
+      { h2: 'Step 3: The Touchscreen' },
+      { p: 'The Sentra\'s standard touchscreen is smaller than the Altima\'s optional larger display, but the cleaning rule is identical: a dry or barely damp lint-free microfiber, and an ammonia-free cleaner if you use one at all. Ammonia degrades the anti-glare coating over repeated use.' },
+      { image: 'interiorBA2', caption: 'A smaller screen still needs the same dry, lint-free approach as a larger one.' },
+
+      { h2: 'Step 4: Piano Black Trim' },
+      { p: 'The console and shifter surround on mid and upper trims run gloss black plastic. Use a clean, plush towel dedicated to gloss surfaces, minimal pressure, and lift dust before wiping. This is the single most commonly self-inflicted damage point in the cabin.' },
+
+      { h2: 'Step 5: Hard Plastics Elsewhere' },
+      { p: 'Base-trim Sentras run more hard plastic than a comparably-optioned Altima. Spray a diluted interior cleaner onto the towel, never onto the panel, and use straight-line wipes rather than circular scrubbing to avoid fine marring on the harder surface.' },
+
+      { h2: 'Step 6: Glass And Reassembly' },
+      { p: 'Spray glass cleaner onto the towel, not the glass, and finish the inside of the windscreen last with a dry towel in a different direction, which makes it easy to tell which side a remaining streak is actually on. Refit mats once everything is fully dry.' },
+
+      { h2: 'The Florida Step Most People Skip' },
+      { p: 'Dress the dash with a matte ultraviolet protectant on a regular schedule. A cracked dash on a compact daily driver is a replacement, not a repair, and the sun through a windscreen this size does the damage just as effectively as on a larger car.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Cloth that has never been extracted, pet hair worked into the seat weave, or a lingering odor all go past what a towel and spray bottle will fix. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the outside of the same car, see <a href="/blog/how-to-exterior-detail-a-nissan-sentra/">exterior detailing a Sentra</a>. For the larger sedan in the same lineup, see <a href="/blog/how-to-interior-detail-a-nissan-altima/">interior detailing an Altima</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-nissan-altima',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'The blacked-out floating roofline and V-motion grille both need the correct approach, not just a rinse.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Nissan Altima',
+    metaTitle: 'How To Exterior Detail a Nissan Altima',
+    metaDescription:
+      'Exterior detailing an Altima: the blacked-out floating roofline pillar trim, the V-motion grille, LED headlight housings, and safe technique for the front camera and radar sensors.',
+    excerpt:
+      'The Altima\'s floating roofline is achieved with a painted or wrapped black D-pillar that takes different care than the body paint around it.',
+    date: '2026-09-06',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'wash',
+    body: [
+      { p: 'The current Altima\'s styling signature is a floating roofline, created by finishing the rear pillar in gloss black rather than body color so the roof appears to hover over the greenhouse. That trim is not painted the same way the rest of the body is, and it is worth knowing before a machine polisher gets anywhere near it.' },
+
+      { h2: 'Wash Technique' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards, a pH-neutral soap, and clean wash media. Ordinary technique, and still the single biggest factor in whether this paint stays swirl-free.' },
+      { h3: 'The Blacked-Out D-Pillar' },
+      { p: 'Wash this panel gently with the rest of the body, but treat any correction work on it as a separate decision. Depending on the trim, it may be painted gloss black rather than clear-coated the same as the surrounding body color, and an aggressive compound safe on the main paint can dull a different finish faster than expected. When in doubt, treat it more conservatively than the panels around it.' },
+
+      { h2: 'The V-Motion Grille' },
+      { p: 'Nissan\'s signature grille shape traps road grime and insects in its mesh pattern more than a flatter grille would. A soft detailing brush and a wheel-safe or all-purpose cleaner, worked into the mesh and rinsed, clears it properly; a sponge wiped across the surface mostly just redistributes what is caught in the gaps.' },
+      { image: 'exteriorBA', caption: 'Grille mesh needs brushing out, not wiping over. A sponge alone redistributes trapped grime rather than removing it.' },
+
+      { h2: 'ProPILOT Cameras And Radar' },
+      { p: 'Cars fitted with ProPILOT Assist carry a front-facing camera near the windscreen and radar sensors integrated into the front fascia, usually behind the grille or lower bumper badge. Clean these areas with a damp microfiber and light pressure rather than a pressure washer aimed directly at the sensor location; a damaged or displaced sensor can affect how the system reads the road ahead.' },
+
+      { h2: 'LED Headlight Housings' },
+      { p: 'Upper trims run LED headlights in a clear polycarbonate housing that yellows under Florida sun exactly like the halogen housings on older cars, despite the different bulb technology. Machine-polished restoration followed by a UV-blocking sealant on the housing is the same fix either way.' },
+
+      { h2: 'Protection' },
+      { p: 'A sealant holds for several months on this paint. A <a href="/services/ceramic-coating/">ceramic coating</a> lasts years and makes the grille and lower fascia noticeably easier to keep clean between washes rather than letting grime bake in around the sensors.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-nissan-altima/">interior detailing an Altima</a>. For the smaller sedan in the same lineup, see <a href="/blog/how-to-exterior-detail-a-nissan-sentra/">exterior detailing a Sentra</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-exterior-detail-a-nissan-sentra',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/exterior-detailing/', label: 'Exterior Detailing', blurb: 'A compact daily driver that still deserves correct wash technique, not just a fast rinse.' },
+    author: 'matt',
+    title: 'How To Exterior Detail a Nissan Sentra',
+    metaTitle: 'How To Exterior Detail a Nissan Sentra',
+    metaDescription:
+      'Exterior detailing a Sentra: the shared V-motion grille mesh, compact wheel wells, LED headlight housings on SR trim, and safe technique on a smaller daily driver.',
+    excerpt:
+      'A Sentra is a smaller, simpler car than an Altima, and it still rewards the same wash discipline that keeps a much more expensive car swirl-free.',
+    date: '2026-09-06',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'wheel',
+    body: [
+      { p: 'The Sentra shares Nissan\'s V-motion grille design with the larger Altima, but the car underneath it is smaller and simpler: tighter wheel wells, a smaller footprint, and fewer of the sensor-based driver aids that complicate washing a more heavily optioned car.' },
+
+      { h2: 'Wash Technique' },
+      { h3: 'Two Buckets, Always' },
+      { p: 'Two buckets with grit guards, a pH-neutral soap, and clean wash media. A compact daily driver accumulates the same fine scratching from careless washing as any other car; smaller does not mean more forgiving.' },
+
+      { h2: 'The Grille Mesh' },
+      { p: 'The V-motion grille traps road debris and insects in the same way it does on the Altima. A soft detailing brush and a wheel-safe cleaner worked into the mesh, then rinsed, clears it properly rather than just moving grime around the gaps.' },
+
+      { h2: 'Compact Wheel Wells' },
+      { p: 'The Sentra\'s tighter wheel wells mean less clearance to work a brush around brake calipers and suspension components. A long-reach wheel brush and a lower-pressure rinse setting help here more than on a car with more room to move around inside the arch.' },
+      { image: 'wheel', caption: 'Tighter wheel wells need a longer-reach brush, not more pressure, to clean properly.' },
+
+      { h2: 'LED Headlights On SR Trim' },
+      { p: 'SR trim runs LED headlights in a clear polycarbonate housing, which yellows under UV exposure the same way any clear headlight housing does regardless of bulb type. Correction followed by a UV-blocking sealant restores clarity and slows the process from starting again.' },
+
+      { h2: 'Paint And Panel Care' },
+      { p: 'The body panels are conventional steel with a standard clear coat, no unusual composite or aero hardware to account for. Standard two-bucket washing, careful drying, and a paint depth check before any machine correction cover everything this car needs.' },
+
+      { h2: 'Protection' },
+      { p: 'A sealant lasts a reasonable stretch on this paint, but a <a href="/services/ceramic-coating/">ceramic coating</a> is the better long-term option on a daily driver that gets washed often, since it holds up to frequent washing far better than wax or sealant alone.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the cabin, see <a href="/blog/how-to-interior-detail-a-nissan-sentra/">interior detailing a Sentra</a>. For the larger sedan in the same lineup, see <a href="/blog/how-to-exterior-detail-a-nissan-altima/">exterior detailing an Altima</a>.' }
+    ]
+  }
+  ,
+  {
+    slug: 'how-to-protect-your-car-paint-from-love-bugs-in-florida',
+    cluster: 'love-bug-protection',
+    author: 'matt',
+    cta: { href: '/services/ceramic-coating/', label: 'Ceramic Coating', blurb: 'The single most effective thing you can do before a hatch: a slick, coated surface bug residue cannot bond to.' },
+    title: 'How To Protect Your Car Paint From Love Bugs In Florida',
+    metaTitle: 'How To Protect Car Paint From Love Bugs In Florida',
+    metaDescription:
+      'A complete routine for protecting car paint from love bugs in Florida: pre-hatch prep, wash frequency during hatch weeks, product comparisons, and what to do if damage already happened.',
+    excerpt:
+      'A practical, season-by-season routine for keeping love bug residue from ever becoming acid etching in the first place, plus what actually works when it already has.',
+    date: '2026-09-07',
+    readTime: '11 min read',
+    category: 'Paint Protection',
+    photo: 'ferrari',
+    body: [
+      { p: 'If you drive in Florida, you already know the two weeks in May and the two weeks in September when love bugs turn every highway drive into a windshield full of insects. What most drivers do not know is a routine for getting through those weeks without the acid in the bugs\' remains permanently etching their clear coat. This is that routine, start to finish: what to do in the months before a hatch, what to do during one, and what to do if the damage already happened before you found this page.' },
+
+      { h2: 'Why This Needs A Routine At All' },
+      { p: 'Love bug remains are acidic, and the acid becomes more concentrated as the insects decompose on a hot panel. In Florida summer heat, that process can begin working into clear coat within roughly 48 hours. A single missed wash during a hatch is rarely the problem. A repeated pattern of missed washes across two-week hatch periods, twice a year, every year, is how a car ends up with visible etching on the hood, mirrors, and front bumper years before the rest of the paint shows its age.' },
+      { p: 'The fix is not complicated, but it does require actually doing it on a schedule rather than reacting after the damage is visible.' },
+
+      { h2: 'Before The Hatch: April And August' },
+      { h3: 'Get Protection Down First' },
+      { p: 'Everything else in this guide works better on a protected surface. Bug residue bonds to bare or lightly waxed clear coat far more readily than it bonds to a coated or freshly sealed one, which converts a scrubbing job into something closer to a rinse. Booking protection work in April, ahead of the May hatch, and again in August, ahead of the September hatch, is the single highest-leverage thing a Marion County driver can do about this entire problem.' },
+      { h3: 'Choosing Between Wax, Sealant, And Ceramic Coating' },
+      { list: [
+        'Wax - cheapest and easiest to apply yourself, but typically holds four to six weeks in Florida heat. Only worth it if reapplied right before each hatch specifically, not applied once a year and forgotten.',
+        'Paint sealant - a step up, generally holding four to six months. A reasonable middle ground if you are not ready to commit to a coating but want more than a few weeks of protection.',
+        'Ceramic coating - the most durable option, holding for years rather than months. The upfront cost is higher, but it means the pre-hatch prep step above stops being an annual task you have to remember.',
+        'Paint protection film - the tier above chemical protection. Applied to the leading edges (front bumper, hood edge, mirror caps) it takes the physical impact entirely, which matters most for vehicles doing heavy Interstate 75 mileage during hatch weeks.'
+      ] },
+      { p: 'Whichever option you choose, the point is the same: have it in place before the hatch starts, not partway through it.' },
+
+      { h2: 'During The Hatch: A Two-Week Routine' },
+      { h3: 'Wash More Often Than Usual' },
+      { p: 'During an active hatch, increase wash frequency to every 48 to 72 hours if the vehicle is driven on highways or rural roads where bug strikes are heaviest. This is not about keeping the car looking clean; it is about not letting any single residue sit long enough to begin etching.' },
+      { h3: 'The Removal Technique That Does Not Trade One Problem For Another' },
+      { p: 'Speed matters, but so does technique. Dry-scrubbing bug residue with a towel drags hardened insect shell across clear coat and leaves marring that is just as permanent as the etching you were trying to prevent.' },
+      { list: [
+        'Soak the affected panels first and give water time to soften the residue before touching it',
+        'Apply a dedicated bug and tar remover, or a citrus-based pre-soak, and let it dwell for several minutes',
+        'Agitate only with a soft microfiber or a dedicated bug sponge, with plenty of lubrication throughout',
+        'Never let product dry on the panel in direct sun; reapply rather than scrub harder if it starts to dry',
+        'Rinse thoroughly and check the panel again before moving to the next one'
+      ] },
+      { image: 'foam', caption: 'A proper pre-soak does the softening work a towel cannot do safely.' },
+      { h3: 'What Not To Reach For' },
+      { p: 'Dryer sheets, mesh scrub pads, and household glass or all-purpose cleaners all circulate as home remedies for bug removal. All three cause fine scratching or marring on clear coat. A bottle of the correct chemical costs less than the cheapest possible machine polishing bill, and it does not risk creating one.' },
+
+      { h2: 'The Panels That Need The Most Attention' },
+      { p: 'Heat is the multiplier behind acid etching, so the panels that run hottest in direct sun take the worst damage. The front bumper, hood, mirror caps, and windshield cowl combine the highest impact frequency with the highest surface temperature, which is exactly why those are the panels that show visible etching first if a hatch season goes unmanaged.' },
+
+      { h2: 'If Damage Has Already Happened' },
+      { p: 'Run a fingernail lightly over any residue mark you can still see after washing. Etching you can see but not feel is usually correctable with a one-step or two-step machine polish. Etching you can catch a fingernail on has gone deep enough that correction becomes a judgment call about how much clear coat remains to work with safely.' },
+      { p: 'We take paint depth readings before any <a href="/services/paint-correction/">paint correction</a> for exactly this reason. Removing more clear coat than a panel can spare turns a cosmetic problem into a much more expensive one, and a depth reading is the only way to know the safe margin before starting rather than guessing.' },
+
+      { h2: 'Frequently Asked Questions' },
+      { h3: 'How long can love bug residue sit before it damages paint?' },
+      { p: 'In Florida summer heat, acid from decomposing love bug remains can begin working into clear coat within roughly 48 hours. Cooler, shaded conditions buy more time, but 48 hours is the number to plan around rather than push against.' },
+      { h3: 'Does washing at a drive-through car wash remove love bug residue safely?' },
+      { p: 'A touchless automatic wash is reasonable for routine bug removal. A brush-based automatic wash is not; the brushes drag hardened residue across the clear coat the same way a dry towel does, and on a car already going through more washes than usual during a hatch, that repeated brush contact adds up to visible swirling.' },
+      { h3: 'Does ceramic coating actually stop love bug damage, or just make cleanup easier?' },
+      { p: 'Both. A coated surface is slicker, so residue has less to bond to and rinses off more completely with less agitation. That means less scrubbing, which is itself part of what prevents the fine marring that scrubbing causes. It does not make the vehicle immune to a hatch, but it changes the removal job from a scrub to something closer to a rinse.' },
+
+      { h2: 'Get Ahead Of The Next Hatch' },
+      { p: 'The drivers who never end up with etched hoods are not the ones with better luck. They are the ones who had protection in place before the bugs showed up, and washed on a schedule instead of waiting until the damage was visible. If your paint is unprotected heading into the next hatch, get the front of the vehicle covered first with <a href="/services/ceramic-coating/">ceramic coating</a> or paint protection film; everything else can be scheduled around it.' },
+
+      { h2: 'Related Reading' },
+      { p: 'For the acid-etching science and the professional-correction decision in more depth, see <a href="/blog/love-bug-season-paint-damage-prevention/">Love Bug Season: Preventing Permanent Paint Damage</a>. For a broader look at what protection actually holds up in Florida heat, see the <a href="/blog/ceramic-coating-guide/">ceramic coating guide</a>.' }
+    ]
+  }
+  ,
+  {
+    slug: 'how-often-should-you-wash-your-undercarriage-in-florida',
+    author: 'matt',
+    cta: { href: '/services/mobile-detailing/', label: 'Mobile Detailing', blurb: 'A full mobile detail includes a proper undercarriage rinse, done in your driveway.' },
+    title: 'How Often Should You Wash Your Undercarriage In Florida',
+    metaTitle: 'How Often Should You Wash Your Undercarriage In Florida',
+    metaDescription:
+      'A practical undercarriage wash schedule for Florida drivers: how salt air, sand, and standing water reach the underside of the vehicle here, and what a normal cadence should look like.',
+    excerpt:
+      'Florida does not salt its roads for ice, but that does not mean the underside of your vehicle is off the hook. Salt air, sand, and standing water do the same job differently.',
+    date: '2026-09-08',
+    readTime: '7 min read',
+    category: 'Maintenance',
+    photo: 'wheel',
+    body: [
+      { p: 'Undercarriage washing gets talked about almost entirely in the context of northern winters and road salt. Florida does not salt its roads for ice, so it is easy to assume the underside of a car here is not at meaningful risk. That assumption is wrong, just for different reasons than it would be in a snowy climate.' },
+
+      { h2: 'What Actually Threatens A Florida Undercarriage' },
+      { h3: 'Salt Air, Not Salt Trucks' },
+      { p: 'Coastal and near-coastal Florida deals with airborne salt from ocean spray, which settles on every exposed surface of a vehicle including the underside, whether or not the car has ever driven near sand. Marion County sits inland from both coasts, which reduces the exposure compared with a car parked right on the beach, but it does not eliminate it; salt-laden air travels well inland on a sustained sea breeze, and it accumulates slowly on a surface that is never rinsed.' },
+      { h3: 'Standing Water And Storm Drainage' },
+      { p: 'Central Florida\'s summer storm pattern means driving through standing water on flooded roads is a routine occurrence during rainy season, not a rare event. That water carries whatever the road surface has picked up: oil residue, fine grit, and organic runoff, all of which gets driven up into the wheel wells and undercarriage and left there to dry once the sun comes back out.' },
+      { h3: 'Sand And Construction Grit' },
+      { p: 'Beach trips are an obvious source of sand packed into wheel wells and suspension components, but ordinary Central Florida construction and unpaved shoulder driving does the same thing with a finer, more abrasive grit that works its way into moving parts rather than just sitting on the surface.' },
+
+      { h2: 'What Happens If It Is Never Rinsed Off' },
+      { p: 'None of this causes the dramatic, fast corrosion that road salt causes on a steel body panel in a snowy state. It causes something slower and easier to miss: gradual corrosion on brake lines, fuel lines, and subframe components, and grit working its way into suspension bushings and wearing them faster than they should wear. By the time it is visible during a routine service, it has usually been building for years.' },
+
+      { h2: 'A Practical Wash Schedule' },
+      { list: [
+        'Baseline: rinse the undercarriage roughly once a month for a vehicle in normal daily use across Marion County',
+        'After any beach trip, regardless of distance driven on sand',
+        'After driving through standing water on a flooded road, the same day if possible rather than waiting',
+        'Every two to three weeks instead of monthly for vehicles garaged within a few miles of the coast',
+        'Immediately after any drive that included unpaved roads or active construction zones'
+      ] },
+      { p: 'This is a baseline, not a hard rule. A vehicle that mostly sits in a garage and only drives paved daily-commute roads can reasonably stretch toward the longer end of that schedule; a truck doing regular beach or job-site work should lean toward the shorter end.' },
+      { image: 'wash', caption: 'An undercarriage rinse is about getting water and pressure underneath the vehicle, not just around it.' },
+
+      { h2: 'Doing It Properly' },
+      { h3: 'Water Needs To Actually Reach Underneath' },
+      { p: 'Spraying around the wheel wells from the outside misses most of the underside entirely. A proper undercarriage rinse directs water up and along the underbody, not just at the wheel arches, which is the part most home washing genuinely skips regardless of how thorough the rest of the wash was.' },
+      { h3: 'Pressure, Not Just Volume' },
+      { p: 'Dried mud and packed grit in suspension components need enough pressure to actually dislodge them, not just a low-pressure hose rinse that runs off the surface without reaching what is packed into a gap or a seam.' },
+
+      { h2: 'Protection Beyond Washing' },
+      { p: 'For vehicles with heavy coastal or off-pavement exposure, an undercarriage coating or rust-inhibiting spray adds a layer beyond rinse frequency alone, in the same way a <a href="/services/ceramic-coating/">ceramic coating</a> reduces how much bonds to painted surfaces up top. Neither replaces the wash schedule above; both reduce how much damage a missed wash actually does.' },
+
+      { h2: 'Where This Fits Into A Normal Detail' },
+      { p: 'An undercarriage rinse is already part of a proper <a href="/services/mobile-detailing/">mobile detailing</a> appointment, not a separate add-on service. If it has been longer than the schedule above since the underside of your vehicle has seen real water pressure, that is worth mentioning when you book rather than assuming it happens automatically with every wash type.' },
+
+      { h2: 'Related Reading' },
+      { p: 'For what Florida heat and hatch season do to the paint up top, see <a href="/blog/love-bug-season-paint-damage-prevention/">Love Bug Season: Preventing Permanent Paint Damage</a>. For how often the rest of the vehicle should be detailed in this climate, see <a href="/blog/how-often-should-you-detail-your-car-in-florida/">how often you should detail your car in Florida</a>.' }
     ]
   }
 
