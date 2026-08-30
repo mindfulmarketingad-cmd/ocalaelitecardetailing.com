@@ -365,7 +365,7 @@ function buildHome() {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
       <div class="wrap">
         <p class="eyebrow">Popular Services</p>
         <h2>What Customers Book Most</h2>
@@ -375,21 +375,23 @@ function buildHome() {
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section">
       <div class="wrap">
         <p class="eyebrow">Customer Reviews</p>
         <h2>Rated ${RATING_AVERAGE_TEXT} By ${featuredReviews.length} Customers</h2>
         <div class="carousel" data-carousel>
-          <button type="button" class="carousel-arrow carousel-prev" data-carousel-prev aria-label="Previous review">&#8249;</button>
           <div class="carousel-viewport">
             <ul class="carousel-track" data-carousel-track aria-live="polite">
             ${reviewSlides}
             </ul>
           </div>
-          <button type="button" class="carousel-arrow carousel-next" data-carousel-next aria-label="Next review">&#8250;</button>
-        </div>
-        <div class="carousel-dots" role="tablist" aria-label="Choose a review">
+          <div class="carousel-controls">
+            <button type="button" class="carousel-arrow" data-carousel-prev aria-label="Previous review">&#8249;</button>
+            <div class="carousel-dots" aria-label="Choose a review">
               ${reviewDots}
+            </div>
+            <button type="button" class="carousel-arrow" data-carousel-next aria-label="Next review">&#8250;</button>
+          </div>
         </div>
         <div class="btn-row" style="margin-top:26px;justify-content:center">
           <a class="btn btn-ghost btn-sm" href="/reviews/">Read All Reviews</a>
