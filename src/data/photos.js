@@ -133,6 +133,27 @@ const photos = {
     width: 387,
     height: 516
   },
+  // Toyota Tacoma trim guides. Alt text describes only what is verifiably in
+  // each frame - trim badges are not legible in all of them, so the copy does
+  // not claim a specific trim the photo cannot support.
+  tacomaPair: {
+    src: '/assets/img/2022-Toyota-Tacoma.avif',
+    alt: 'Two third-generation Toyota Tacoma pickups parked side by side on grass, one dark green and one blue',
+    width: 1000,
+    height: 317
+  },
+  tacomaPreRunner: {
+    src: '/assets/img/2025-toyota-tacoma-prerunner-101-681b80dd44cde.avif',
+    alt: 'A fourth-generation Toyota Tacoma XtraCab in grey parked on rocky desert ground',
+    width: 1200,
+    height: 674
+  },
+  tacomaInterior: {
+    src: '/assets/img/images (32).jpg',
+    alt: 'Toyota truck cabin showing the steering wheel, gauge cluster, centre touchscreen and door controls',
+    width: 516,
+    height: 387
+  },
   // Paint correction service page gallery.
   correctionBA2: {
     src: '/assets/img/photo-paint-correction-before-after-2.jpg',

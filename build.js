@@ -1027,9 +1027,28 @@ function buildPostPage(p, older, newer) {
    * the others feed it. */
   const topic = p.pillar || p.cluster;
   const pillarPost = topic ? posts.find((o) => o.pillar === topic) : null;
-  const clusterPosts = topic
+
+  /* Vehicle family, derived from the slug. A reader on a Tacoma trim guide
+   * wants the other Tacoma trims, not a Cybertruck. */
+  const VEHICLE_FAMILIES = ['tacoma', 'corvette', 'tesla', 'nissan', 'hyundai'];
+  const familyOf = (slug) => VEHICLE_FAMILIES.find((f) => slug.includes(f)) || '';
+  const myFamily = familyOf(p.slug);
+
+  /* Cap the sibling list. Left unbounded this grew to 26 links repeated
+   * verbatim on all 27 cluster pages - 14% of every page was the same block,
+   * which reads as boilerplate and spreads each page's internal link equity
+   * across two dozen equal-weight destinations. Same-family siblings come
+   * first and are never truncated, so every Tacoma trim still links to every
+   * other one; the remainder fills up to the cap. */
+  const CLUSTER_LINK_CAP = 8;
+  const allSiblings = topic
     ? posts.filter((o) => o.cluster === topic && o.slug !== p.slug)
     : [];
+  const sameFamily = myFamily ? allSiblings.filter((o) => familyOf(o.slug) === myFamily) : [];
+  const otherFamily = allSiblings.filter((o) => sameFamily.indexOf(o) === -1);
+  const clusterPosts = sameFamily.concat(
+    otherFamily.slice(0, Math.max(0, CLUSTER_LINK_CAP - sameFamily.length))
+  );
 
   const clusterBlock = !topic
     ? ''
@@ -1048,7 +1067,7 @@ function buildPostPage(p, older, newer) {
           <p>${
             pillarPost
               ? `This article is one part of our <a href="/blog/${pillarPost.slug}/">${esc(pillarPost.title)}</a>, which covers the subject end to end.`
-              : 'Other guides covering the same ground for different vehicles.'
+              : `Other guides covering the same ground for different vehicles.${clusterPosts.length < allSiblings.length ? ' <a href="/blog/">Browse the full blog</a> for the rest.' : ''}`
           }</p>
           ${
             clusterPosts.length

@@ -2160,6 +2160,461 @@ const posts = [
       { p: 'For what Florida heat and hatch season do to the paint up top, see <a href="/blog/love-bug-season-paint-damage-prevention/">Love Bug Season: Preventing Permanent Paint Damage</a>. For how often the rest of the vehicle should be detailed in this climate, see <a href="/blog/how-often-should-you-detail-your-car-in-florida/">how often you should detail your car in Florida</a>.' }
     ]
   }
+  ,
+  {
+    slug: 'how-to-interior-detail-a-tacoma-sr',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Work-truck cabins take the most abuse and get the least attention. We bring extraction to your driveway.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma SR',
+    metaTitle: 'How To Interior Detail a Tacoma SR',
+    metaDescription:
+      'Detailing the base Tacoma SR cabin: hard-wearing cloth or vinyl flooring, the large expanse of hard plastic, and the work-truck grime a base trim actually collects.',
+    excerpt:
+      'The SR is the work truck of the range, and its cabin is built to be hosed down rather than fussed over. That changes what you should and should not use on it.',
+    date: '2026-09-09',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'tacomaInterior',
+    body: [
+      { p: 'The SR is the base Tacoma, and it is the one most likely to be genuinely working for a living. The cabin reflects that: fabric seats, a great deal of hard plastic, and on work-specification trucks, vinyl or rubber flooring instead of carpet. None of that is a downside for detailing. It means the cabin tolerates a more direct approach than a leather-lined trim would.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a stiff brush head for floor material',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A foam upholstery cleaner for the seats',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Identify Your Floor Material First' },
+      { h3: 'Vinyl Or Rubber' },
+      { p: 'Work-specification SRs often leave the factory with a vinyl or rubber floor rather than carpet. If that is what you have, this is the easiest floor in the range to clean: pull the mats, sweep out the loose debris, then clean with a diluted all-purpose cleaner and a brush, and squeegee or towel the water out. It does not hold odour the way carpet does because there is nothing for moisture to sit inside.' },
+      { h3: 'Carpet' },
+      { p: 'If yours is carpeted, treat it as carpet: vacuum thoroughly first, then extract rather than soak. A work truck carpet that gets wet and never fully dries is exactly how a cabin starts smelling of mildew in a Florida summer.' },
+
+      { h2: 'Step 2: The Hard Plastics' },
+      { p: 'The SR uses more hard plastic and less soft-touch material than any other trim. Practically, that means the surfaces are more durable but they scratch visibly and they fade under sun faster than a padded dash does. Spray a diluted interior cleaner onto the towel, never onto the panel, and use straight-line wipes rather than circular scrubbing, which is what leaves fine swirls in a hard textured plastic.' },
+      { p: 'Get a soft brush into the textured grain before wiping. Textured plastic holds dust down inside the pattern, and a flat towel passes straight over it.' },
+
+      { h2: 'Step 3: Cloth Seats' },
+      { p: 'Base cloth is hard-wearing and responds well to a foam upholstery cleaner worked in with a soft brush and then extracted or blotted out. Work one seat section at a time so nothing dries before you lift it back out. Keep moisture low; the goal is to lift soiling out of the weave, not to saturate the foam underneath it.' },
+      { image: 'tacomaInterior', caption: 'Base-trim cabins are mostly hard plastic and cloth. Both are durable, and both mark if you clean them carelessly.' },
+
+      { h2: 'Step 4: Where Work-Truck Grime Actually Collects' },
+      { list: [
+        'The driver footwell, where boots deposit whatever the job site had',
+        'The seat rails, which collect grit that then grinds every time the seat moves',
+        'The door sill and lower door card, which take the brunt of getting in and out',
+        'The bed-side of the rear seat area on double cabs, used as a dry store for tools'
+      ] },
+      { p: 'These four points account for most of what makes a working truck cabin look tired. They are also the four most commonly skipped.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Spray glass cleaner onto the towel rather than the glass, and do the inside of the windscreen last. Finish the dash with a matte ultraviolet protectant. Matte matters more on a truck than most vehicles: a glossy dash under a tall, upright Florida windscreen throws glare straight back at the driver.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Ground-in job-site dirt, a smell that returns a day after cleaning, or carpet that has been wet more than once all need extraction rather than towels. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-sr5/">SR5</a> is the same cabin with upgraded materials. If yours is carpeted and regularly muddy, the <a href="/blog/how-to-interior-detail-a-tacoma-trd-off-road/">TRD Off-Road guide</a> covers getting ingrained dirt out properly.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-sr5',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'The volume trim, and the one most often bought used. We reset cabins that have had two owners.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma SR5',
+    metaTitle: 'How To Interior Detail a Tacoma SR5',
+    metaDescription:
+      'Detailing an SR5 Tacoma cabin: upgraded cloth upholstery, the touchscreen and switchgear, carpeted floors, and resetting a cabin that has already had one owner.',
+    excerpt:
+      'The SR5 is the Tacoma most people actually own, which means it is also the one most often bought second-hand with somebody else\'s wear already in it.',
+    date: '2026-09-09',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'tacomaInterior',
+    body: [
+      { p: 'The SR5 is the volume trim: upgraded cloth over the SR, carpeted floors, more equipment on the dash, and by far the most common Tacoma on a used lot. That last point matters more than the spec sheet, because a large share of SR5s being detailed are being reset after a previous owner rather than maintained from new.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass and for surfaces',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A foam upholstery cleaner, and an extractor if you have access to one',
+        'Soft detailing brushes for switchgear and vents',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: Assume Nothing About A Used Cabin' },
+      { p: 'On a second-hand SR5, work on the assumption that the carpets have never been extracted and the seats have never been cleaned below the surface. Vacuum first, then check the carpet by pressing a damp white towel into it in an inconspicuous spot. If the towel comes back discoloured, the carpet holds more than a vacuum will remove and needs extraction rather than another pass with a brush.' },
+
+      { h2: 'Step 2: Upgraded Cloth Upholstery' },
+      { p: 'SR5 cloth is a denser weave than the base fabric and it holds soiling deeper as a result. Apply foam upholstery cleaner, agitate with a soft brush in one direction to lift material out of the weave rather than driving it further in, then extract or blot. Do the bolsters separately from the seat base; they wear differently and often need a second pass.' },
+      { p: 'Resist the urge to soak a stubborn area. Two light applications with drying in between remove more than one heavy application that never fully dries.' },
+
+      { h2: 'Step 3: The Touchscreen And Switchgear' },
+      { h3: 'The Screen' },
+      { p: 'A dry or barely damp lint-free microfiber only. If you use a product, use an ammonia-free one; ammonia degrades anti-glare and anti-fingerprint coatings over repeated cleanings.' },
+      { h3: 'Buttons And Dials' },
+      { p: 'The SR5 keeps physical climate and audio controls, and the gaps around them collect skin oils and dust that a flat towel rides straight over. Work a soft detailing brush around each control before wiping, and keep liquid off the panel itself: spray the towel, never the switchgear.' },
+      { image: 'tacomaInterior', caption: 'Brush around switchgear before wiping. A towel alone passes over the gaps where the grime actually sits.' },
+
+      { h2: 'Step 4: Carpets And Floor Mats' },
+      { p: 'Take the mats out of the truck to clean them. Beating and vacuuming them on the ground removes far more than working around them in the footwell, and it lets you see the carpet underneath, which is usually dirtier than the mat that was covering it.' },
+      { p: 'The area under the front seats is the single most-skipped part of any Tacoma footwell. Slide the seats fully forward and fully back and vacuum both positions.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Glass cleaner onto the towel, not the glass. Finish the dash and upper door cards with a matte ultraviolet protectant, and be thorough about the top of the dash specifically: it takes the most direct sun of any surface in the cabin and it is the first place a Florida truck shows its age.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'A used-truck reset, pet hair worked into a dense cloth weave, or an odour that keeps returning are all extraction jobs. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-sr/">SR</a> shares this cabin with harder-wearing base materials. If yours has the sport seats and a moonroof, see the <a href="/blog/how-to-interior-detail-a-tacoma-trd-sport/">TRD Sport guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-trd-sport',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Moonroof headliners and sport upholstery, cleaned without soaking either. At your address.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma TRD Sport',
+    metaTitle: 'How To Interior Detail a Tacoma TRD Sport',
+    metaDescription:
+      'Detailing a TRD Sport Tacoma cabin: sport upholstery and SofTex, the moonroof headliner and glass, and the extra sun load a glass roof puts on the dash.',
+    excerpt:
+      'The TRD Sport is the on-road trim of the range, and the one most likely to have a moonroof. That single option changes the order you work in.',
+    date: '2026-09-09',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'tacomaPair',
+    body: [
+      { p: 'The TRD Sport is the street-biased TRD: sport-tuned suspension, the raised hood scoop outside, and inside, sport upholstery that on many trucks is Toyota\'s SofTex synthetic rather than cloth. It is also the trim most commonly specified with a moonroof, which is the detail that actually changes how you clean the cabin.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass, upholstery, and headliner',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A pH-balanced cleaner suitable for synthetic upholstery',
+        'An ammonia-free glass cleaner',
+        'A matte ultraviolet protectant for the dash'
+      ] },
+
+      { h2: 'Step 1: Work The Moonroof First' },
+      { h3: 'The Track And Drains' },
+      { p: 'Open the moonroof fully and vacuum the track. Grit collects along it and, left alone, it grinds against the seal every time the roof moves. Check the drain channels at each corner are clear while you are there; a blocked moonroof drain in Florida means water finding its way into the headliner during the next afternoon storm rather than running out under the truck.' },
+      { h3: 'The Glass, From Inside' },
+      { p: 'The inner face of moonroof glass builds a film from cabin off-gassing that only shows when the sun hits it at an angle. Ammonia-free glass cleaner on the towel, one direction, then buff dry with a second towel.' },
+
+      { h2: 'Step 2: The Headliner' },
+      { p: 'Headliner is the one surface in the cabin you genuinely cannot soak. It is fabric bonded to a backing board, and saturating it breaks that bond permanently, leaving a sag no cleaning will fix. Dampen a towel lightly, blot rather than scrub, and work outward from any mark rather than into it.' },
+      { p: 'This is worth stating plainly because the moonroof surround is exactly where hands reach and where the headliner gets marked.' },
+
+      { h2: 'Step 3: Sport Upholstery' },
+      { h3: 'SofTex' },
+      { p: 'Where fitted, SofTex is a synthetic, not hide. It cleans easily with a mild pH-balanced product and a microfiber, and it does not need, and gains nothing from, a traditional leather conditioner. There are no pores to feed. What it does benefit from is ultraviolet protection, which is what actually degrades it in this climate.' },
+      { h3: 'Sport Cloth' },
+      { p: 'On cloth cars, foam upholstery cleaner, gentle agitation, then extraction or blotting. Same as any other Tacoma cloth.' },
+      { image: 'tacomaPair', caption: 'The Sport is the street-biased TRD. Its cabin sees less mud than an Off-Road and more sun through a moonroof.' },
+
+      { h2: 'Step 4: The Extra Sun Load' },
+      { p: 'A moonroof means measurably more direct ultraviolet reaching the dash top and upper door cards than a solid roof does. In Marion County that is not a small factor over a few years. Be more diligent with matte ultraviolet protectant on this trim than you would be on an SR, and reapply on a schedule rather than when the dash already looks dry.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Spray glass cleaner onto the towel, keeping it away from the touchscreen. Do the inside of the windscreen last and finish with a dry towel in a different direction, so you can tell which side any remaining streak is on.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'A marked headliner, a moonroof drain that has already leaked, or upholstery that has gone shiny from the wrong product are all past a weekend fix. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-trd-off-road/">TRD Off-Road</a> shares the TRD badge with a completely different set of interior problems. For the leather-trimmed end of the range, see the <a href="/blog/how-to-interior-detail-a-tacoma-limited/">Limited guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-trd-prerunner',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Extended cabs are awkward to reach into. We bring the tools that get behind the front seats.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma TRD PreRunner',
+    metaTitle: 'How To Interior Detail a Tacoma TRD PreRunner',
+    metaDescription:
+      'Detailing a TRD PreRunner Tacoma cabin: the XtraCab rear area and jump seats, reaching behind fixed front seats, and off-road looks with on-road use.',
+    excerpt:
+      'The PreRunner gives you the off-road look in two-wheel drive, and it is often an XtraCab. The rear of an extended cab is the hardest space in the range to clean properly.',
+    date: '2026-09-09',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'tacomaPreRunner',
+    body: [
+      { p: 'The PreRunner is the two-wheel-drive truck wearing the off-road hardware look: the stance and the styling without the transfer case. Practically, that means it lives on pavement, so its cabin collects everyday grime rather than trail mud. The complication is the body style, because a large share of PreRunners are XtraCab, and an extended cab rear is the most awkward space to clean in the entire Tacoma range.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a long crevice tool - length matters more than suction here',
+        'A flexible or extendable brush for behind the seats',
+        'Several clean microfiber towels',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A foam upholstery cleaner',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: The XtraCab Rear Area' },
+      { h3: 'Why It Gets Skipped' },
+      { p: 'The rear of an XtraCab is a shallow space behind the front seats, reached through half-doors that only open once the front door is already open. It is used as storage rather than seating, it is out of sight from the driver\'s position, and as a result it is the part of the truck that goes years without being cleaned.' },
+      { h3: 'Getting Into It' },
+      { p: 'Fold the rear jump seats up and out of the way, then slide both front seats fully forward. That combination opens up more working room than anything else you can do, and it is the difference between vacuuming the rear properly and just vacuuming the parts you can see.' },
+      { p: 'Work a long crevice tool along the base of the rear bulkhead and into the corners either side. Debris migrates to exactly those two corners and stays there.' },
+
+      { h2: 'Step 2: Behind And Under The Front Seats' },
+      { p: 'On an extended cab the gap behind the front seats is narrow enough that a standard vacuum head will not fit. A long crevice tool and a flexible brush do the job; force is not the answer and will mark the seat backs. Run the seats through their full travel and vacuum at both extremes.' },
+      { image: 'tacomaPreRunner', caption: 'An XtraCab rear is shallow, awkward to reach and easy to skip. Folding the jump seats and sliding the fronts forward is most of the battle.' },
+
+      { h2: 'Step 3: Everything Forward Of That' },
+      { p: 'The front cabin is conventional. Vacuum, then clean the hard plastics with a diluted interior cleaner sprayed onto the towel, brushing the textured grain first so dust comes out of the pattern rather than being wiped across it. Cloth seats take foam upholstery cleaner, gentle agitation and extraction or blotting.' },
+
+      { h2: 'Step 4: The On-Road Reality' },
+      { p: 'Because this is the two-wheel-drive trim, its footwells collect car park grit and daily-driver dust rather than trail mud. That is easier to remove, but it is also more abrasive against carpet fibres over time because it is finer and works its way deeper. Vacuum more often than you would think necessary, and it will never need the deeper treatment.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Spray glass cleaner onto the towel. The small rear quarter glass on an XtraCab is easy to forget and is usually filthy on the inside face, because nothing prompts you to look at it. Finish the dash with a matte ultraviolet protectant.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'A rear cab area that has been used as storage for years, or carpet with fine grit worked deep into the pile, both need extraction. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-trd-off-road/">TRD Off-Road</a> is the four-wheel-drive version of the same look, with the mud that comes with actually using it. For the base of the range, see the <a href="/blog/how-to-interior-detail-a-tacoma-sr/">SR guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-trd-off-road',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Trail mud, sand and grit, extracted rather than smeared around. We come to you.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma TRD Off-Road',
+    metaTitle: 'How To Interior Detail a Tacoma TRD Off-Road',
+    metaDescription:
+      'Detailing a TRD Off-Road Tacoma cabin: dried trail mud and Florida sand, all-weather floor liners, and cleaning around the off-road control switches.',
+    excerpt:
+      'This is the trim people actually take off pavement, and its cabin shows it. Dried mud and fine sand need completely different handling from each other.',
+    date: '2026-09-10',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'tacomaPair',
+    body: [
+      { p: 'The TRD Off-Road is the trim bought to be used, and the interiors reflect that. The two things that define cleaning one are dried mud, which has to be handled dry, and Florida sand, which behaves nothing like mud and needs the opposite approach.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a stiff brush head',
+        'A stiff dry brush for breaking up dried mud before any vacuuming',
+        'Several clean microfiber towels',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'A foam upholstery cleaner, and an extractor if you can get one',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: Let The Mud Dry Completely' },
+      { p: 'The single biggest mistake on this trim is cleaning wet mud. Wet mud smears into carpet fibres and pushes deep into the pile, turning a surface problem into a deep one. Park the truck, open it up, and let everything dry fully first, even if that means leaving it a day.' },
+      { p: 'Once it is dry, break it up with a stiff dry brush and vacuum it out. The great majority of dried mud comes out this way with no liquid involved at all, and whatever remains is a far smaller job than it would have been wet.' },
+
+      { h2: 'Step 2: Sand Is A Different Problem' },
+      { h3: 'Why It Needs A Different Approach' },
+      { p: 'Florida sand is fine, dense and abrasive, and it does not clump the way mud does. It works its way to the very bottom of the carpet pile and into seat rails and seat-belt mechanisms, where it grinds. Vacuuming the surface removes almost none of it.' },
+      { h3: 'Getting It Out' },
+      { p: 'Agitate the carpet with a brush to bring sand up out of the pile, then vacuum, then repeat. Two or three cycles remove dramatically more than one long pass. Do the seat rails specifically with a crevice tool: that is where sand does actual mechanical damage rather than just looking untidy.' },
+
+      { h2: 'Step 3: All-Weather Floor Liners' },
+      { p: 'Most trucks on this trim have rubber all-weather liners, and they are the reason the carpet underneath is usually in better condition than the rest of the cabin suggests. Take them out entirely and clean them outside the truck with an all-purpose cleaner and a brush.' },
+      { p: 'Then clean the carpet underneath. Liners trap whatever gets past their edges, and the trapped material sits against the carpet held in place by the liner. Do not refit until both the liner and the carpet under it are fully dry.' },
+      { image: 'tacomaPair', caption: 'The Off-Road is the trim that gets used. Dry mud comes out with a brush and a vacuum; sand takes several agitate-and-vacuum cycles.' },
+
+      { h2: 'Step 4: The Off-Road Control Switches' },
+      { p: 'Trucks with the off-road drive modes carry extra switchgear, often grouped in an overhead console or on the lower dash. These are sealed switches in a housing with gaps around each one, and they sit exactly where dust settles. Brush around them with a soft detailing brush and wipe with a barely damp towel. Never spray cleaner upward into an overhead panel; liquid runs down into the housing and stays there.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Glass cleaner onto the towel, not the glass. Off-road use puts a dust film on the inside of the windscreen that shows badly against low Florida sun, so give the inside face more attention than you would on a road-only truck. Finish the dash with a matte ultraviolet protectant.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Mud that was cleaned wet and is now ground into the pile, sand that has reached the backing, or a lingering damp smell after a wet trip all need extraction and proper drying. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-trd-prerunner/">TRD PreRunner</a> is the two-wheel-drive version of the same look with a much easier cabin. For the overlanding trim above this one, see the <a href="/blog/how-to-interior-detail-a-tacoma-trailhunter/">Trailhunter guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-limited',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Perforated leather and premium audio grilles need the right product and a light hand. We have both.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma Limited',
+    metaTitle: 'How To Interior Detail a Tacoma Limited',
+    metaDescription:
+      'Detailing a Tacoma Limited cabin: perforated ventilated leather seats, JBL speaker grilles, premium trim inserts and the larger touchscreen.',
+    excerpt:
+      'The Limited is the only Tacoma where the seats can actively pull cleaning product into themselves. Perforated ventilated leather needs a different technique entirely.',
+    date: '2026-09-10',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'tacomaInterior',
+    body: [
+      { p: 'The Limited sits at the premium end of the Tacoma range, and its cabin has three things no other trim combines: leather-trimmed seating that is usually perforated for ventilation, a premium JBL audio system with its own speaker grilles, and a larger centre screen. Each one needs handling the cloth-and-plastic trims below it do not.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Several clean microfiber towels, kept separate for glass, leather, and trim',
+        'A pH-balanced leather cleaner and a conditioner',
+        'A soft detailing brush for perforations and speaker grilles',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: Perforated Ventilated Seats' },
+      { h3: 'Why They Are The Hazard' },
+      { p: 'Ventilated seats work by moving air through thousands of small perforations in the leather. That means the seat surface is not sealed, and liquid applied to it does not simply sit on top waiting to be wiped off: it can pass through the perforations into the foam and the ventilation hardware underneath, where it will not dry and cannot be reached.' },
+      { h3: 'The Technique' },
+      { p: 'Never spray cleaner directly onto a perforated seat. Apply a small amount of pH-balanced leather cleaner to the towel or to a soft brush, work it gently across the surface, and wipe it off promptly. Use noticeably less product than you would on solid leather, and do not let anything pool in a seam or a perforation line.' },
+      { p: 'Clear dust out of the perforations with a soft dry brush first. Trying to wipe a dusty perforated panel just packs dust into the holes.' },
+
+      { h2: 'Step 2: Conditioning' },
+      { p: 'Condition after cleaning, and apply it the same way: sparingly, onto the towel, worked in rather than laid on. Excess conditioner sitting in perforations will not absorb, and over time it collects dust and turns into a visible dark residue around every hole.' },
+
+      { h2: 'Step 3: The JBL Speaker Grilles' },
+      { p: 'The premium audio system uses grilles in the doors and dash that are effectively fine mesh over a cavity. Dust settles in the mesh, and a wet towel across it pushes that dust through the grille where you cannot retrieve it. Use a soft dry detailing brush and a vacuum held close to catch what the brush lifts, then wipe the surrounding trim rather than the grille itself.' },
+      { image: 'tacomaInterior', caption: 'Brush grilles dry and vacuum what comes loose. A damp towel pushes dust straight through the mesh.' },
+
+      { h2: 'Step 4: The Larger Touchscreen And Premium Trim' },
+      { p: 'A dry or barely damp lint-free microfiber on the screen, ammonia-free product only if you use one at all. The Limited\'s decorative trim inserts sit alongside gloss surfaces around the console; treat any gloss panel with a dedicated plush towel and light pressure, lifting dust before wiping rather than dragging it across the finish.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Glass cleaner onto the towel and well away from the screen. Finish with a matte ultraviolet protectant on the dash. Leather in a Florida truck fails from ultraviolet exposure long before it fails from use, and the dash top reflects sun up onto the surfaces above it as well as taking it directly.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Product that has already gone into the perforations, dye transfer on light-coloured leather, or conditioner residue that has darkened around the holes are all past a home fix. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'For the sport-trimmed cabin below this one, see the <a href="/blog/how-to-interior-detail-a-tacoma-trd-sport/">TRD Sport guide</a>. The <a href="/blog/how-to-interior-detail-a-tacoma-trd-pro/">TRD Pro</a> is the other trim with genuinely unusual seats, for entirely different reasons.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-trailhunter',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Overlanding cabins collect dust in every seam. We bring extraction to wherever it is parked.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma Trailhunter',
+    metaTitle: 'How To Interior Detail a Tacoma Trailhunter',
+    metaDescription:
+      'Detailing a Tacoma Trailhunter cabin: bronze accent trim, the overlanding kit that lives inside the truck, and fine trail dust in every seam and seam line.',
+    excerpt:
+      'The Trailhunter is built for long trips away from pavement, which means its cabin problem is not one big mess but fine dust in every seam.',
+    date: '2026-09-10',
+    readTime: '7 min read',
+    category: 'How To',
+    photo: 'tacomaPreRunner',
+    body: [
+      { p: 'The Trailhunter is the factory overlanding Tacoma, specified for long distances away from pavement rather than short technical trails. Its interior signature is bronze accent detailing, and its interior problem is fine dust: not a single obvious mess, but a thin layer that has worked into every seam, vent louvre and stitch line over a long trip.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a crevice tool and a soft brush head',
+        'Soft detailing brushes in more than one size, for vents and seams',
+        'A low-pressure air blower if you have one',
+        'Several clean microfiber towels',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: Empty It Completely' },
+      { p: 'A truck built for overlanding is usually carrying overlanding kit, and a great deal of it lives permanently in the cabin: recovery gear, storage boxes, gear bags behind the seats. Take all of it out before you start. Cleaning around fixed cargo is the reason these cabins never actually get clean, because the dust simply relocates under whatever you worked around.' },
+
+      { h2: 'Step 2: Dust Comes Out Dry, And It Comes Out First' },
+      { h3: 'Why Order Matters Here' },
+      { p: 'Fine trail dust that gets damp turns to a paste that sets into a textured surface and into vent louvres. Everything dry has to happen before anything wet does.' },
+      { h3: 'Working Through It' },
+      { p: 'Brush or blow dust out of the vents, the seams around the dash panels, and the stitch lines of the seats, then vacuum what falls. Work top down: headliner and upper dash first, then the seats, then the floor, so nothing you dislodge lands somewhere you have already cleaned.' },
+      { p: 'Expect this to take longer than the wet cleaning that follows. On a truck back from a real trip it is most of the job.' },
+
+      { h2: 'Step 3: The Bronze Accent Trim' },
+      { p: 'The Trailhunter\'s bronze interior accents are a finish rather than raw metal, and they mark like any other decorative trim. Use a clean, plush towel and light pressure, and lift dust off with a brush before wiping. Do not use anything abrasive or any polish intended for bare metal; a finish that has been dulled by an abrasive does not come back.' },
+      { image: 'tacomaPreRunner', caption: 'Overlanding trucks come back with fine dust in every seam. Everything dry happens before anything wet does.' },
+
+      { h2: 'Step 4: Seats And Floor' },
+      { p: 'Once the dust is out, clean upholstery with the appropriate product for what your truck is trimmed in - foam upholstery cleaner for cloth, a mild pH-balanced product for synthetic - and extract or blot rather than soaking. Floor liners, where fitted, come out of the truck and get cleaned separately.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'The inside of the glass on an overlanding truck carries a haze that only shows against direct sun, and it is dust bound with cabin off-gassing rather than ordinary film. Ammonia-free cleaner on the towel, one direction, then buff dry with a second towel. Finish the dash with a matte ultraviolet protectant.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Dust that has been wetted and set into textured trim, or a cabin that has carried damp gear long enough to smell of it, both need more than brushes and towels. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-trd-off-road/">TRD Off-Road</a> deals with the same environment in shorter, muddier doses. For the other range-topping trim, see the <a href="/blog/how-to-interior-detail-a-tacoma-trd-pro/">TRD Pro guide</a>.' }
+    ]
+  },
+  {
+    slug: 'how-to-interior-detail-a-tacoma-trd-pro',
+    cluster: 'how-to-detail',
+    cta: { href: '/services/interior-detailing/', label: 'Interior Detailing', blurb: 'Seats with moving suspension hardware in them need care, not pressure. We know where not to spray.' },
+    author: 'jay',
+    title: 'How To Interior Detail a Tacoma TRD Pro',
+    metaTitle: 'How To Interior Detail a Tacoma TRD Pro',
+    metaDescription:
+      'Detailing a Tacoma TRD Pro cabin: the IsoDynamic Performance Seats and their moving hardware, contrast stitching, and cleaning around mechanisms you cannot flood.',
+    excerpt:
+      'The TRD Pro has the only seats in the range with suspension hardware built into them. That is a genuinely different cleaning job, not a marketing difference.',
+    date: '2026-09-10',
+    readTime: '8 min read',
+    category: 'How To',
+    photo: 'tacomaInterior',
+    body: [
+      { p: 'The TRD Pro is the top of the off-road range, and on the current generation it has something no other Tacoma has: IsoDynamic Performance Seats, which carry an air-over-oil damping system built into the seat structure to isolate the occupant from impacts. There is real mechanical hardware inside and behind those seats, and that changes how you clean them.' },
+
+      { h2: 'What You Will Need' },
+      { list: [
+        'Vacuum with a long crevice tool and a soft brush head',
+        'Soft detailing brushes for seat mechanisms and seams',
+        'Several clean microfiber towels',
+        'A mild pH-balanced cleaner suitable for the upholstery fitted',
+        'A pH-neutral all-purpose interior cleaner, diluted',
+        'An ammonia-free glass cleaner and a matte ultraviolet protectant'
+      ] },
+
+      { h2: 'Step 1: The IsoDynamic Seats' },
+      { h3: 'What Is Actually In There' },
+      { p: 'These seats are not simply padded frames. They carry damping hardware and linkages that allow controlled movement, which means there are moving parts, pivot points and gaps around the seat back that do not exist on any other trim in the range.' },
+      { h3: 'The Rule' },
+      { p: 'Do not flood them, and do not spray anything into the mechanism. Apply cleaner to the towel, work the upholstery surfaces, and keep liquid away from the hardware entirely. Liquid that gets into a pivot or a damper housing does not evaporate out of it; it stays, and it attracts the dust that then grinds in the joint.' },
+      { h3: 'The Gaps' },
+      { p: 'The gaps around the moving structure trap debris exactly the way a seat rail does. Clear them with a soft brush and a vacuum held close to catch what comes loose, rather than by poking anything rigid into the mechanism.' },
+
+      { h2: 'Step 2: Contrast Stitching' },
+      { p: 'TRD Pro upholstery uses contrast stitching, and stitch lines hold dirt in a way flat panels do not: the thread stands proud, the channel either side of it is recessed, and dirt collects in that channel and shows against the lighter thread. Work a soft brush along each stitch line before wiping, following the line rather than crossing it.' },
+      { p: 'Saturating stitching is its own problem. Thread holds moisture longer than the material around it, and a seam that stays damp is where a smell starts.' },
+      { image: 'tacomaInterior', caption: 'Brush along stitch lines rather than across them, and keep liquid away from anything that moves.' },
+
+      { h2: 'Step 3: The Rest Of The Cabin' },
+      { p: 'Forward of the seats it is conventional Tacoma: brush the textured plastics before wiping, spray cleaner onto the towel rather than the panel, and use a dry or barely damp lint-free microfiber on the screen with ammonia-free product only if you use one at all.' },
+
+      { h2: 'Step 4: What This Truck Actually Collects' },
+      { p: 'A TRD Pro is bought to be used off pavement, so expect the same dried mud and fine sand as a TRD Off-Road: let mud dry fully and brush it out rather than cleaning it wet, and agitate then vacuum carpet in cycles to lift sand out of the pile rather than dragging a vacuum across the top of it.' },
+      { p: 'The difference is that on this trim you have seat hardware to work around while doing it, which is why the vacuum work takes longer here than on any other Tacoma.' },
+
+      { h2: 'Step 5: Glass And Finishing' },
+      { p: 'Glass cleaner onto the towel, not the glass, and finish the inside of the windscreen last. Dash gets a matte ultraviolet protectant, matte rather than glossy so it does not throw glare back off a tall, upright screen.' },
+
+      { h2: 'When It Is Beyond A Weekend Job' },
+      { p: 'Debris packed into the seat structure, product that has already found its way into a mechanism, or dirt set into contrast stitching all need doing properly rather than aggressively. That is what our <a href="/services/interior-detailing/">interior detailing</a> service is for, and it comes to your driveway.' },
+
+      { h2: 'Related Guides' },
+      { p: 'The <a href="/blog/how-to-interior-detail-a-tacoma-trd-off-road/">TRD Off-Road</a> sees the same conditions without the seat hardware. For the overlanding trim, see the <a href="/blog/how-to-interior-detail-a-tacoma-trailhunter/">Trailhunter guide</a>, and for the premium end of the range the <a href="/blog/how-to-interior-detail-a-tacoma-limited/">Limited guide</a>.' }
+    ]
+  }
 
 ];
 
