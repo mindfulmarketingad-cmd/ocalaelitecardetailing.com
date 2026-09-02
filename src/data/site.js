@@ -3,7 +3,11 @@
 const site = {
   name: 'Ocala Elite Car Detailing',
   domain: 'ocalaelitecardetailing.com',
-  origin: 'https://ocalaelitecardetailing.com',
+  // Must match the host Google actually serves and canonicalises to. URL
+  // Inspection reported googleCanonical=https://www.ocalaelitecardetailing.com/
+  // while our tag said the apex, and the apex 301s to www - so every canonical
+  // on the site pointed at a redirect. Vercel already handles apex -> www.
+  origin: 'https://www.ocalaelitecardetailing.com',
   tagline: 'Mobile Detailing Built For Florida Roads',
   // ---- Business contact details -------------------------------------------
   // Replace the street address below with the live mailing address.

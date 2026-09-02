@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ocalaelitecardetailing.com/sitemap.xml
+Sitemap: https://www.ocalaelitecardetailing.com/sitemap.xml

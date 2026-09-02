@@ -58,7 +58,13 @@ function fmtDate(iso) {
 
 const businessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'AutoDetailing',
+  /* AutoWash, not AutoDetailing. There is no AutoDetailing type in schema.org -
+   * AutomotiveBusiness subtypes are AutoBodyShop, AutoDealer, AutoPartsStore,
+   * AutoRental, AutoRepair, AutoWash, GasStation, MotorcycleDealer and
+   * MotorcycleRepair. Google could not resolve the invented type, which failed
+   * the homepage's Review snippet with "Invalid object type for field
+   * <parent_node>". additionalType below still points at auto detailing. */
+  '@type': 'AutoWash',
   '@id': site.origin + '/#business',
   name: site.name,
   url: site.origin + '/',
